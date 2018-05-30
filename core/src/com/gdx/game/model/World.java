@@ -13,11 +13,11 @@ public class World implements Iterable<GameElement> {
     }
 
     public int getHeight() {
-        return this.getHeight();
+        return 31 * 16;
     }
 
     public int getWidth() {
-        return this.getWidth();
+        return 28 * 16;
     }
 
     public Maze getMaze() {

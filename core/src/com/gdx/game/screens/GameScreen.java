@@ -9,6 +9,7 @@ import com.gdx.game.view.WorldRenderer;
 public class GameScreen implements Screen {
     private World monde;
     private WorldRenderer renderer;
+
     public GameScreen() {
         monde = new World();
         renderer = new WorldRenderer(monde);

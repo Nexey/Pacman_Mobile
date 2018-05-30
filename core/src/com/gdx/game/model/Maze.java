@@ -107,7 +107,7 @@ public class Maze implements Iterable<GameElement> {
 		batch.begin();
 		for (int i = 0; i < 28; i++)
 			for (int j = 0; j < 31; j++)
-				if (this._laby2[j][i].getTexture() == text)
+					if (this._laby2[j][i].getTexture() == text)
 					batch.draw(
 							text,
 							i * 16,
