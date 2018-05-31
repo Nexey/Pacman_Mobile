@@ -105,7 +105,12 @@ public class Maze implements Iterable<GameElement> {
 
 	public int getWidth()  { return _width; }
 
-	public void drawMaze(SpriteBatch batch) {
+	public void updateMaze(SpriteBatch batch) {
+		this._world.moveEntities();
+		this.drawMaze(batch);
+	}
+
+	private void drawMaze(SpriteBatch batch) {
 		for (Texture text : listText) {
 			if ((text.getWidth() != _textWidth) || (text.getHeight() != _textHeight))
 				drawResize(batch, text);

@@ -6,6 +6,8 @@ import com.gdx.game.entities.Entity;
 import com.gdx.game.utilities.Util;
 import com.gdx.game.view.TextureFactory;
 
+import java.util.ArrayList;
+
 public class Pacman extends GameElement implements Entity {
     public static final float size=16;
 
@@ -29,7 +31,8 @@ public class Pacman extends GameElement implements Entity {
     }
 
     private boolean canMove(Vector2 pos) {
-        return (this.monde.getMaze().get(pos).equals(Dark.class)) || (this.monde.getMaze().get(pos).equals(Gom.class)) || (this.monde.getMaze().get(pos).equals(SuperGom.class));
+        Block block = new Block(new Vector2(0, 0), this.monde);
+        return (!this.monde.getMaze().get(pos).equals(block));
     }
 
     @Override
