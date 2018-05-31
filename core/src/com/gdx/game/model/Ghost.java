@@ -6,11 +6,13 @@ import com.gdx.game.entities.Entity;
 import com.gdx.game.utilities.Util;
 import com.gdx.game.view.TextureFactory;
 
-public class Pacman extends GameElement implements Entity {
+public class Ghost extends GameElement implements Entity {
     public static final float size=16;
+    private int dir;
 
-    public Pacman(Vector2 position, World monde) {
+    public Ghost(Vector2 position, World monde) {
         super(position, monde);
+        dir = Util.UP;
     }
 
     @Override

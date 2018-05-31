@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.experts.MazeCOR;
+import com.gdx.game.utilities.Util;
 import com.gdx.game.view.TextureFactory;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -106,12 +107,13 @@ public class Maze implements Iterable<GameElement> {
 	public int getWidth()  { return _width; }
 
 	public void updateMaze(SpriteBatch batch) {
-		Vector2 oldPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
-		this._world.moveEntities();
-		Vector2 newPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
-		this._laby2[(int)oldPosPacman.x][(int)oldPosPacman.y] = new Dark(new Vector2(oldPosPacman.x, oldPosPacman.y), this._world);
-		this._laby2[(int)newPosPacman.x][(int)newPosPacman.y] = this._world.getPacman();
-
+		if (Util.currentDir != Util.NOWHERE) {
+			Vector2 oldPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
+			this._world.moveEntities();
+			Vector2 newPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
+			this._laby2[(int) oldPosPacman.x][(int) oldPosPacman.y] = new Dark(new Vector2(oldPosPacman.x, oldPosPacman.y), this._world);
+			this._laby2[(int) newPosPacman.x][(int) newPosPacman.y] = this._world.getPacman();
+		}
 		this.drawMaze(batch);
 	}
 
