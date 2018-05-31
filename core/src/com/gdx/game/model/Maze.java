@@ -2,6 +2,7 @@ package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.experts.MazeCOR;
 import com.gdx.game.view.TextureFactory;
 import java.util.Iterator;
@@ -87,9 +88,18 @@ public class Maze implements Iterable<GameElement> {
 			}
 			x++;
 		}
+
+		// On place le PacmMan
+		this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
 	}
 
-	public GameElement get(int x, int y) { return this._laby2[x][y]; }
+	public GameElement get(int x, int y) {
+		return this._laby2[x][y];
+	}
+
+	public GameElement get(Vector2 pos) {
+		return this._laby2[(int)pos.x][(int)pos.y];
+	}
 
 	public int getHeight() { return _height; }
 
@@ -150,24 +160,31 @@ class MazeIterator implements Iterator<GameElement> {
 
 	MazeIterator(Maze maze) {
 		this._maze = maze;
-		_i = _j = -1;
+		_i = _j = 0;
+		this.init();
+	}
+
+	private void init() {
+		while (_maze.get(_i, _j) == null && this.hasNext()) {
+			_i = (_i + 1) % this._maze.getWidth();
+			if (_i == 0) _j++;
+		}
 	}
 
 	@Override
 	public boolean hasNext() {
-		return (_i < this._maze.getHeight()) && (_j < this._maze.getWidth());
+		return (_j < this._maze.getHeight()) && (_i < this._maze.getWidth());
 	}
 
 	@Override
 	public GameElement next() {
 		if (!this.hasNext()) throw new NoSuchElementException("No more game elements");
-		GameElement gameElement;
+		GameElement gameElement = this._maze.get(_i, _j);
 		do {
-			gameElement = this._maze.get(_i, _j);
 			_j = (_j + 1) % this._maze.getWidth();
 			if (_j == 0)
 				_i++;
-		} while (gameElement == null
+		} while (this._maze.get(_i, _j) != null
 				&& this.hasNext());
 		return gameElement;
 	}

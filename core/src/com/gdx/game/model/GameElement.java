@@ -23,4 +23,9 @@ public abstract class GameElement {
     public abstract float getHeight();
 
     public abstract Texture getTexture();
+
+    @Override
+    public boolean equals(Object o) {
+        return (this.getClass() == o.getClass());
+    }
 }

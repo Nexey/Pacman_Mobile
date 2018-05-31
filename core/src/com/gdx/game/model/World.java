@@ -53,7 +53,7 @@ class WorldIterator implements Iterator<GameElement>
 
     @Override
     public GameElement next() {
-        if((_i == 0)) {
+        if(_i == 0) {
             if (!this._mazeIterator.hasNext())
                 _i = 1; // on passe à Pacman
         }
