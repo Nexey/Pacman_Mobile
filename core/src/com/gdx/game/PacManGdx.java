@@ -27,7 +27,7 @@ public class PacManGdx extends ApplicationAdapter {
         dark = new Texture("dark.png");
 		laby = new Maze();
 
-        Gdx.input.setInputProcessor(new TouchControl());
+        //Gdx.input.setInputProcessor(new TouchControl());
 		Gdx.input.setInputProcessor(new DiagonalDirections());
 
         for (GameElement E:laby) System.out.println(E);

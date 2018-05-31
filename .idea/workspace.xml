@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="76a5a329-7825-49d9-8626-5be099544df5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -53,17 +57,17 @@
       <file leaf-file-name="Maze.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="110" column="43" lean-forward="true" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
+            <state relative-caret-position="216">
+              <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
               <folding>
                 <element signature="e#4472#4473#0" expanded="true" />
                 <element signature="e#4503#4504#0" expanded="true" />
                 <element signature="e#4543#4544#0" expanded="true" />
                 <element signature="e#4592#4593#0" expanded="true" />
-                <element signature="e#5877#5878#0" expanded="true" />
-                <element signature="e#5913#5914#0" expanded="true" />
-                <element signature="e#6286#6287#0" expanded="true" />
-                <element signature="e#6361#6362#0" expanded="true" />
+                <element signature="e#6076#6077#0" expanded="true" />
+                <element signature="e#6112#6113#0" expanded="true" />
+                <element signature="e#6485#6486#0" expanded="true" />
+                <element signature="e#6560#6561#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +103,8 @@
       <file leaf-file-name="PacManGdx.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,11 +112,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TouchControl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+            <state relative-caret-position="85">
+              <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -121,7 +135,7 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
+            <state relative-caret-position="250">
               <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1466,12 +1480,13 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/GameElement.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
       </list>
     </option>
   </component>
@@ -1540,6 +1555,14 @@
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pacman" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Pacman" type="b2602c69:ProjectViewProjectNode" />
@@ -1741,7 +1764,7 @@
       <workItem from="1527696232559" duration="13640000" />
       <workItem from="1527711430459" duration="3801000" />
       <workItem from="1527769180928" duration="13740000" />
-      <workItem from="1527792411502" duration="2780000" />
+      <workItem from="1527792411502" duration="3723000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1778,11 +1801,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527795494140</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tests de déplacement">
+      <created>1527795505801</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1527795505801</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54444000" />
+    <option name="totallyTimeSpent" value="55387000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1851,7 +1881,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="86" />
+      <option name="time" value="87" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -1886,10 +1916,10 @@
             <element signature="e#4503#4504#0" expanded="true" />
             <element signature="e#4543#4544#0" expanded="true" />
             <element signature="e#4592#4593#0" expanded="true" />
-            <element signature="e#5877#5878#0" expanded="true" />
-            <element signature="e#5913#5914#0" expanded="true" />
-            <element signature="e#6286#6287#0" expanded="true" />
-            <element signature="e#6361#6362#0" expanded="true" />
+            <element signature="e#6076#6077#0" expanded="true" />
+            <element signature="e#6112#6113#0" expanded="true" />
+            <element signature="e#6485#6486#0" expanded="true" />
+            <element signature="e#6560#6561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1917,10 +1947,10 @@
             <element signature="e#4503#4504#0" expanded="true" />
             <element signature="e#4543#4544#0" expanded="true" />
             <element signature="e#4592#4593#0" expanded="true" />
-            <element signature="e#5877#5878#0" expanded="true" />
-            <element signature="e#5913#5914#0" expanded="true" />
-            <element signature="e#6286#6287#0" expanded="true" />
-            <element signature="e#6361#6362#0" expanded="true" />
+            <element signature="e#6076#6077#0" expanded="true" />
+            <element signature="e#6112#6113#0" expanded="true" />
+            <element signature="e#6485#6486#0" expanded="true" />
+            <element signature="e#6560#6561#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2061,13 +2091,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/screens/Triangle.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/GestureListener.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -2171,22 +2194,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.8/bac17f395be5010619b31280fe84e9f53118d0b9/gdx-1.9.8-sources.jar!/com/badlogic/gdx/math/Vector2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -2203,28 +2210,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#543#544#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2239,6 +2237,29 @@
             <element signature="e#487#488#0" expanded="true" />
             <element signature="e#662#663#0" expanded="true" />
             <element signature="e#718#719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2261,19 +2282,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="110" column="43" lean-forward="true" selection-start-line="110" selection-start-column="43" selection-end-line="110" selection-end-column="43" />
+        <state relative-caret-position="216">
+          <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
           <folding>
             <element signature="e#4472#4473#0" expanded="true" />
             <element signature="e#4503#4504#0" expanded="true" />
             <element signature="e#4543#4544#0" expanded="true" />
             <element signature="e#4592#4593#0" expanded="true" />
-            <element signature="e#5877#5878#0" expanded="true" />
-            <element signature="e#5913#5914#0" expanded="true" />
-            <element signature="e#6286#6287#0" expanded="true" />
-            <element signature="e#6361#6362#0" expanded="true" />
+            <element signature="e#6076#6077#0" expanded="true" />
+            <element signature="e#6112#6113#0" expanded="true" />
+            <element signature="e#6485#6486#0" expanded="true" />
+            <element signature="e#6560#6561#0" expanded="true" />
           </folding>
         </state>
       </provider>

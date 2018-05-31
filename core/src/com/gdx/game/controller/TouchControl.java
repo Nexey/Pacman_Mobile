@@ -6,23 +6,22 @@ import com.gdx.game.utilities.Util;
 
 public class TouchControl implements InputProcessor {
 
-    public TouchControl() {
-    }
-
-    public boolean swipeRight() {
-        return (Gdx.input.isTouched() && Gdx.input.getDeltaX() > 0);
-    }
+    public TouchControl() {}
 
     public boolean swipeLeft() {
-        return (Gdx.input.isTouched() && Gdx.input.getDeltaX() < 0);
-    }
-
-    public boolean swipeUp() {
-        return (Gdx.input.isTouched() && Gdx.input.getDeltaY() < 0);
+        return (Gdx.input.justTouched() && Gdx.input.getDeltaY() < 0);
     }
 
     public boolean swipeDown() {
-        return (Gdx.input.isTouched() && Gdx.input.getDeltaY() > 0);
+        return (Gdx.input.justTouched() && Gdx.input.getDeltaX() < 0);
+    }
+
+    public boolean swipeRight() {
+        return (Gdx.input.justTouched() && Gdx.input.getDeltaY() > 0);
+    }
+
+    public boolean swipeUp() {
+        return (Gdx.input.justTouched() && Gdx.input.getDeltaX() > 0);
     }
 
     @Override
