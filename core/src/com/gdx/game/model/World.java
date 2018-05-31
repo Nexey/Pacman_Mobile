@@ -79,6 +79,5 @@ class WorldIterator implements Iterator<GameElement>
 
     @Override
     public void remove() {
-        // TODO
     }
 }

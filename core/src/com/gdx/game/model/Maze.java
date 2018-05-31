@@ -111,6 +111,7 @@ public class Maze implements Iterable<GameElement> {
 			Vector2 oldPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
 			this._world.moveEntities();
 			Vector2 newPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
+
 			this._laby2[(int) oldPosPacman.x][(int) oldPosPacman.y] = new Dark(new Vector2(oldPosPacman.x, oldPosPacman.y), this._world);
 			this._laby2[(int) newPosPacman.x][(int) newPosPacman.y] = this._world.getPacman();
 		}

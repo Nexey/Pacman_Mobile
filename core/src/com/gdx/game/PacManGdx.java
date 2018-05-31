@@ -29,8 +29,6 @@ public class PacManGdx extends ApplicationAdapter {
 
         //Gdx.input.setInputProcessor(new TouchControl());
 		Gdx.input.setInputProcessor(new DiagonalDirections());
-
-        for (GameElement E:laby) System.out.println(E);
     }
 
 	@Override

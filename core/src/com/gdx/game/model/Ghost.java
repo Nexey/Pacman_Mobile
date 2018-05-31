@@ -36,7 +36,7 @@ public class Ghost extends GameElement implements Entity {
     }
 
     @Override
-    public void move() {
+    public void move() {/*
         switch(Util.currentDir) {
             case Util.UP:
                 if (this.canMove(new Vector2(this.position.x, this.position.y + 1))) {
@@ -57,6 +57,6 @@ public class Ghost extends GameElement implements Entity {
                 break;
             default:
                 break;
-        }
+        }*/
     }
 }
