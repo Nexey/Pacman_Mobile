@@ -5,7 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.gdx.game.controller.touchControl;
+import com.gdx.game.controller.TouchControl;
 import com.gdx.game.controller.DiagonalDirections;
 import com.gdx.game.model.Maze;
 
@@ -28,8 +28,7 @@ public class PacManGdx extends ApplicationAdapter {
         laby = new Maze();
         Gdx.input.setInputProcessor(new DiagonalDirections());
 
-        //Gdx.input.setInputProcessor(new Triangle(new Vector2(0, 0), new Vector2(Gdx.graphics.getWidth() - 1, 0), batch));
-        Gdx.input.setInputProcessor(new touchControl(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2));
+        Gdx.input.setInputProcessor(new TouchControl());
     }
 
 	@Override
