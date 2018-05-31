@@ -107,6 +107,9 @@ public class Maze implements Iterable<GameElement> {
 
 	public void updateMaze(SpriteBatch batch) {
 		this._world.moveEntities();
+		Vector2 posPacman = this._world.getPacman().getPosition();
+		this._laby2[(int)posPacman.x][(int)posPacman.y] = this._world.getPacman();
+
 		this.drawMaze(batch);
 	}
 
