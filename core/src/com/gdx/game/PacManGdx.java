@@ -5,10 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.controller.TouchControl;
 import com.gdx.game.controller.DiagonalDirections;
-import com.gdx.game.entities.PacmanEntity;
 import com.gdx.game.model.GameElement;
 import com.gdx.game.model.Maze;
 import com.gdx.game.utilities.Util;
@@ -19,7 +17,6 @@ public class PacManGdx extends ApplicationAdapter {
 	private Texture pacGomme;
 	private Texture pacPower;
 	private Texture dark;
-	private PacmanEntity pacman;
 	
 	@Override
 	public void create () {

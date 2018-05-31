@@ -4,10 +4,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class GameElement {
-    private Vector2 position;
+    protected Vector2 position;
+    protected World monde;
 
     protected GameElement(Vector2 position, World monde) {
         this.position = position;
+        this.monde = monde;
     }
 
     public Vector2 getPosition() {
