@@ -89,7 +89,7 @@ public class Maze implements Iterable<GameElement> {
 			x++;
 		}
 
-		// On place le PacmMan
+		// On place le PacMan
 		this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
 	}
 

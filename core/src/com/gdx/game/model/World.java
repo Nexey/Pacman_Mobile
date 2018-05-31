@@ -1,15 +1,20 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
+import com.gdx.game.entities.Entity;
+
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class World implements Iterable<GameElement> {
     private Maze _maze;
     private Pacman _pacman;
+    private ArrayList<Entity> listEntity;
 
     public World() {
         this._pacman = new Pacman(new Vector2(1, 1), this);
         this._maze = new Maze(this);
+        this.listEntity.add(this._pacman);
     }
 
     public int getHeight() {
@@ -18,6 +23,10 @@ public class World implements Iterable<GameElement> {
 
     public int getWidth() {
         return 28 * 16;
+    }
+
+    public void moveEntities() {
+        for (Entity E: this.listEntity) E.move();
     }
 
     public Maze getMaze() {

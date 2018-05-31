@@ -9,7 +9,6 @@ import com.gdx.game.controller.TouchControl;
 import com.gdx.game.controller.DiagonalDirections;
 import com.gdx.game.model.GameElement;
 import com.gdx.game.model.Maze;
-import com.gdx.game.utilities.Util;
 
 public class PacManGdx extends ApplicationAdapter {
 	private SpriteBatch batch;
@@ -17,23 +16,21 @@ public class PacManGdx extends ApplicationAdapter {
 	private Texture pacGomme;
 	private Texture pacPower;
 	private Texture dark;
+	private Maze laby;
 	
 	@Override
 	public void create () {
-		//pacman = new PacmanEntity(Vector2);
         batch = new SpriteBatch();
         block = new Texture("bloc.png");
         pacGomme = new Texture("pellet.png");
         pacPower = new Texture("superpellet.png");
         dark = new Texture("dark.png");
-        //laby = new Maze(block, pacGomme, pacPower, dark);
-		Util.laby = new Maze();
+		laby = new Maze();
 
         Gdx.input.setInputProcessor(new TouchControl());
 		Gdx.input.setInputProcessor(new DiagonalDirections());
 
-
-        for (GameElement E:Util.laby) System.out.println(E);
+        for (GameElement E:laby) System.out.println(E);
     }
 
 	@Override
@@ -41,7 +38,7 @@ public class PacManGdx extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		Util.laby.drawMaze(batch);
+		laby.drawMaze(batch);
 	}
 	
 	@Override
