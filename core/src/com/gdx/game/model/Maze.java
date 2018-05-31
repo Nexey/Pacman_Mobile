@@ -106,11 +106,11 @@ public class Maze implements Iterable<GameElement> {
 	public int getWidth()  { return _width; }
 
 	public void updateMaze(SpriteBatch batch) {
-		Vector2 oldPosPacman = this._world.getPacman().getPosition();
+		Vector2 oldPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
 		this._world.moveEntities();
-		Vector2 newPosPacman = this._world.getPacman().getPosition();
-		this._laby2[(int)newPosPacman.x][(int)newPosPacman.y] = this._world.getPacman();
+		Vector2 newPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
 		this._laby2[(int)oldPosPacman.x][(int)oldPosPacman.y] = new Dark(new Vector2(oldPosPacman.x, oldPosPacman.y), this._world);
+		this._laby2[(int)newPosPacman.x][(int)newPosPacman.y] = this._world.getPacman();
 
 		this.drawMaze(batch);
 	}
