@@ -36,7 +36,7 @@ public class PacManGdx extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		laby.updateMaze(batch);
+		laby.updateMaze(batch, laby.getWorld().getPacman());
 	}
 	
 	@Override

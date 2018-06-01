@@ -19,11 +19,11 @@ public class World implements Iterable<GameElement> {
     public World() {
 
         listEntity = new ArrayList<Entity>();
-        this._pacman = new Pacman(new Vector2(1, 1), this);
-        this._red = new Ghost(new Vector2(2, 1), this, Util.RED);
-        this._pink = new Ghost(new Vector2(14, 13), this, Util.PINK);
-        this._blue = new Ghost(new Vector2(13, 14), this, Util.BLUE);
-        this._yellow = new Ghost(new Vector2(14, 14), this, Util.YELLOW);
+        this._pacman = new Pacman(new Vector2(17, 14), this);
+        this._red = new Ghost(new Vector2(14, 15), this, Util.RED, 1);
+        this._pink = new Ghost(new Vector2(14, 14), this, Util.PINK, 2);
+        this._blue = new Ghost(new Vector2(14, 13), this, Util.BLUE, 0);
+        this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 0);
 
         this.listEntity.add(this._pacman);
         this.listEntity.add(this._red);
@@ -41,8 +41,8 @@ public class World implements Iterable<GameElement> {
         return 28 * 16;
     }
 
-    public void moveEntities() {
-        for (Entity E: this.listEntity) E.move();
+    public void moveEntities(Pacman pacman) {
+        for (Entity E: this.listEntity) E.move(pacman);
     }
 
     public Maze getMaze() {

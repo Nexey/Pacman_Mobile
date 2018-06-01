@@ -97,7 +97,7 @@ public class Maze implements Iterable<GameElement> {
 
 		// On place le PacMan et les fantomes
 		for (Entity E : this._world.listEntity)
-			this._laby2[(int)E.position.x][(int)E.position.y] = E;
+			this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
 	}
 
 	public GameElement get(int x, int y) {
@@ -108,9 +108,17 @@ public class Maze implements Iterable<GameElement> {
 		return this._laby2[(int)pos.x][(int)pos.y];
 	}
 
+	public int getCase(Vector2 pos) {
+		return this._laby1[(int)pos.x][(int)pos.y];
+	}
+
 	public int getHeight() { return _height; }
 
 	public int getWidth()  { return _width; }
+
+	public World getWorld() {
+		return _world;
+	}
 
 	private boolean checkCoords(Vector2 pos) {
 		boolean checkLeftBound = (pos.x >= 0) && (pos.y >= 0);
@@ -132,19 +140,19 @@ public class Maze implements Iterable<GameElement> {
 		else return false;
 	}
 
-	public void updateMaze(SpriteBatch batch) {
+	public void updateMaze(SpriteBatch batch, Pacman pacman) {
 		if (Util.currentDir != Util.NOWHERE) {
 			this._world.getPacman().updateAnimation();
 			// On remet les tiles à l'endroit des Entity avant de les bouger
 			for (Entity E : this._world.listEntity)
-				this._laby2[(int)E.position.x][(int)E.position.y] = E.retrieveTile();
+				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E.retrieveTile();
 
 			// Après cet appel, les tiles des Entity seront mises à jour
-			this._world.moveEntities();
+			this._world.moveEntities(pacman);
 
 			// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
 			for (Entity E: this._world.listEntity)
-				this._laby2[(int)E.position.x][(int)E.position.y] = E;
+				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
 			System.out.print("");
 		}
 		else
