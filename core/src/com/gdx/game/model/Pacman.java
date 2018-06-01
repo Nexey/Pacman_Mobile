@@ -46,9 +46,10 @@ public class Pacman extends Entity {
 
     public void updateAnimation() {
         elapsedTime = TimeUtils.timeSinceMillis(startTime);
-        if (elapsedTime > 1000)
+        if (elapsedTime > 150) {
             startTime = TimeUtils.millis();
-        this.animationStep ^= 1;
+            this.animationStep ^= 1;
+        }
         currentAnim = this.direction[Util.currentDir] + this.directionStep[animationStep];
     }
 }

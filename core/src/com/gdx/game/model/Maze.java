@@ -20,7 +20,6 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
 			TextureFactory.getInstance().getTexture(Dark.class),
-			//TextureFactory.getInstance().getTexture("pacmanRight"),
 			TextureFactory.getInstance().getTexture("ghost1"),
 			TextureFactory.getInstance().getTexture("ghost2"),
 			TextureFactory.getInstance().getTexture("ghost3"),
