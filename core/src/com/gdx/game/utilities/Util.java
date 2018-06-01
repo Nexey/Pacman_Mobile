@@ -17,4 +17,6 @@ public class Util {
             PINK = 2,
             BLUE = 3,
             YELLOW = 4;
+
+    public static int SCORE = 0;
 }

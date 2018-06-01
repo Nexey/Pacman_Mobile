@@ -38,7 +38,16 @@ public class Pacman extends Entity {
 
     @Override
     public boolean move(Pacman pacman) {
-        return updateCoords(Util.currentDir);
+        if (updateCoords(Util.currentDir)) {
+            // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
+            if (this.retrieveTile().equals(Gom.class)) {
+                Util.SCORE++;
+                this.setDarkTile();
+                System.out.println("SCORE : " + Util.SCORE);
+            }
+            return true;
+        }
+        return false;
     }
 
     public void updateAnimation() {
