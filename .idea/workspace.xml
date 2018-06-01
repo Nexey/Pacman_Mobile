@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a5a329-7825-49d9-8626-5be099544df5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java" afterPath="$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -58,8 +56,8 @@
       <file leaf-file-name="Pacman.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="40" column="37" lean-forward="false" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+            <state relative-caret-position="799">
+              <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#858#859#0" expanded="true" />
@@ -71,25 +69,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+            <state relative-caret-position="326">
+              <caret line="57" column="17" lean-forward="true" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
               <folding>
-                <element signature="e#2648#2649#0" expanded="true" />
-                <element signature="e#2680#2681#0" expanded="true" />
+                <element signature="e#2421#2422#0" expanded="true" />
+                <element signature="e#2453#2454#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DiceTwo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/DiceTwo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -114,10 +102,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="PacManGdx.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DesktopLauncher.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GameElement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/GameElement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
+            <state relative-caret-position="255">
               <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -133,47 +141,6 @@
                 <element signature="e#850#851#0" expanded="true" />
                 <element signature="e#892#893#0" expanded="true" />
                 <element signature="e#937#938#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="53" column="5" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="57" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1348#1349#0" expanded="true" />
-                <element signature="e#1377#1378#0" expanded="true" />
-                <element signature="e#1405#1406#0" expanded="true" />
-                <element signature="e#1438#1439#0" expanded="true" />
-                <element signature="e#1468#1469#0" expanded="true" />
-                <marker date="1527882963529" expanded="true" signature="1497:1513" ph="{...}" />
-                <marker date="1527882963529" expanded="true" signature="1542:1559" ph="{...}" />
-                <marker date="1527882963529" expanded="true" signature="1588:1605" ph="{...}" />
-                <marker date="1527882963529" expanded="true" signature="1636:1655" ph="{...}" />
-                <marker date="1527882963529" expanded="true" signature="1947:2094" ph="{...}" />
-                <marker date="1527882963529" expanded="true" signature="2222:2590" ph="{...}" />
-                <marker date="1527882963529" expanded="true" signature="2631:2638" ph="{}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextureFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/TextureFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2024#2025#0" expanded="true" />
-                <element signature="e#2055#2056#0" expanded="true" />
-                <element signature="e#2281#2282#0" expanded="true" />
-                <element signature="e#2325#2326#0" expanded="true" />
-                <element signature="e#2424#2425#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -914,7 +881,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/TouchControl.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/screens/TestScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/screens/Splash.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/screens/GameScreen.java" />
@@ -965,6 +931,7 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java" />
+        <option value="$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java" />
       </list>
     </option>
   </component>
@@ -1252,7 +1219,7 @@
       <workItem from="1527769180928" duration="13740000" />
       <workItem from="1527792411502" duration="12757000" />
       <workItem from="1527806227432" duration="8346000" />
-      <workItem from="1527870821901" duration="10904000" />
+      <workItem from="1527870821901" duration="11108000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1321,7 +1288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83671000" />
+    <option name="totallyTimeSpent" value="83875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1524,14 +1491,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/screens/Triangle.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/GestureListener.java" />
-    <entry file="file://$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.8/bac17f395be5010619b31280fe84e9f53118d0b9/gdx-1.9.8-sources.jar!/com/badlogic/gdx/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -1669,14 +1628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.8/bac17f395be5010619b31280fe84e9f53118d0b9/gdx-1.9.8-sources.jar!/com/badlogic/gdx/graphics/glutils/FileTextureData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1757,28 +1708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/GameElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#794#795#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#937#938#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -1801,25 +1730,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/DiceTwo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="40" column="37" lean-forward="false" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/DiagonalDirections.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="326">
+          <caret line="57" column="17" lean-forward="true" selection-start-line="57" selection-start-column="17" selection-end-line="57" selection-end-column="17" />
+          <folding>
+            <element signature="e#2421#2422#0" expanded="true" />
+            <element signature="e#2453#2454#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1831,22 +1757,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/DiceTwo.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/DiagonalDirections.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+        <state relative-caret-position="799">
+          <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
           <folding>
-            <element signature="e#2648#2649#0" expanded="true" />
-            <element signature="e#2680#2681#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#933#934#0" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/GameElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#398#399#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/com/gdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

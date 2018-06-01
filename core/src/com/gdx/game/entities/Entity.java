@@ -61,9 +61,6 @@ public abstract class Entity extends GameElement {
                 break;
         }
         return false;
-        // On a détecté un changement de getPosition(). On récupère alors la case sur laquelle on est, car on va l'écraser juste après
-        // avec l'entity
-        //if (oldPos != this.getPosition()) this.setCurrentTile();
     }
 
     public abstract boolean move(Pacman pacman);
