@@ -137,6 +137,8 @@ public class Maze implements Iterable<GameElement> {
 
 	public void updateMaze(SpriteBatch batch) {
 		if (Util.currentDir != Util.NOWHERE) {
+
+			/*
 			Vector2 oldPos[] = {
 					new Vector2(this._world.getPacman().getPosition()),
 					new Vector2(this._world.get_red().getPosition()),
@@ -145,7 +147,7 @@ public class Maze implements Iterable<GameElement> {
 					new Vector2(this._world.get_yellow().getPosition())
 			};
 
-			/*
+
 			GameElement previousTiles[] = new GameElement[5];
 			for (int i = 1; i < oldPos.length; i++) {
 				previousTiles[i] = this.get(oldPos[i]);
