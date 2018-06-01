@@ -33,8 +33,6 @@ public class Pacman extends Entity {
         startTime = TimeUtils.millis();
     }
 
-    // TODO : Ré-écrire ce getter pour récupérer dynamiquement le sprite selon la direction et la directionStep
-    @Override
     public Texture getTexture() {
         return TextureFactory.getInstance().getTexture(currentAnim);
     }

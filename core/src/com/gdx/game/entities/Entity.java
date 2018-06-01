@@ -31,25 +31,25 @@ public abstract class Entity extends GameElement {
             case Util.UP:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1)))
                 {
-                    this.getPosition().y++;
+                    this.setY((int)this.getPosition().y + 1);
                     this.setCurrentTile();
                     return true;
                 }
             case Util.LEFT:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
-                    this.getPosition().x--;
+                    this.setX((int)this.getPosition().x - 1);
                     this.setCurrentTile();
                     return true;
                 }
             case Util.DOWN:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
-                    this.getPosition().y--;
+                    this.setY((int)this.getPosition().y - 1);
                     this.setCurrentTile();
                     return true;
                 }
             case Util.RIGHT:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
-                    this.getPosition().x++;
+                    this.setX((int)this.getPosition().x + 1);
                     this.setCurrentTile();
                     return true;
                 }

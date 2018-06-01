@@ -66,7 +66,7 @@ public class Ghost extends Entity {
     {
         if(this._world.getMaze().getCase(getPosition()) == 2)
         {
-            Vector2 posPacman = pacman.getPosition();
+            Vector2 posPacman = new Vector2(pacman.getPosition());
             if(abs(getPosition().x - posPacman.x) > abs(getPosition().y - posPacman.y))
             {
                 if(getPosition().x > posPacman.x)
