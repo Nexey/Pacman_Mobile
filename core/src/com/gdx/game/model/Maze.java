@@ -20,7 +20,7 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
 			TextureFactory.getInstance().getTexture(Dark.class),
-			TextureFactory.getInstance().getTexture("pacman"),
+			//TextureFactory.getInstance().getTexture("pacmanRight"),
 			TextureFactory.getInstance().getTexture("ghost1"),
 			TextureFactory.getInstance().getTexture("ghost2"),
 			TextureFactory.getInstance().getTexture("ghost3"),
@@ -134,6 +134,7 @@ public class Maze implements Iterable<GameElement> {
 
 	public void updateMaze(SpriteBatch batch) {
 		if (Util.currentDir != Util.NOWHERE) {
+			this._world.getPacman().updateAnimation();
 			// On remet les tiles à l'endroit des Entity avant de les bouger
 			for (Entity E : this._world.listEntity)
 				this._laby2[(int)E.position.x][(int)E.position.y] = E.retrieveTile();
@@ -144,12 +145,20 @@ public class Maze implements Iterable<GameElement> {
 			// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
 			for (Entity E: this._world.listEntity)
 				this._laby2[(int)E.position.x][(int)E.position.y] = E;
+			System.out.print("");
 		}
 		else
 			// Les Entity n'ont pas bougé, je mets donc une case vide qu'ils laisseront derrière eux après avoir bougé
 			for (Entity E :this._world.listEntity)
 				E.setDarkTile();
 		this.drawMaze(batch);
+		this.drawPacman(batch);
+	}
+
+	private void drawPacman(SpriteBatch batch) {
+		batch.begin();
+		batch.draw(this._world.getPacman().getTexture(), this._world.getPacman().getPosition().y * 16, (30 - this._world.getPacman().getPosition().x) * 16);
+		batch.end();
 	}
 
 	private void drawMaze(SpriteBatch batch) {
