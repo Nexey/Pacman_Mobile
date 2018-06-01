@@ -5,11 +5,11 @@ import com.badlogic.gdx.math.Vector2;
 
 public abstract class GameElement {
     protected Vector2 position;
-    protected World monde;
+    protected World _world;
 
-    protected GameElement(Vector2 position, World monde) {
+    protected GameElement(Vector2 position, World world) {
         this.position = position;
-        this.monde = monde;
+        this._world = world;
     }
 
     public Vector2 getPosition() {

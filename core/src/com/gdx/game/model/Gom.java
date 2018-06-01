@@ -7,8 +7,8 @@ import com.gdx.game.view.TextureFactory;
 public class Gom extends GameElement{
     public static final float size=48;
 
-    public Gom(Vector2 position, World monde) {
-        super(position, monde);
+    public Gom(Vector2 position, World world) {
+        super(position, world);
     }
 
     @Override

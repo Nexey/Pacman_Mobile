@@ -19,7 +19,11 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
 			TextureFactory.getInstance().getTexture(Dark.class),
-			TextureFactory.getInstance().getTexture(Pacman.class)
+			TextureFactory.getInstance().getTexture("pacman"),
+			TextureFactory.getInstance().getTexture("ghost1"),
+			TextureFactory.getInstance().getTexture("ghost2"),
+			TextureFactory.getInstance().getTexture("ghost3"),
+			TextureFactory.getInstance().getTexture("ghost4")
 	};
 
 	private final int _textWidth = 16;
@@ -90,8 +94,12 @@ public class Maze implements Iterable<GameElement> {
 			x++;
 		}
 
-		// On place le PacMan
+		// On place le PacMan et les fantomes
 		this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
+		this._laby2[(int)this._world.get_red().getPosition().x][(int)this._world.get_red().getPosition().y] = this._world.get_red();
+		this._laby2[(int)this._world.get_pink().getPosition().x][(int)this._world.get_pink().getPosition().y] = this._world.get_pink();
+		this._laby2[(int)this._world.get_blue().getPosition().x][(int)this._world.get_blue().getPosition().y] = this._world.get_blue();
+		this._laby2[(int)this._world.get_yellow().getPosition().x][(int)this._world.get_yellow().getPosition().y] = this._world.get_yellow();
 	}
 
 	public GameElement get(int x, int y) {
@@ -106,14 +114,64 @@ public class Maze implements Iterable<GameElement> {
 
 	public int getWidth()  { return _width; }
 
+	private boolean checkCoords(Vector2 pos) {
+		boolean checkLeftBound = (pos.x >= 0) && (pos.y >= 0);
+		boolean checkRightBound = (pos.x < this._height) && (pos.y < this._width);
+		return checkLeftBound && checkRightBound;
+	}
+
+	protected boolean validTile(Vector2 pos) {
+		Dark dark = new Dark(new Vector2(0, 0), this._world);
+		Gom gom = new Gom(new Vector2(0, 0), this._world);
+		SuperGom superGom = new SuperGom(new Vector2(0, 0), this._world);
+
+		GameElement ge;
+
+		if (checkCoords(pos)) {
+			ge = this.get(pos);
+			return (ge.equals(dark)) || (ge.equals(gom)) || (ge.equals(superGom));
+		}
+		else return false;
+	}
+
 	public void updateMaze(SpriteBatch batch) {
 		if (Util.currentDir != Util.NOWHERE) {
-			Vector2 oldPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
-			this._world.moveEntities();
-			Vector2 newPosPacman = new Vector2(this._world.getPacman().getPosition().x, this._world.getPacman().getPosition().y);
 
-			this._laby2[(int) oldPosPacman.x][(int) oldPosPacman.y] = new Dark(new Vector2(oldPosPacman.x, oldPosPacman.y), this._world);
-			this._laby2[(int) newPosPacman.x][(int) newPosPacman.y] = this._world.getPacman();
+			Vector2 oldPos[] = {
+					new Vector2(this._world.getPacman().getPosition()),
+					new Vector2(this._world.get_red().getPosition()),
+					new Vector2(this._world.get_pink().getPosition()),
+					new Vector2(this._world.get_blue().getPosition()),
+					new Vector2(this._world.get_yellow().getPosition())
+			};
+			GameElement previousTiles[] = new GameElement[5];
+			for (int i = 1; i < oldPos.length; i++) {
+				previousTiles[i] = this.get(oldPos[i]);
+			}
+
+			this._world.moveEntities();
+
+			Vector2 newPos[] = {
+					new Vector2(this._world.getPacman().getPosition()),
+					new Vector2(this._world.get_red().getPosition()),
+					new Vector2(this._world.get_pink().getPosition()),
+					new Vector2(this._world.get_blue().getPosition()),
+					new Vector2(this._world.get_yellow().getPosition())
+			};
+
+			this._laby2[(int) oldPos[Util.PACMAN].x] [(int) oldPos[Util.PACMAN].y] =new Dark(new Vector2((int) oldPos[Util.PACMAN].x, oldPos[Util.PACMAN].y), this._world);
+
+			for (int i = 1; i < oldPos.length; i++) {
+				if (previousTiles[i].equals(this._laby2[(int) oldPos[i].x] [(int) oldPos[i].y]))
+					previousTiles[i] = new Dark(new Vector2((int) oldPos[i].x, oldPos[i].y), this._world);
+				this._laby2[(int) oldPos[i].x] [(int) oldPos[i].y] = previousTiles[i];
+			}
+
+			this._laby2[(int) newPos[Util.PACMAN].x] [(int) newPos[Util.PACMAN].y] = this._world.getPacman();
+			this._laby2[(int) newPos[Util.RED].x] [(int) newPos[Util.RED].y] = this._world.get_red();
+			this._laby2[(int) newPos[Util.PINK].x] [(int) newPos[Util.PINK].y] = this._world.get_pink();
+			this._laby2[(int) newPos[Util.BLUE].x] [(int) newPos[Util.BLUE].y] = this._world.get_blue();
+			this._laby2[(int) newPos[Util.YELLOW].x] [(int) newPos[Util.YELLOW].y] = this._world.get_yellow();
 		}
 		this.drawMaze(batch);
 	}

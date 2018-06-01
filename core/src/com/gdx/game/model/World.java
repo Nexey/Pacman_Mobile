@@ -2,6 +2,7 @@ package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.entities.Entity;
+import com.gdx.game.utilities.Util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,13 +10,27 @@ import java.util.Iterator;
 public class World implements Iterable<GameElement> {
     private Maze _maze;
     private Pacman _pacman;
+    private Ghost _red;
+    private Ghost _pink;
+    private Ghost _blue;
+    private Ghost _yellow;
     private ArrayList<Entity> listEntity;
 
     public World() {
-        listEntity = new ArrayList();
+
+        listEntity = new ArrayList<Entity>();
         this._pacman = new Pacman(new Vector2(1, 1), this);
-        this._maze = new Maze(this);
+        this._red = new Ghost(new Vector2(2, 1), this, Util.RED);
+        this._pink = new Ghost(new Vector2(14, 13), this, Util.PINK);
+        this._blue = new Ghost(new Vector2(13, 14), this, Util.BLUE);
+        this._yellow = new Ghost(new Vector2(14, 14), this, Util.YELLOW);
+
         this.listEntity.add(this._pacman);
+        this.listEntity.add(this._red);
+        this.listEntity.add(this._pink);
+        this.listEntity.add(this._blue);
+        this.listEntity.add(this._yellow);
+        this._maze = new Maze(this);
     }
 
     public int getHeight() {
@@ -37,6 +52,10 @@ public class World implements Iterable<GameElement> {
     public Pacman getPacman() {
         return _pacman;
     }
+    public Ghost get_red() { return _red; }
+    public Ghost get_pink() { return _pink; }
+    public Ghost get_blue() { return _blue; }
+    public Ghost get_yellow() { return _yellow; }
 
     @Override
     public Iterator<GameElement> iterator() {

@@ -7,8 +7,8 @@ import com.gdx.game.view.TextureFactory;
 public class Dark extends GameElement{
     public static final float size=48;
 
-    public Dark(Vector2 position, World monde) {
-        super(position, monde);
+    public Dark(Vector2 position, World world) {
+        super(position, world);
     }
 
     @Override

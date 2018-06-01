@@ -5,8 +5,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.view.TextureFactory;
 
 public class SuperGom extends Gom{
-    public SuperGom(Vector2 position, World monde) {
-        super(position, monde);
+    public SuperGom(Vector2 position, World world) {
+        super(position, world);
     }
 
     @Override
