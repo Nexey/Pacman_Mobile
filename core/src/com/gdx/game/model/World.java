@@ -14,7 +14,7 @@ public class World implements Iterable<GameElement> {
     private Ghost _pink;
     private Ghost _blue;
     private Ghost _yellow;
-    private ArrayList<Entity> listEntity;
+    public ArrayList<Entity> listEntity;
 
     public World() {
 
