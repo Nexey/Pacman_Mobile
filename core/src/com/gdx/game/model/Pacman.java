@@ -40,8 +40,8 @@ public class Pacman extends Entity {
     }
 
     @Override
-    public void move() {
-        updateCoords(Util.currentDir);
+    public boolean move(Pacman pacman) {
+        return updateCoords(Util.currentDir);
     }
 
     public void updateAnimation() {

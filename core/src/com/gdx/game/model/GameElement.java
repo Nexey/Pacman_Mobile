@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 
 public abstract class GameElement {
-    protected Vector2 position;
+    private Vector2 position;
     protected World _world;
 
     protected GameElement(Vector2 position, World world) {
@@ -29,5 +29,10 @@ public abstract class GameElement {
     @Override
     public boolean equals(Object o) {
         return (this.getClass() == o.getClass());
+    }
+
+    public boolean equals(Class c)
+    {
+        return (this.getClass() == c);
     }
 }
