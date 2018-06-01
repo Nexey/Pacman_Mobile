@@ -35,27 +35,32 @@ public abstract class Entity extends GameElement {
                     this.setCurrentTile();
                     return true;
                 }
+                break;
             case Util.LEFT:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
                     this.setX((int)this.getPosition().x - 1);
                     this.setCurrentTile();
                     return true;
                 }
+                break;
             case Util.DOWN:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
                     this.setY((int)this.getPosition().y - 1);
                     this.setCurrentTile();
                     return true;
                 }
+                break;
             case Util.RIGHT:
                 if (this._world.getMaze().validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
                     this.setX((int)this.getPosition().x + 1);
                     this.setCurrentTile();
                     return true;
                 }
+                break;
             default:
-                return false;
+                break;
         }
+        return false;
         // On a détecté un changement de getPosition(). On récupère alors la case sur laquelle on est, car on va l'écraser juste après
         // avec l'entity
         //if (oldPos != this.getPosition()) this.setCurrentTile();

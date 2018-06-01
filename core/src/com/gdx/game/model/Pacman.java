@@ -24,7 +24,6 @@ public class Pacman extends Entity {
     private String currentAnim;
 
     private long startTime;
-    private long elapsedTime;
 
     public Pacman(Vector2 position, World world) {
         super(position, world);
@@ -43,7 +42,7 @@ public class Pacman extends Entity {
     }
 
     public void updateAnimation() {
-        elapsedTime = TimeUtils.timeSinceMillis(startTime);
+        long elapsedTime = TimeUtils.timeSinceMillis(startTime);
         if (elapsedTime > 150) {
             startTime = TimeUtils.millis();
             this.animationStep ^= 1;
