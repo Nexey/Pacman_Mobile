@@ -16,12 +16,6 @@ public class Pacman extends Entity {
     public Texture getTexture() {
         return TextureFactory.getInstance().getTexture("pacman");
     }
-    /*
-    private void resumeOldDir(Vector2 oldPos) {
-        if (validTile(oldPos))
-        Util.currentDir = Util.previousDir;
-    }
-    */
 
     @Override
     public void move() {

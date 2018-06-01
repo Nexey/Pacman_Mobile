@@ -96,11 +96,8 @@ public class Maze implements Iterable<GameElement> {
 		}
 
 		// On place le PacMan et les fantomes
-		this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
-		this._laby2[(int)this._world.get_red().getPosition().x][(int)this._world.get_red().getPosition().y] = this._world.get_red();
-		this._laby2[(int)this._world.get_pink().getPosition().x][(int)this._world.get_pink().getPosition().y] = this._world.get_pink();
-		this._laby2[(int)this._world.get_blue().getPosition().x][(int)this._world.get_blue().getPosition().y] = this._world.get_blue();
-		this._laby2[(int)this._world.get_yellow().getPosition().x][(int)this._world.get_yellow().getPosition().y] = this._world.get_yellow();
+		for (Entity E : this._world.listEntity)
+			this._laby2[(int)E.position.x][(int)E.position.y] = E;
 	}
 
 	public GameElement get(int x, int y) {
@@ -137,26 +134,9 @@ public class Maze implements Iterable<GameElement> {
 
 	public void updateMaze(SpriteBatch batch) {
 		if (Util.currentDir != Util.NOWHERE) {
-
-			/*
-			Vector2 oldPos[] = {
-					new Vector2(this._world.getPacman().getPosition()),
-					new Vector2(this._world.get_red().getPosition()),
-					new Vector2(this._world.get_pink().getPosition()),
-					new Vector2(this._world.get_blue().getPosition()),
-					new Vector2(this._world.get_yellow().getPosition())
-			};
-
-
-			GameElement previousTiles[] = new GameElement[5];
-			for (int i = 1; i < oldPos.length; i++) {
-				previousTiles[i] = this.get(oldPos[i]);
-			}
-			*/
 			// On remet les tiles à l'endroit des Entity avant de les bouger
 			for (Entity E : this._world.listEntity)
 				this._laby2[(int)E.position.x][(int)E.position.y] = E.retrieveTile();
-
 
 			// Après cet appel, les tiles des Entity seront mises à jour
 			this._world.moveEntities();
@@ -164,31 +144,6 @@ public class Maze implements Iterable<GameElement> {
 			// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
 			for (Entity E: this._world.listEntity)
 				this._laby2[(int)E.position.x][(int)E.position.y] = E;
-
-
-			/*
-			Vector2 newPos[] = {
-					new Vector2(this._world.getPacman().getPosition()),
-					new Vector2(this._world.get_red().getPosition()),
-					new Vector2(this._world.get_pink().getPosition()),
-					new Vector2(this._world.get_blue().getPosition()),
-					new Vector2(this._world.get_yellow().getPosition())
-			};
-
-			this._laby2[(int) oldPos[Util.PACMAN].x][(int) oldPos[Util.PACMAN].y] = new Dark(new Vector2((int) oldPos[Util.PACMAN].x, oldPos[Util.PACMAN].y), this._world);
-
-			for (int i = 1; i < oldPos.length; i++) {
-				if (previousTiles[i].equals(this._laby2[(int) oldPos[i].x][(int) oldPos[i].y]))
-					previousTiles[i] = new Dark(new Vector2((int) oldPos[i].x, oldPos[i].y), this._world);
-				this._laby2[(int) oldPos[i].x][(int) oldPos[i].y] = previousTiles[i];
-			}
-
-			this._laby2[(int) newPos[Util.PACMAN].x][(int) newPos[Util.PACMAN].y] = this._world.getPacman();
-			this._laby2[(int) newPos[Util.RED].x][(int) newPos[Util.RED].y] = this._world.get_red();
-			this._laby2[(int) newPos[Util.PINK].x][(int) newPos[Util.PINK].y] = this._world.get_pink();
-			this._laby2[(int) newPos[Util.BLUE].x][(int) newPos[Util.BLUE].y] = this._world.get_blue();
-			this._laby2[(int) newPos[Util.YELLOW].x][(int) newPos[Util.YELLOW].y] = this._world.get_yellow();
-			*/
 		}
 		else
 			// Les Entity n'ont pas bougé, je mets donc une case vide qu'ils laisseront derrière eux après avoir bougé
