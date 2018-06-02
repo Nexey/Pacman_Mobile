@@ -1,13 +1,12 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
+import com.gdx.game.controller.deplacements.deplacementGhost;
+import com.gdx.game.controller.deplacements.deplacementPacman;
 import com.gdx.game.controller.utilities.Util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import static com.gdx.game.controller.deplacements.deplacementPacman.move;
-import static com.gdx.game.controller.deplacements.deplacementGhost.move;
 
 public class World implements Iterable<GameElement> {
     private Maze _maze;
@@ -24,7 +23,7 @@ public class World implements Iterable<GameElement> {
         this._pacman = new Pacman(new Vector2(17, 14), this);
         this._red = new Ghost(new Vector2(14, 15), this, Util.RED, 1);
         this._pink = new Ghost(new Vector2(14, 14), this, Util.PINK, 2);
-        this._blue = new Ghost(new Vector2(14, 13), this, Util.BLUE, 0);
+        this._blue = new Ghost(new Vector2(14, 13), this, Util.BLUE, 3);
         this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 0);
 
         this.listEntity.add(this._pacman);
@@ -47,9 +46,9 @@ public class World implements Iterable<GameElement> {
         for (Entity E: this.listEntity)
         {
             if(E.getClass() == Pacman.class)
-                move((Pacman) E);
+                deplacementPacman.move((Pacman) E);
             else
-                move(pacman, (Ghost)E, E.getDep());
+                deplacementGhost.move(pacman, (Ghost)E);
         }
     }
 

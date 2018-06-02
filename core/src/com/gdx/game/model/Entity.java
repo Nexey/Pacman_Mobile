@@ -40,6 +40,4 @@ public abstract class Entity extends GameElement {
     public GameElement retrieveTile() {
         return this.tile;
     }
-
-    public abstract int getDep();
 }

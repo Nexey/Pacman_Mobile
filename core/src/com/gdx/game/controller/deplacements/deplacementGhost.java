@@ -11,8 +11,9 @@ import static com.gdx.game.controller.deplacements.deplacement.updateCoords;
 import static java.lang.Math.abs;
 
 public class deplacementGhost {
-    public static boolean move(Pacman pacman, Ghost ghost, int dep) {
-        if(dep == 0) { // 50% de chance de changer la Ghost.getDir()ection
+    public static boolean move(Pacman pacman, Ghost ghost) {
+        int dep = ghost.getDep();
+        if(dep == 0) { // 50% de chance de changer la Ghost.direction
             if (DiceTwo.getFace() == 1)
                 ghost.setDir(DiceFour.getFace());
             return updateCoords(ghost.getDir(), ghost);
@@ -73,5 +74,10 @@ public class deplacementGhost {
             return deplacementGhost1(ghost);
         else
             return deplacementGhost2(pacman, ghost);
+    }
+
+    private static boolean deplacementGhost4 (Pacman pacman, Ghost ghost)
+    {
+        return false;
     }
 }
