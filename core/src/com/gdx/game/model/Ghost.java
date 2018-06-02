@@ -120,28 +120,28 @@ public class Ghost extends Entity {
             if(this.getPosition().x > posPacman.x) {
                 System.out.println("F2 : "+showDir());
                 this.setDir(Util.LEFTG);
-                return updateCoords(this.dir);
+                if(updateCoords(this.dir)) return true;
             }
             if(this.getPosition().x < posPacman.x)
             {
                 System.out.println("F2 : "+showDir());
                 this.setDir(Util.RIGHTG);
-                return updateCoords(this.dir);
+                if(updateCoords(this.dir)) return true;
             }
             if(this.getPosition().y > posPacman.y)
             {
                 System.out.println("F2 : "+showDir());
                 this.setDir(Util.DOWNG);
-                return updateCoords(this.dir);
+                if(updateCoords(this.dir)) return true;
             }
             if(this.getPosition().y < posPacman.y)
             {
                 System.out.println("F2 : "+showDir());
                 this.setDir(Util.UPG);
-                return updateCoords(this.dir);
+                if(updateCoords(this.dir)) return true;
             }
 
-             if (diceTwo.getFace() == 1)
+            if (diceTwo.getFace() == 1)
             dir = diceFour.getFace();
             return updateCoords(dir);
 

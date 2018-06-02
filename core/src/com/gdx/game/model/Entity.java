@@ -39,7 +39,8 @@ public abstract class Entity extends GameElement {
     }
 
     public GameElement retrieveTile() {
-        if (this.tile == null) this.setDarkTile();
+        if (this.tile == null)
+            this.setDarkTile();
         return this.tile;
     }
 
