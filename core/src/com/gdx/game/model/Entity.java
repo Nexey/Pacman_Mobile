@@ -13,6 +13,7 @@ public abstract class Entity extends GameElement {
 
     public Entity(Vector2 pos, World world) {
         super(pos, world);
+        this.tile = null;
     }
 
     @Override
@@ -26,11 +27,10 @@ public abstract class Entity extends GameElement {
     }
 
     protected boolean updateCoords(int dir) {
-        //Vector2 oldPos = new Vector2(this.getPosition());
+        this._world.getMaze().set(new Vector2(this.getPosition()), this.retrieveTile());
         switch(dir) {
             case Util.UP:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1)))
-                {
+                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1))) {
                     this.setY((int)this.getPosition().y + 1);
                     this.setCurrentTile();
                     return true;
@@ -65,15 +65,16 @@ public abstract class Entity extends GameElement {
 
     public abstract boolean move();
 
-    public void setDarkTile() {
+    protected void setDarkTile() {
         this.tile = new Dark(new Vector2(this.getPosition()), this._world);
     }
 
-    public void setCurrentTile() {
-        this.tile = this._world.getMaze().get(this.getPosition());
+    private void setCurrentTile() {
+        this.tile = this._world.getMaze().get(new Vector2(this.getPosition()));
     }
 
     public GameElement retrieveTile() {
+        if (this.tile == null) this.setDarkTile();
         return this.tile;
     }
 }

@@ -45,7 +45,7 @@ public class World implements Iterable<GameElement> {
         return 28 * 16;
     }
 
-    public void moveEntities(Pacman pacman) {
+    public void moveEntities() {
         //for (Entity E: this.listEntity) E.move();
 
 

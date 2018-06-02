@@ -31,7 +31,6 @@ public class Ghost extends Entity {
 
     @Override
     public boolean move() {
-
         if(dep == 0) { // 50% de chance de changer la direction
             if (diceTwo.getFace() == 1)
                 dir = diceFour.getFace();
