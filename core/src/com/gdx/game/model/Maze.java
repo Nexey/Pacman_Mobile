@@ -64,14 +64,10 @@ public class Maze implements Iterable<GameElement> {
 	};
 	private GameElement[][] _laby2;
 
-	public Maze() {
-		this._world = new World();
-		this.init();
-	}
-
 	Maze(World w) {
 		_world = w;
 		this.init();
+		w.setMaze(this);
 	}
 
 	private void init () {
@@ -148,11 +144,12 @@ public class Maze implements Iterable<GameElement> {
 			for (Entity E: this._world.listEntity)
 				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
 		}
-		this.drawMaze(batch);
+        this.drawMaze(batch);
 		this.drawPacman(batch);
 	}
 
 	public void set(Vector2 pos, GameElement tile) {
+        this._laby2[(int)pos.x][(int)pos.y] = null;
 		this._laby2[(int)pos.x][(int)pos.y] = tile;
 	}
 

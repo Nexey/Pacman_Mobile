@@ -50,28 +50,48 @@ public class Ghost extends Entity {
 
     @Override
     public boolean move() {
-        if (this.retrieveTile().equals(Pacman.class)); // GAME OVER
+        Vector2 oldPos = new Vector2(this.getPosition());
+        //if (this.retrieveTile().equals(Pacman.class)); // GAME OVER
         switch(dep) {
             case 0:
                 if (diceTwo.getFace() == 1)
                     dir = diceFour.getFace();
-                return updateCoords(dir);
-            case 1:
-                return deplacementGhost1();
+                if (updateCoords(dir)) {
+                    this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    return true;
+                }
+                break;
+                case 1:
+                if (deplacementGhost1()) {
+                    this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    return true;
+                }
+                break;
             case 2:
-                return deplacementGhost2(this._world.getPacman());
+                if (deplacementGhost2(this._world.getPacman())) {
+                    this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    return true;
+                }
+                break;
             case 3:
-                return deplacementGhost3(this._world.getPacman());
+                if (deplacementGhost3(this._world.getPacman())) {
+                    this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    return true;
+                }
+            break;
             case 4:
-                return deplacementGhost4(this._world.getPacman());
+                if (deplacementGhost4(this._world.getPacman())) {
+                    this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    return true;
+                }
+                break;
             default:
-                return false;
+                break;
         }
+        return false;
     }
 
     protected boolean updateCoords(int dir) {
-        //System.out.println("Update : "+showDir());
-        this._world.getMaze().set(new Vector2(this.getPosition()), this.retrieveTile());
         switch(dir) {
             case Util.UPG:
                 if(enHaut())
@@ -118,28 +138,28 @@ public class Ghost extends Entity {
         //{
             this.setSorti(true);
             Vector2 posPacman = new Vector2(pacman.getPosition());
-            System.out.println("X ghost : "+this.getPosition().x+" Y ghost : "+this.getPosition().y);
-            System.out.println("X pacman : "+posPacman.x+" Y pacman : "+posPacman.y);
+            //System.out.println("X ghost : "+this.getPosition().x+" Y ghost : "+this.getPosition().y);
+            //System.out.println("X pacman : "+posPacman.x+" Y pacman : "+posPacman.y);
             if(this.getPosition().x > posPacman.x) {
-                System.out.println("F2 : "+showDir());
+                //System.out.println("F2 : "+showDir());
                 this.setDir(Util.LEFTG);
                 if(updateCoords(this.dir)) return true;
             }
             if(this.getPosition().x < posPacman.x)
             {
-                System.out.println("F2 : "+showDir());
+                //System.out.println("F2 : "+showDir());
                 this.setDir(Util.RIGHTG);
                 if(updateCoords(this.dir)) return true;
             }
             if(this.getPosition().y > posPacman.y)
             {
-                System.out.println("F2 : "+showDir());
+                //System.out.println("F2 : "+showDir());
                 this.setDir(Util.DOWNG);
                 if(updateCoords(this.dir)) return true;
             }
             if(this.getPosition().y < posPacman.y)
             {
-                System.out.println("F2 : "+showDir());
+                //System.out.println("F2 : "+showDir());
                 this.setDir(Util.UPG);
                 if(updateCoords(this.dir)) return true;
             }
@@ -187,7 +207,6 @@ public class Ghost extends Entity {
             if (dir == Util.LEFTG) {
                 if (aGauche())
                     return true;
-            } else {
                 if (aDroite())
                     return true;
             }

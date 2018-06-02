@@ -42,7 +42,7 @@ public class Pacman extends Entity {
             if (this.retrieveTile().equals(Gom.class)) {
                 Util.SCORE++;
                 this.setDarkTile();
-                //System.out.println("SCORE : " + Util.SCORE);
+                System.out.println("SCORE : " + Util.SCORE);
             }
             return true;
         }
@@ -50,7 +50,7 @@ public class Pacman extends Entity {
     }
 
     protected boolean updateCoords(int dir) {
-        this._world.getMaze().set(new Vector2(this.getPosition()), this.retrieveTile());
+        this._world.set(new Vector2(this.getPosition()), this.retrieveTile());
         switch(dir) {
             case Util.UPP:
                 if(enHaut())
