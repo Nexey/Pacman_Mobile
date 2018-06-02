@@ -15,6 +15,7 @@ public class Ghost extends Entity {
     private DiceTwo diceTwo;
     private int dir;
     private int dep; //affecte une fonction de déplacement
+    private boolean sorti;
 
     public Ghost(Vector2 position, World world, int color, int dep) {
         super(position, world);
@@ -22,11 +23,29 @@ public class Ghost extends Entity {
         diceFour = new DiceFour();
         diceTwo = new DiceTwo();
         dir = diceFour.getFace();
+        this.dep = dep;
+        sorti = false;
     }
 
     @Override
     public Texture getTexture() {
         return TextureFactory.getInstance().getTexture("ghost" + this.color);
+    }
+
+    public int getDir() {
+        return dir;
+    }
+
+    public void setDir(int dir) {
+        this.dir = dir;
+    }
+
+    public boolean isSorti() {
+        return sorti;
+    }
+
+    public void setSorti(boolean sorti) {
+        this.sorti = sorti;
     }
 
     @Override
@@ -37,15 +56,40 @@ public class Ghost extends Entity {
             return updateCoords(dir);
         }
         else if (dep == 1)
-        {
             return deplacementGhost1();
-        }
         else if (dep == 2)
-        {
             return deplacementGhost2(this._world.getPacman());
-        }
-        else
+        else if(dep == 3)
             return deplacementGhost3(this._world.getPacman());
+        else if(dep == 4)
+            return deplacementGhost4(this._world.getPacman());
+        return false;
+    }
+
+    protected boolean updateCoords(int dir) {
+        //System.out.println("Update : "+showDir());
+        this._world.getMaze().set(new Vector2(this.getPosition()), this.retrieveTile());
+        switch(dir) {
+            case Util.UPG:
+                if(enHaut())
+                    return true;
+                break;
+            case Util.LEFTG:
+                if(aGauche())
+                    return true;
+                break;
+            case Util.DOWNG:
+                if(enBas())
+                    return true;
+                break;
+            case Util.RIGHTG:
+                if(aDroite())
+                    return true;
+                break;
+            default:
+                break;
+        }
+        return false;
     }
 
     private boolean deplacementGhost1 ()
@@ -63,27 +107,57 @@ public class Ghost extends Entity {
 
     private boolean deplacementGhost2 (Pacman pacman)
     {
-        if(this._world.getMaze().getCase(getPosition()) == 2)
-        {
+        //System.out.println(this.getDir());
+        //System.out.println(this.getWorld().getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1)));
+        //System.out.println(this._world.getMaze().getCase(this.getPosition()));
+        setSorti(true);
+        //if(this._world.getMaze().getCase(this.getPosition()) == 2)
+        //{
+            this.setSorti(true);
             Vector2 posPacman = new Vector2(pacman.getPosition());
-            if(abs(getPosition().x - posPacman.x) > abs(getPosition().y - posPacman.y))
+            System.out.println("X ghost : "+this.getPosition().x+" Y ghost : "+this.getPosition().y);
+            System.out.println("X pacman : "+posPacman.x+" Y pacman : "+posPacman.y);
+            if(this.getPosition().x > posPacman.x) {
+                System.out.println("F2 : "+showDir());
+                this.setDir(Util.LEFTG);
+                return updateCoords(this.dir);
+            }
+            if(this.getPosition().x < posPacman.x)
             {
-                if(getPosition().x > posPacman.x)
-                    dir = Util.LEFT;
-                else
-                    dir = Util.RIGHT;
+                System.out.println("F2 : "+showDir());
+                this.setDir(Util.RIGHTG);
+                return updateCoords(this.dir);
+            }
+            if(this.getPosition().y > posPacman.y)
+            {
+                System.out.println("F2 : "+showDir());
+                this.setDir(Util.DOWNG);
+                return updateCoords(this.dir);
+            }
+            if(this.getPosition().y < posPacman.y)
+            {
+                System.out.println("F2 : "+showDir());
+                this.setDir(Util.UPG);
+                return updateCoords(this.dir);
+            }
+
+             if (diceTwo.getFace() == 1)
+            dir = diceFour.getFace();
+            return updateCoords(dir);
+
+        //}
+        /*else
+        {
+            if (this.isSorti())
+            {
+                return updateCoords(dir);
             }
             else
             {
-                if(getPosition().y > posPacman.y)
-                    dir = Util.UP;
-                else
-                    dir = Util.DOWN;
+                boolean a = sortez(dir);
+                return a;
             }
-            return updateCoords(dir);
-        }
-        else
-            return updateCoords(dir);
+        }*/
     }
 
     private boolean deplacementGhost3 (Pacman pacman)
@@ -92,5 +166,47 @@ public class Ghost extends Entity {
             return deplacementGhost1();
         else
             return deplacementGhost2(pacman);
+    }
+
+    private boolean deplacementGhost4 (Pacman pacman)
+    {
+        return false;
+    }
+
+    private boolean sortez(int dir)
+    {
+        System.out.println(dir);
+        this.dir = Util.UPG;
+        if(enHaut())
+            return true;
+        else {
+            this.dir = dir;
+            if (dir == Util.LEFTG) {
+                if (aGauche())
+                    return true;
+            } else {
+                if (aDroite())
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private String showDir()
+    {
+        switch(dir) {
+            case Util.UPG:
+                    return "Haut";
+            case Util.LEFTG:
+                if (aGauche())
+                    return "Gauche";
+            case Util.DOWNG:
+                    return "Bas";
+            case Util.RIGHTG:
+                    return "Droite";
+            default:
+                break;
+        }
+        return dir + " ?? No Direction !!!";
     }
 }

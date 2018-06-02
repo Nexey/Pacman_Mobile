@@ -28,10 +28,10 @@ public class TextureFactory {
         _sprites.put("ghost4", new Texture(Gdx.files.internal("ghost4.png")));
 
         _directions = new HashMap<Integer, String>();
-        _directions.put(Util.LEFT, "Left");
-        _directions.put(Util.DOWN, "Down");
-        _directions.put(Util.RIGHT, "Right");
-        _directions.put(Util.UP, "Up");
+        _directions.put(Util.LEFTG, "Left");
+        _directions.put(Util.DOWNG, "Down");
+        _directions.put(Util.RIGHTG, "Right");
+        _directions.put(Util.UPG, "Up");
 
         _directionStep = new HashMap<Integer, String>();
         _directionStep.put(0, "");

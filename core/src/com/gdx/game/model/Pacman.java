@@ -42,9 +42,34 @@ public class Pacman extends Entity {
             if (this.retrieveTile().equals(Gom.class)) {
                 Util.SCORE++;
                 this.setDarkTile();
-                System.out.println("SCORE : " + Util.SCORE);
+                //System.out.println("SCORE : " + Util.SCORE);
             }
             return true;
+        }
+        return false;
+    }
+
+    protected boolean updateCoords(int dir) {
+        this._world.getMaze().set(new Vector2(this.getPosition()), this.retrieveTile());
+        switch(dir) {
+            case Util.UPP:
+                if(enHaut())
+                    return true;
+                break;
+            case Util.LEFTP:
+                if(aGauche())
+                    return true;
+                break;
+            case Util.DOWNP:
+                if(enBas())
+                    return true;
+                break;
+            case Util.RIGHTP:
+                if(aDroite())
+                    return true;
+                break;
+            default:
+                break;
         }
         return false;
     }

@@ -2,10 +2,14 @@ package com.gdx.game.controller.utilities;
 
 public class Util {
     public static final int
-            LEFT = 0,
-            DOWN = 1,
-            RIGHT = 2,
-            UP = 3,
+            LEFTP = 0,
+            DOWNP = 1,
+            RIGHTP = 2,
+            UPP = 3,
+            LEFTG = 0,
+            DOWNG = 1,
+            RIGHTG = 2,
+            UPG = 3,
             NOWHERE = -1;
 
     public static int currentDir = NOWHERE;

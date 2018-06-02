@@ -26,42 +26,7 @@ public abstract class Entity extends GameElement {
         return size;
     }
 
-    protected boolean updateCoords(int dir) {
-        this._world.getMaze().set(new Vector2(this.getPosition()), this.retrieveTile());
-        switch(dir) {
-            case Util.UP:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1))) {
-                    this.setY((int)this.getPosition().y + 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case Util.LEFT:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
-                    this.setX((int)this.getPosition().x - 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case Util.DOWN:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
-                    this.setY((int)this.getPosition().y - 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case Util.RIGHT:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
-                    this.setX((int)this.getPosition().x + 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            default:
-                break;
-        }
-        return false;
-    }
+    protected abstract boolean updateCoords(int dir);
 
     public abstract boolean move();
 
@@ -76,5 +41,45 @@ public abstract class Entity extends GameElement {
     public GameElement retrieveTile() {
         if (this.tile == null) this.setDarkTile();
         return this.tile;
+    }
+
+    public boolean aGauche()
+    {
+        if (this._world.getMaze().validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
+            this.setX((int)this.getPosition().x - 1);
+            this.setCurrentTile();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean aDroite()
+    {
+        if (this._world.getMaze().validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
+            this.setX((int)this.getPosition().x + 1);
+            this.setCurrentTile();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean enHaut()
+    {
+        if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1))) {
+            this.setY((int)this.getPosition().y + 1);
+            this.setCurrentTile();
+            return true;
+        }
+        return false;
+    }
+
+    public boolean enBas()
+    {
+        if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
+            this.setY((int)this.getPosition().y - 1);
+            this.setCurrentTile();
+            return true;
+        }
+        return false;
     }
 }

@@ -41,10 +41,10 @@ public class TouchControl implements InputProcessor {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        if (swipeUp()) Util.currentDir = Util.UP;
-        else if (swipeLeft()) Util.currentDir = Util.LEFT;
-        else if (swipeDown()) Util.currentDir = Util.DOWN;
-        else if (swipeRight()) Util.currentDir = Util.RIGHT;
+        if (swipeUp()) Util.currentDir = Util.UPP;
+        else if (swipeLeft()) Util.currentDir = Util.LEFTP;
+        else if (swipeDown()) Util.currentDir = Util.DOWNP;
+        else if (swipeRight()) Util.currentDir = Util.RIGHTP;
         return true;
     }
 
