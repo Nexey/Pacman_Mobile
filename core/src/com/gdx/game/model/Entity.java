@@ -25,10 +25,6 @@ public abstract class Entity extends GameElement {
         return size;
     }
 
-    //public abstract boolean move(Pacman pacman);
-
-    //public abstract boolean move();
-
     public void setDarkTile() {
         this.tile = new Dark(new Vector2(this.getPosition()), this._world);
     }
