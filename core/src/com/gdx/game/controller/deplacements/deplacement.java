@@ -5,7 +5,7 @@ import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.model.Entity;
 import com.gdx.game.model.Pacman;
 
-public abstract class deplacement {
+public class deplacement {
     public static boolean updateCoords(int dir, Entity e) {
         //Vector2 oldPos = new Vector2(e.getPosition());
         switch(dir) {

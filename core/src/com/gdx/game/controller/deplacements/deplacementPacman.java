@@ -6,7 +6,7 @@ import com.gdx.game.model.Pacman;
 
 import static com.gdx.game.controller.deplacements.deplacement.updateCoords;
 
-public abstract class deplacementPacman{
+public class deplacementPacman{
     public static boolean move(Pacman pacman)
     {
         if (updateCoords(Util.currentDir, pacman)) {
