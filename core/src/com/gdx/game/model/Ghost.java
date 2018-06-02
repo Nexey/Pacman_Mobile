@@ -50,20 +50,23 @@ public class Ghost extends Entity {
 
     @Override
     public boolean move() {
-        if(dep == 0) { // 50% de chance de changer la direction
-            if (diceTwo.getFace() == 1)
-                dir = diceFour.getFace();
-            return updateCoords(dir);
+        if (this.retrieveTile().equals(Pacman.class)); // GAME OVER
+        switch(dep) {
+            case 0:
+                if (diceTwo.getFace() == 1)
+                    dir = diceFour.getFace();
+                return updateCoords(dir);
+            case 1:
+                return deplacementGhost1();
+            case 2:
+                return deplacementGhost2(this._world.getPacman());
+            case 3:
+                return deplacementGhost3(this._world.getPacman());
+            case 4:
+                return deplacementGhost4(this._world.getPacman());
+            default:
+                return false;
         }
-        else if (dep == 1)
-            return deplacementGhost1();
-        else if (dep == 2)
-            return deplacementGhost2(this._world.getPacman());
-        else if(dep == 3)
-            return deplacementGhost3(this._world.getPacman());
-        else if(dep == 4)
-            return deplacementGhost4(this._world.getPacman());
-        return false;
     }
 
     protected boolean updateCoords(int dir) {

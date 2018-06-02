@@ -141,16 +141,12 @@ public class Maze implements Iterable<GameElement> {
 	public void updateMaze(SpriteBatch batch, Pacman pacman) {
 		if (Util.currentDir != Util.NOWHERE) {
 			this._world.getPacman().updateAnimation();
-			// On remet les tiles à l'endroit des Entity avant de les bouger
-			//for (Entity E : this._world.listEntity) this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E.retrieveTile();
-			//this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman().retrieveTile();
-
 			// Après cet appel, les tiles des Entity seront mises à jour
 			this._world.moveEntities();
 
 			// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
-			for (Entity E: this._world.listEntity) this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
-			//this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
+			for (Entity E: this._world.listEntity)
+				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
 		}
 		this.drawMaze(batch);
 		this.drawPacman(batch);
