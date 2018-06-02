@@ -1,6 +1,7 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.gdx.game.controller.utilities.Util;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ public class World implements Iterable<GameElement> {
     private Ghost _blue;
     private Ghost _yellow;
     public ArrayList<Entity> listEntity;
+
+    private long startTime;
 
     public World() {
 
@@ -30,6 +33,8 @@ public class World implements Iterable<GameElement> {
         this.listEntity.add(this._blue);
         this.listEntity.add(this._yellow);
         this._maze = new Maze(this);
+
+        startTime = TimeUtils.millis();
     }
 
     public int getHeight() {
@@ -41,7 +46,14 @@ public class World implements Iterable<GameElement> {
     }
 
     public void moveEntities(Pacman pacman) {
-        for (Entity E: this.listEntity) E.move(pacman);
+        //for (Entity E: this.listEntity) E.move();
+
+
+        long elapsedTime = TimeUtils.timeSinceMillis(startTime);
+        if (elapsedTime > 500) {
+            startTime = TimeUtils.millis();
+            this._pacman.move();
+        }
     }
 
     public Maze getMaze() {

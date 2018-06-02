@@ -30,7 +30,8 @@ public class Ghost extends Entity {
     }
 
     @Override
-    public boolean move(Pacman pacman) {
+    public boolean move() {
+
         if(dep == 0) { // 50% de chance de changer la direction
             if (diceTwo.getFace() == 1)
                 dir = diceFour.getFace();
@@ -42,15 +43,10 @@ public class Ghost extends Entity {
         }
         else if (dep == 2)
         {
-            return deplacementGhost2(pacman);
+            return deplacementGhost2(this._world.getPacman());
         }
         else
-            return deplacementGhost3(pacman);
-    }
-
-    @Override
-    public boolean move() {
-        return false;
+            return deplacementGhost3(this._world.getPacman());
     }
 
     private boolean deplacementGhost1 ()

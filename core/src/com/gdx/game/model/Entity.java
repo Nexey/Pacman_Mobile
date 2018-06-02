@@ -63,8 +63,6 @@ public abstract class Entity extends GameElement {
         return false;
     }
 
-    public abstract boolean move(Pacman pacman);
-
     public abstract boolean move();
 
     public void setDarkTile() {

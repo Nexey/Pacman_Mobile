@@ -142,8 +142,7 @@ public class Maze implements Iterable<GameElement> {
 		if (Util.currentDir != Util.NOWHERE) {
 			this._world.getPacman().updateAnimation();
 			// On remet les tiles à l'endroit des Entity avant de les bouger
-			for (Entity E : this._world.listEntity)
-				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E.retrieveTile();
+			for (Entity E : this._world.listEntity) this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E.retrieveTile();
 
 			// Après cet appel, les tiles des Entity seront mises à jour
 			this._world.moveEntities(pacman);

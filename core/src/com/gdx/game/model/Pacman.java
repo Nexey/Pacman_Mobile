@@ -49,11 +49,6 @@ public class Pacman extends Entity {
         return false;
     }
 
-    public boolean move(Pacman pacman)
-    {
-        return false;
-    }
-
     public void updateAnimation() {
         long elapsedTime = TimeUtils.timeSinceMillis(startTime);
         if (elapsedTime > 150) {
