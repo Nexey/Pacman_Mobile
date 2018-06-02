@@ -29,7 +29,19 @@ public class Ghost extends Entity {
         return TextureFactory.getInstance().getTexture("ghost" + this.color);
     }
 
-    @Override
+    public int getDir() {
+        return dir;
+    }
+
+    public void setDir(int dir) {
+        this.dir = dir;
+    }
+
+    public int getDep() {
+        return dep;
+    }
+
+    /*@Override
     public boolean move(Pacman pacman) {
         if(dep == 0) { // 50% de chance de changer la direction
             if (diceTwo.getFace() == 1)
@@ -97,5 +109,5 @@ public class Ghost extends Entity {
             return deplacementGhost1();
         else
             return deplacementGhost2(pacman);
-    }
+    }*/
 }

@@ -21,8 +21,44 @@ public class Pacman extends Entity {
 
     private int animationStep;
     private String currentAnim;
-
     private long startTime;
+
+    public int getAnimationStep() {
+        return animationStep;
+    }
+
+    public String getCurrentAnim() {
+        return currentAnim;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setAnimationStep(int animationStep) {
+        this.animationStep = animationStep;
+    }
+
+    public void setCurrentAnim(String currentAnim) {
+        this.currentAnim = currentAnim;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public void incAnimationStep()
+    {
+        this.animationStep ^= 1;
+    }
+
+    public String getDirection(int i) {
+        return direction[i];
+    }
+
+    public String getDirectionStep(int i) {
+        return directionStep[i];
+    }
 
     public Pacman(Vector2 position, World world) {
         super(position, world);
@@ -35,25 +71,6 @@ public class Pacman extends Entity {
         return TextureFactory.getInstance().getTexture(currentAnim);
     }
 
-    @Override
-    public boolean move() {
-        if (updateCoords(Util.currentDir)) {
-            // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
-            if (this.retrieveTile().equals(Gom.class)) {
-                Util.SCORE++;
-                this.setDarkTile();
-                System.out.println("SCORE : " + Util.SCORE);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public boolean move(Pacman pacman)
-    {
-        return false;
-    }
-
     public void updateAnimation() {
         long elapsedTime = TimeUtils.timeSinceMillis(startTime);
         if (elapsedTime > 150) {
@@ -61,5 +78,10 @@ public class Pacman extends Entity {
             this.animationStep ^= 1;
         }
         currentAnim = this.direction[Util.currentDir] + this.directionStep[animationStep];
+    }
+
+    public int getDep()
+    {
+        return 0;
     }
 }

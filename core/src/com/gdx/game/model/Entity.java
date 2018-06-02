@@ -25,47 +25,9 @@ public abstract class Entity extends GameElement {
         return size;
     }
 
-    protected boolean updateCoords(int dir) {
-        //Vector2 oldPos = new Vector2(this.getPosition());
-        switch(dir) {
-            case Util.UP:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1)))
-                {
-                    this.setY((int)this.getPosition().y + 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case Util.LEFT:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
-                    this.setX((int)this.getPosition().x - 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case Util.DOWN:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
-                    this.setY((int)this.getPosition().y - 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case Util.RIGHT:
-                if (this._world.getMaze().validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
-                    this.setX((int)this.getPosition().x + 1);
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            default:
-                break;
-        }
-        return false;
-    }
+    //public abstract boolean move(Pacman pacman);
 
-    public abstract boolean move(Pacman pacman);
-
-    public abstract boolean move();
+    //public abstract boolean move();
 
     public void setDarkTile() {
         this.tile = new Dark(new Vector2(this.getPosition()), this._world);
@@ -78,4 +40,6 @@ public abstract class Entity extends GameElement {
     public GameElement retrieveTile() {
         return this.tile;
     }
+
+    public abstract int getDep();
 }

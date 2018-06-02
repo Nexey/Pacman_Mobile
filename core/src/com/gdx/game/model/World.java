@@ -6,6 +6,9 @@ import com.gdx.game.controller.utilities.Util;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static com.gdx.game.controller.deplacements.deplacementPacman.move;
+import static com.gdx.game.controller.deplacements.deplacementGhost.move;
+
 public class World implements Iterable<GameElement> {
     private Maze _maze;
     private Pacman _pacman;
@@ -41,7 +44,13 @@ public class World implements Iterable<GameElement> {
     }
 
     public void moveEntities(Pacman pacman) {
-        for (Entity E: this.listEntity) E.move(pacman);
+        for (Entity E: this.listEntity)
+        {
+            if(E.getClass() == Pacman.class)
+                move((Pacman) E);
+            else
+                move(pacman, (Ghost)E, E.getDep());
+        }
     }
 
     public Maze getMaze() {

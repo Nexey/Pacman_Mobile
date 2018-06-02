@@ -28,6 +28,10 @@ public abstract class GameElement {
         this.position.y = y;
     }
 
+    public World getWorld() {
+        return _world;
+    }
+
     public abstract float getWidth();
 
     public abstract float getHeight();
