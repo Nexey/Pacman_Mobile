@@ -1,4 +1,4 @@
-package com.gdx.game.utilities;
+package com.gdx.game.controller.utilities;
 import java.util.Random;
 
 public class DiceFour extends Dice {

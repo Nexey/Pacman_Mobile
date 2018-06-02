@@ -1,8 +1,8 @@
-package com.gdx.game.controller;
+package com.gdx.game.controller.controllers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.gdx.game.utilities.Util;
+import com.gdx.game.controller.utilities.Util;
 
 public class DiagonalDirections implements InputProcessor {
 

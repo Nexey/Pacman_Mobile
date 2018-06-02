@@ -3,7 +3,7 @@ package com.gdx.game.view;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.gdx.game.model.*;
-import com.gdx.game.utilities.Util;
+import com.gdx.game.controller.utilities.Util;
 
 import java.util.HashMap;
 

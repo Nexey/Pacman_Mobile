@@ -3,8 +3,7 @@ package com.gdx.game.model;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.gdx.game.entities.Entity;
-import com.gdx.game.utilities.Util;
+import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.view.TextureFactory;
 
 public class Pacman extends Entity {
@@ -37,7 +36,7 @@ public class Pacman extends Entity {
     }
 
     @Override
-    public boolean move(Pacman pacman) {
+    public boolean move() {
         if (updateCoords(Util.currentDir)) {
             // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
             if (this.retrieveTile().equals(Gom.class)) {
@@ -47,6 +46,11 @@ public class Pacman extends Entity {
             }
             return true;
         }
+        return false;
+    }
+
+    public boolean move(Pacman pacman)
+    {
         return false;
     }
 

@@ -2,10 +2,9 @@ package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
-import com.gdx.game.entities.Entity;
-import com.gdx.game.utilities.DiceFour;
-import com.gdx.game.utilities.DiceTwo;
-import com.gdx.game.utilities.Util;
+import com.gdx.game.controller.utilities.DiceFour;
+import com.gdx.game.controller.utilities.DiceTwo;
+import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.view.TextureFactory;
 
 import static java.lang.Math.abs;
@@ -49,7 +48,12 @@ public class Ghost extends Entity {
             return deplacementGhost3(pacman);
     }
 
-    public boolean deplacementGhost1 ()
+    @Override
+    public boolean move() {
+        return false;
+    }
+
+    private boolean deplacementGhost1 ()
     {
         if(this._world.getMaze().getCase(getPosition()) == 2)
         {
@@ -62,7 +66,7 @@ public class Ghost extends Entity {
             return updateCoords(dir);
     }
 
-    public boolean deplacementGhost2 (Pacman pacman)
+    private boolean deplacementGhost2 (Pacman pacman)
     {
         if(this._world.getMaze().getCase(getPosition()) == 2)
         {
@@ -77,9 +81,9 @@ public class Ghost extends Entity {
             else
             {
                 if(getPosition().y > posPacman.y)
-                    dir = Util.DOWN;
-                else
                     dir = Util.UP;
+                else
+                    dir = Util.DOWN;
             }
             return updateCoords(dir);
         }
@@ -87,7 +91,7 @@ public class Ghost extends Entity {
             return updateCoords(dir);
     }
 
-    public boolean deplacementGhost3 (Pacman pacman)
+    private boolean deplacementGhost3 (Pacman pacman)
     {
         if (diceTwo.getFace() == 0)
             return deplacementGhost1();

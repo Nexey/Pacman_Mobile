@@ -1,4 +1,4 @@
-package com.gdx.game.utilities;
+package com.gdx.game.controller.utilities;
 
 public class Util {
     public static final int

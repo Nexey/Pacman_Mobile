@@ -1,8 +1,7 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
-import com.gdx.game.entities.Entity;
-import com.gdx.game.utilities.Util;
+import com.gdx.game.controller.utilities.Util;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package com.gdx.game.experts;
+package com.gdx.game.controller.experts;
 import com.gdx.game.model.GameElement;
 import com.gdx.game.model.World;
 

@@ -1,11 +1,11 @@
-package com.gdx.game.entities;
+package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.model.Dark;
 import com.gdx.game.model.GameElement;
 import com.gdx.game.model.Pacman;
 import com.gdx.game.model.World;
-import com.gdx.game.utilities.Util;
+import com.gdx.game.controller.utilities.Util;
 
 public abstract class Entity extends GameElement {
     public static final float size=16;
@@ -64,6 +64,8 @@ public abstract class Entity extends GameElement {
     }
 
     public abstract boolean move(Pacman pacman);
+
+    public abstract boolean move();
 
     public void setDarkTile() {
         this.tile = new Dark(new Vector2(this.getPosition()), this._world);
