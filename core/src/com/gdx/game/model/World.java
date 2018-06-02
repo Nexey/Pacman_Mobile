@@ -46,13 +46,10 @@ public class World implements Iterable<GameElement> {
     }
 
     public void moveEntities() {
-        //for (Entity E: this.listEntity) E.move();
-
-
         long elapsedTime = TimeUtils.timeSinceMillis(startTime);
         if (elapsedTime > 500) {
             startTime = TimeUtils.millis();
-            this._pacman.move();
+            for (Entity E: this.listEntity) E.move();
         }
     }
 

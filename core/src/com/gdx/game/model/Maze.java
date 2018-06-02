@@ -149,8 +149,8 @@ public class Maze implements Iterable<GameElement> {
 			this._world.moveEntities();
 
 			// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
-			//for (Entity E: this._world.listEntity) this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
-			this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
+			for (Entity E: this._world.listEntity) this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
+			//this._laby2[(int)this._world.getPacman().getPosition().x][(int)this._world.getPacman().getPosition().y] = this._world.getPacman();
 		}
 		this.drawMaze(batch);
 		this.drawPacman(batch);
