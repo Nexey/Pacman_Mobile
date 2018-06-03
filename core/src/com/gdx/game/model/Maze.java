@@ -1,6 +1,7 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.controller.experts.MazeCOR;
@@ -134,7 +135,7 @@ public class Maze implements Iterable<GameElement> {
 		else return false;
 	}
 
-	public void updateMaze(SpriteBatch batch, Pacman pacman) {
+	public void updateMaze(SpriteBatch batch, Pacman pacman, BitmapFont score) {
 		if (Util.currentDir != Util.NOWHERE) {
 			this._world.getPacman().updateAnimation();
 			// Après cet appel, les tiles des Entity seront mises à jour
@@ -145,7 +146,7 @@ public class Maze implements Iterable<GameElement> {
 				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
 		}
         this.drawMaze(batch);
-		this.drawPacman(batch);
+		this.drawPacman(batch, score);
 	}
 
 	public void set(Vector2 pos, GameElement tile) {
@@ -153,9 +154,10 @@ public class Maze implements Iterable<GameElement> {
 		this._laby2[(int)pos.x][(int)pos.y] = tile;
 	}
 
-	private void drawPacman(SpriteBatch batch) {
+	private void drawPacman(SpriteBatch batch, BitmapFont score) {
 		batch.begin();
 		batch.draw(this._world.getPacman().getTexture(), this._world.getPacman().getPosition().y * 16, (30 - this._world.getPacman().getPosition().x) * 16);
+		score.draw(batch, "SCORE : "+ Util.SCORE, 180, 200);
 		batch.end();
 	}
 

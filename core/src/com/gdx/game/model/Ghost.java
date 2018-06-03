@@ -62,12 +62,11 @@ public class Ghost extends Entity {
                 }
                 break;
                 case 1:
-                /*if (deplacementGhost1()) {
+                if (deplacementGhost1()) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
                     return true;
                 }
-                break;*/
-                return false;
+                break;
             case 2:
                 if (deplacementGhost2(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
@@ -118,10 +117,16 @@ public class Ghost extends Entity {
 
     private boolean deplacementGhost1 ()
     {
-            do {
+        if(isSorti())
+        {
+            do
+            {
                 dir = diceFour.getFace();
-            }while(!updateCoords(dir));
+            } while (!updateCoords(dir));
             return true;
+        }
+        else
+            return sortez();
     }
 
     private boolean deplacementGhost2 (Vector2 pos)
