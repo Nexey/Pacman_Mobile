@@ -1,7 +1,9 @@
 package com.gdx.game.model;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.controller.experts.MazeCOR;
@@ -14,6 +16,7 @@ public class Maze implements Iterable<GameElement> {
 	private World _world;
 	private /*final*/ int _width;
 	private /*final*/ int _height;
+    GlyphLayout layout;
 
 	private Texture listText[] = {
 			TextureFactory.getInstance().getTexture(Block.class),
@@ -66,6 +69,7 @@ public class Maze implements Iterable<GameElement> {
 	private GameElement[][] _laby2;
 
 	Maze(World w) {
+        layout = new GlyphLayout();
 		_world = w;
 		this.init();
 		w.setMaze(this);
@@ -157,7 +161,9 @@ public class Maze implements Iterable<GameElement> {
 	private void drawPacman(SpriteBatch batch, BitmapFont score) {
 		batch.begin();
 		batch.draw(this._world.getPacman().getTexture(), this._world.getPacman().getPosition().y * 16, (30 - this._world.getPacman().getPosition().x) * 16);
-		score.draw(batch, "SCORE : "+ Util.SCORE, 180, 200);
+		String scoreStr = "SCORE : " + Util.SCORE;
+		layout.setText(score.newFontCache().getFont(), scoreStr);
+		score.draw(batch, scoreStr, Gdx.graphics.getWidth() - layout.width, Gdx.graphics.getHeight() - layout.height);
 		batch.end();
 	}
 
