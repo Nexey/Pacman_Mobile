@@ -1,40 +1,51 @@
 package com.gdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.gdx.game.controller.controllers.DiagonalDirections;
-import com.gdx.game.controller.controllers.TouchControl;
-import com.gdx.game.model.World;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
+import com.gdx.game.view.Screens.GameScreen;
+import com.gdx.game.view.Screens.MenuScreen;
+//import com.gdx.game.view.Screens.SettingsScreen;
 
-public class PacManGdx extends ApplicationAdapter {
-	private SpriteBatch batch;
-	private World world;
-	private BitmapFont score;
+public class PacManGdx extends Game {
+
+	public SpriteBatch batch;
+	public Viewport screenPort;
+
 
 	@Override
 	public void create () {
-        batch = new SpriteBatch();
-		world = new World();
-		score = new BitmapFont();
-		score.setColor(Color.YELLOW);
-        Gdx.input.setInputProcessor(new DiagonalDirections());
-		//Gdx.input.setInputProcessor(new TouchControl());
+		batch = new SpriteBatch();
+		OrthographicCamera camera = new OrthographicCamera();
+		camera.setToOrtho(false);
+		screenPort = new ScreenViewport();
+		this.setScreen(new MenuScreen(this));
+	}
+
+	public void gotoMenuScreen(){
+		MenuScreen menuScreen = new MenuScreen(this);
+		setScreen(menuScreen);
+	}
+
+	public void gotoSettingsScreen(){
+		//SettingsScreen settingsScreen = new SettingsScreen(this);
+		//setScreen(settingsScreen);
+	}
+
+	public void gotoGameScreen(){
+		GameScreen gameScreen = new GameScreen(this);
+		setScreen(gameScreen);
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		world.getMaze().updateMaze(batch, world.getPacman(), score);
+		super.render();
 	}
-	
+
 	@Override
 	public void dispose () {
-		batch.dispose();
+		super.dispose();
 	}
 }
