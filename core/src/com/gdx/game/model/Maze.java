@@ -70,6 +70,7 @@ public class Maze implements Iterable<GameElement> {
 			{0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	};
+
 	private GameElement[][] _laby2;
     private SpriteBatch batch;
     private BitmapFont score;
@@ -125,7 +126,7 @@ public class Maze implements Iterable<GameElement> {
 		return _world;
 	}
 
-	public void updateMaze(SpriteBatch batch, Pacman pacman, BitmapFont score) {
+	public void updateMaze(SpriteBatch batch, BitmapFont score) {
 	    if (!this.placeBarrier) {
             this.placeBarrier = this._world.get_yellow().isSorti();// && this._world.get_blue().isSorti() && this._world.get_pink().isSorti() && this._world.get_red().isSorti();
             if (this.placeBarrier) {
@@ -147,7 +148,6 @@ public class Maze implements Iterable<GameElement> {
 	}
 
 	public void set(Vector2 pos, GameElement tile) {
-        this._laby2[(int)pos.x][(int)pos.y] = null;
 		this._laby2[(int)pos.x][(int)pos.y] = tile;
 	}
 
