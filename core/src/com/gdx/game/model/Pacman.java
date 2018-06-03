@@ -43,7 +43,7 @@ public class Pacman extends Entity {
 
     public boolean getPowerUp() {
         long elapsedTime = TimeUtils.timeSinceMillis(startPowerUpTime);
-        if (elapsedTime > 5000)
+        if (elapsedTime > 10000)
             this.powerUp = false;
         return this.powerUp;
     }

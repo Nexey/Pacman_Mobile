@@ -44,9 +44,15 @@ public class Ghost extends Entity {
         boolean powerUp = this._world.getPacman().getPowerUp();
 
         // 2 cas : Game Over ou le Ghost est mort pendant un certain temps
+        if (state == 2) {
+            long elapsedTime = TimeUtils.timeSinceMillis(startDeathTime);
+            if (elapsedTime > 10000)
+                this.state = 0;
+        }
+
         if (this._world.getPacman().getPosition().equals(this.getPosition())) {
-            if (this.state == 0) System.out.println("Game Over");
-            else if (powerUp)
+            // Si le fantôme touche le pacman alors qu'il recherche à s'échapper il meurt
+            if (powerUp && state == 1)
                 // Cette condition vérifie que le Ghost n'est pas déjà mort, auquel cas il ne faut pas remettre
                 // son état à mort
                 if (this.state != 2) {
@@ -54,14 +60,13 @@ public class Ghost extends Entity {
                     this.state = 2;
                 }
         }
-        if (powerUp) {
-            if (this.state != 1) {
-                this.state = 1;
-            }
+        else {
+            if (powerUp) {
+                if (this.state == 0) {
+                    this.state = 1;
+                }
+            } else if (this.state == 1) this.state = 0;
         }
-        else if (this.state != 0) this.state = 0;
-
-
         return TextureFactory.getInstance().getTexture(this.listState.get(state));
     }
 
