@@ -46,6 +46,8 @@ public class Ghost extends Entity {
     }
 
     public void setSorti(boolean sorti) {
+        if (sorti)
+            this.listValidTiles.remove(new Fence(new Vector2(0, 0), this._world));
         this.sorti = sorti;
     }
 
