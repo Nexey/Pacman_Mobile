@@ -23,6 +23,8 @@ public class TextureFactory {
         _textures.put(Fence.class, new Texture(Gdx.files.internal("fence.png")));
 
         _sprites = new HashMap<String, Texture>();
+        _sprites.put("ghostDead", new Texture(Gdx.files.internal("ghostDead.png")));
+        _sprites.put("ghostEscaping", new Texture(Gdx.files.internal("ghostEscaping.png")));
         _sprites.put("ghost1", new Texture(Gdx.files.internal("ghost1.png")));
         _sprites.put("ghost2", new Texture(Gdx.files.internal("ghost2.png")));
         _sprites.put("ghost3", new Texture(Gdx.files.internal("ghost3.png")));

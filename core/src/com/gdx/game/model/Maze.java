@@ -25,6 +25,8 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture(SuperGom.class),
 			TextureFactory.getInstance().getTexture(Dark.class),
             TextureFactory.getInstance().getTexture(Fence.class),
+			TextureFactory.getInstance().getTexture("ghostEscaping"),
+			TextureFactory.getInstance().getTexture("ghostDead"),
 			TextureFactory.getInstance().getTexture("ghost1"),
 			TextureFactory.getInstance().getTexture("ghost2"),
 			TextureFactory.getInstance().getTexture("ghost3"),
@@ -69,8 +71,10 @@ public class Maze implements Iterable<GameElement> {
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	};
 	private GameElement[][] _laby2;
+    private SpriteBatch batch;
+    private BitmapFont score;
 
-	Maze(World w) {
+    Maze(World w) {
         layout = new GlyphLayout();
 		_world = w;
 		this.init();
@@ -148,7 +152,7 @@ public class Maze implements Iterable<GameElement> {
 	}
 
 	private void drawPacman(SpriteBatch batch, BitmapFont score) {
-		batch.begin();
+        batch.begin();
 		batch.draw(this._world.getPacman().getTexture(), this._world.getPacman().getPosition().y * 16, (30 - this._world.getPacman().getPosition().x) * 16);
 		String scoreStr = "SCORE : " + Util.SCORE;
 		layout.setText(score.newFontCache().getFont(), scoreStr);

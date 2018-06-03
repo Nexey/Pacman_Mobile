@@ -22,17 +22,35 @@ public class Pacman extends Entity {
     private int animationStep;
     private String currentAnim;
 
-    private long startTime;
+    private long startAnimTime;
+    private boolean powerUp;
+
+    private long startPowerUpTime;
 
     public Pacman(Vector2 position, World world) {
         super(position, world);
         animationStep = 0;
         currentAnim = "pacmanRight";
-        startTime = TimeUtils.millis();
+        startAnimTime = TimeUtils.millis();
+        startPowerUpTime = TimeUtils.millis();
+        this.powerUp = false;
     }
 
     public Texture getTexture() {
         return TextureFactory.getInstance().getTexture(currentAnim);
+    }
+
+
+    public boolean getPowerUp() {
+        long elapsedTime = TimeUtils.timeSinceMillis(startPowerUpTime);
+        if (elapsedTime > 5000)
+            this.powerUp = false;
+        return this.powerUp;
+    }
+
+    public void setPowerUp() {
+        this.powerUp = true;
+        startPowerUpTime = TimeUtils.millis();
     }
 
     @Override
@@ -41,6 +59,10 @@ public class Pacman extends Entity {
             // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
             if (this.retrieveTile().equals(Gom.class)) {
                 Util.SCORE++;
+                this.setDarkTile();
+            }
+            else if (this.retrieveTile().equals(SuperGom.class)) {
+                this.setPowerUp();
                 this.setDarkTile();
             }
             return true;
@@ -90,9 +112,9 @@ public class Pacman extends Entity {
     }
 
     public void updateAnimation() {
-        long elapsedTime = TimeUtils.timeSinceMillis(startTime);
+        long elapsedTime = TimeUtils.timeSinceMillis(startAnimTime);
         if (elapsedTime > 150) {
-            startTime = TimeUtils.millis();
+            startAnimTime = TimeUtils.millis();
             this.animationStep ^= 1;
         }
         currentAnim = this.direction[Util.currentDir] + this.directionStep[animationStep];

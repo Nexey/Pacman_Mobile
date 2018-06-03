@@ -2,10 +2,13 @@ package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.gdx.game.controller.utilities.DiceFour;
 import com.gdx.game.controller.utilities.DiceTwo;
 import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.view.TextureFactory;
+
+import java.util.HashMap;
 
 import static java.lang.Math.abs;
 
@@ -16,6 +19,9 @@ public class Ghost extends Entity {
     private int dir;
     private int dep; //affecte une fonction de déplacement
     private boolean sorti;
+    private HashMap<Integer, String> listState;
+    private int state;
+    private long startDeathTime;
 
     public Ghost(Vector2 position, World world, int color, int dep) {
         super(position, world);
@@ -26,11 +32,37 @@ public class Ghost extends Entity {
         this.dep = dep;
         sorti = false;
         this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
+        state = 0;
+        listState = new HashMap<Integer, String>();
+        listState.put(0, "ghost" + this.color);
+        listState.put(1, "ghostEscaping");
+        listState.put(2, "ghostDead");
     }
 
     @Override
     public Texture getTexture() {
-        return TextureFactory.getInstance().getTexture("ghost" + this.color);
+        boolean powerUp = this._world.getPacman().getPowerUp();
+
+        // 2 cas : Game Over ou le Ghost est mort pendant un certain temps
+        if (this._world.getPacman().getPosition().equals(this.getPosition())) {
+            if (this.state == 0) System.out.println("Game Over");
+            else if (powerUp)
+                // Cette condition vérifie que le Ghost n'est pas déjà mort, auquel cas il ne faut pas remettre
+                // son état à mort
+                if (this.state != 2) {
+                    this.startDeathTime = TimeUtils.millis();
+                    this.state = 2;
+                }
+        }
+        if (powerUp) {
+            if (this.state != 1) {
+                this.state = 1;
+            }
+        }
+        else if (this.state != 0) this.state = 0;
+
+
+        return TextureFactory.getInstance().getTexture(this.listState.get(state));
     }
 
     public int getDir() {
@@ -54,7 +86,16 @@ public class Ghost extends Entity {
     @Override
     public boolean move() {
         Vector2 oldPos = new Vector2(this.getPosition());
-        //if (this.retrieveTile().equals(Pacman.class)); // GAME OVER
+        /*if (this.getPosition().equals(this._world.getPacman().getPosition())) {
+            if (this._world.getPacman().getPowerUp())
+                this.state = 2;
+            else {
+                this.state = 0;
+
+                // TODO : GAME OVER
+            }
+        }*/
+
         switch(dep) {
             case 0:
                 if (diceTwo.getFace() == 1)

@@ -28,10 +28,10 @@ public class World implements Iterable<GameElement> {
         this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 4);
 
         this.listEntity.add(this._pacman);
-        //this.listEntity.add(this._red);
-        //this.listEntity.add(this._pink);
-        //this.listEntity.add(this._blue);
-        //this.listEntity.add(this._yellow);
+        this.listEntity.add(this._red);
+        this.listEntity.add(this._pink);
+        this.listEntity.add(this._blue);
+        this.listEntity.add(this._yellow);
         this._maze = new Maze(this);
 
         startTime = TimeUtils.millis();

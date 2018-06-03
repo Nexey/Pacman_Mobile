@@ -1,13 +1,13 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.ArrayList;
 
 public abstract class Entity extends GameElement {
     public static final float size=16;
     private GameElement tile;
-
     ArrayList<GameElement> listValidTiles;
 
     public Entity(Vector2 pos, World world) {

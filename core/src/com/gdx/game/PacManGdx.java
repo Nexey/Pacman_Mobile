@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gdx.game.controller.controllers.DiagonalDirections;
+import com.gdx.game.controller.controllers.TouchControl;
 import com.gdx.game.model.World;
 
 public class PacManGdx extends ApplicationAdapter {
@@ -21,9 +22,9 @@ public class PacManGdx extends ApplicationAdapter {
 		world = new World();
 		score = new BitmapFont();
 		score.setColor(Color.YELLOW);
-        //Gdx.input.setInputProcessor(new TouchControl());
-		Gdx.input.setInputProcessor(new DiagonalDirections());
-    }
+        Gdx.input.setInputProcessor(new DiagonalDirections());
+		//Gdx.input.setInputProcessor(new TouchControl());
+	}
 
 	@Override
 	public void render () {
