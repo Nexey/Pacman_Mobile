@@ -4,10 +4,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.view.TextureFactory;
 
-public class Barrier extends GameElement{
+public class Fence extends GameElement{
     public static final float size=48;
 
-    public Barrier(Vector2 position, World world) {
+    public Fence(Vector2 position, World world) {
         super(position, world);
     }
 

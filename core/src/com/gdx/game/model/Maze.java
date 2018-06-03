@@ -24,6 +24,7 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
 			TextureFactory.getInstance().getTexture(Dark.class),
+            TextureFactory.getInstance().getTexture(Fence.class),
 			TextureFactory.getInstance().getTexture("ghost1"),
 			TextureFactory.getInstance().getTexture("ghost2"),
 			TextureFactory.getInstance().getTexture("ghost3"),
@@ -33,7 +34,7 @@ public class Maze implements Iterable<GameElement> {
 	private final int _textWidth = 16;
 	private final int _textHeight = 16;
 
-	/* 0 : mur, 1 : gomme, 2 : intersection, 3 : vide, 4 : super gomme */
+	/* 0 : mur, 1 : gomme, 2 : intersection, 3 : barrières fantomes, 4 : super gomme, 5 : vide */
 	private int[][] _laby1 = new int[][] {
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 			{0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0},
@@ -47,7 +48,7 @@ public class Maze implements Iterable<GameElement> {
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 3, 3, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 5, 5, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 3, 3, 3, 3, 3, 3, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 0, 3, 3, 3, 3, 3, 3, 0, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
@@ -120,32 +121,12 @@ public class Maze implements Iterable<GameElement> {
 		return _world;
 	}
 
-	private boolean checkCoords(Vector2 pos) {
-		boolean checkLeftBound = (pos.x >= 0) && (pos.y >= 0);
-		boolean checkRightBound = (pos.x < this._height) && (pos.y < this._width);
-		return checkLeftBound && checkRightBound;
-	}
-
-	public boolean validTile(Vector2 pos) {
-		Dark dark = new Dark(new Vector2(0, 0), this._world);
-        Gom gom = new Gom(new Vector2(0, 0), this._world);
-        SuperGom superGom = new SuperGom(new Vector2(0, 0), this._world);
-
-		GameElement ge;
-
-		if (checkCoords(pos)) {
-			ge = this.get(new Vector2(pos));
-			return (ge.equals(dark)) || (ge.equals(gom)) || (ge.equals(superGom));
-		}
-		else return false;
-	}
-
 	public void updateMaze(SpriteBatch batch, Pacman pacman, BitmapFont score) {
 	    if (!this.placeBarrier) {
-            this.placeBarrier = this._world.get_yellow().isSorti() && this._world.get_blue().isSorti() && this._world.get_pink().isSorti() && this._world.get_red().isSorti();
+            this.placeBarrier = this._world.get_yellow().isSorti();// && this._world.get_blue().isSorti() && this._world.get_pink().isSorti() && this._world.get_red().isSorti();
             if (this.placeBarrier) {
-                this._laby2[12][14] = new Barrier(new Vector2(12, 14), this._world);
-                this._laby2[13][14] = new Barrier(new Vector2(13, 14), this._world);
+                this._laby2[12][14] = new Fence(new Vector2(12, 14), this._world);
+                this._laby2[13][14] = new Fence(new Vector2(13, 14), this._world);
             }
         }
 	    if (Util.currentDir != Util.NOWHERE) {

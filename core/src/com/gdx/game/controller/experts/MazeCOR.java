@@ -14,7 +14,8 @@ public class MazeCOR extends AbstractCOR {
         cor = new BlockCOR(
                 new PelletCOR(
                         new DarkCOR(
-                                new SuperPelletCOR(null))
+                                new SuperPelletCOR(
+                                        new FenceCOR(null)))
                 )
         );
     }

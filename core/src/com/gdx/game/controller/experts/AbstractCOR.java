@@ -8,6 +8,7 @@ public abstract class AbstractCOR {
     protected final int _INTERSECTION = 2;
     protected final int _VIDE = 3;
     protected final int _SUPERPELLET = 4;
+    protected final int _FENCE = 5;
 
     public AbstractCOR next;
 

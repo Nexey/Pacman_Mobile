@@ -12,21 +12,12 @@ import com.gdx.game.model.World;
 
 public class PacManGdx extends ApplicationAdapter {
 	private SpriteBatch batch;
-	private Texture block;
-	private Texture pacGomme;
-	private Texture pacPower;
-	private Texture dark;
 	private World world;
 	private BitmapFont score;
-	//private Maze laby;
 
 	@Override
 	public void create () {
         batch = new SpriteBatch();
-        block = new Texture("bloc.png");
-        pacGomme = new Texture("pellet.png");
-        pacPower = new Texture("superpellet.png");
-        dark = new Texture("dark.png");
 		world = new World();
 		score = new BitmapFont();
 		score.setColor(Color.YELLOW);
@@ -44,9 +35,5 @@ public class PacManGdx extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		batch.dispose();
-		block.dispose();
-		pacGomme.dispose();
-		pacPower.dispose();
-		dark.dispose();
 	}
 }

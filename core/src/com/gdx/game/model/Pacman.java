@@ -52,20 +52,28 @@ public class Pacman extends Entity {
         this._world.set(new Vector2(this.getPosition()), this.retrieveTile());
         switch(dir) {
             case Util.UPP:
-                if(enHaut())
+                if(enHaut()) {
+                    this.setCurrentTile();
                     return true;
+                }
                 break;
             case Util.LEFTP:
-                if(aGauche())
+                if(aGauche()) {
+                    this.setCurrentTile();
                     return true;
+                }
                 break;
             case Util.DOWNP:
-                if(enBas())
+                if(enBas()) {
+                    this.setCurrentTile();
                     return true;
+                }
                 break;
             case Util.RIGHTP:
-                if(aDroite())
+                if(aDroite()) {
+                    this.setCurrentTile();
                     return true;
+                }
                 break;
             default:
                 break;

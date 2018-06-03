@@ -25,6 +25,7 @@ public class Ghost extends Entity {
         dir = diceFour.getFace();
         this.dep = dep;
         sorti = false;
+        this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
     }
 
     @Override
@@ -64,24 +65,28 @@ public class Ghost extends Entity {
                 case 1:
                 if (deplacementGhost1()) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    this.setCurrentTile();
                     return true;
                 }
                 break;
             case 2:
                 if (deplacementGhost2(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    this.setCurrentTile();
                     return true;
                 }
                 break;
             case 3:
                 if (deplacementGhost3(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    this.setCurrentTile();
                     return true;
                 }
             break;
             case 4:
                 if (deplacementGhost4(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
+                    this.setCurrentTile();
                     return true;
                 }
                 break;
@@ -169,7 +174,7 @@ public class Ghost extends Entity {
 
     private boolean sortez()
     {
-        Vector2 pos = new Vector2(11, 16);
+        Vector2 pos = new Vector2(11, 14);
         if(goDir(pos))
         {
             if(getPosition().equals(pos))
