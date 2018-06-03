@@ -22,16 +22,16 @@ public class World implements Iterable<GameElement> {
 
         listEntity = new ArrayList<Entity>();
         this._pacman = new Pacman(new Vector2(17, 14), this);
-        this._red = new Ghost(new Vector2(14, 15), this, Util.RED, 2);
+        this._red = new Ghost(new Vector2(14, 15), this, Util.RED, 1);
         this._pink = new Ghost(new Vector2(14, 14), this, Util.PINK, 2);
         this._blue = new Ghost(new Vector2(14, 13), this, Util.BLUE, 3);
-        this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 1);
+        this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 4);
 
         this.listEntity.add(this._pacman);
         this.listEntity.add(this._red);
-        this.listEntity.add(this._pink);
-        this.listEntity.add(this._blue);
-        this.listEntity.add(this._yellow);
+        //this.listEntity.add(this._pink);
+        //this.listEntity.add(this._blue);
+        //this.listEntity.add(this._yellow);
         this._maze = new Maze(this);
 
         startTime = TimeUtils.millis();

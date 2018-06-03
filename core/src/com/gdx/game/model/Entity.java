@@ -47,20 +47,33 @@ public abstract class Entity extends GameElement {
         return this.tile;
     }
 
+    private boolean checkLeftBound(Vector2 pos) {
+        return (pos.x >= 0) && (pos.y >= 0);
+    }
+
+    private boolean checkRightBound(Vector2 pos) {
+        return (pos.x < this._world.getHeight()) && (pos.y < this._world.getWidth());
+    }
+
     private boolean checkCoords(Vector2 pos) {
-        boolean checkLeftBound = (pos.x >= 0) && (pos.y >= 0);
-        boolean checkRightBound = (pos.x < this._world.getHeight()) && (pos.y < this._world.getWidth());
-        return checkLeftBound && checkRightBound;
+        return checkLeftBound(pos) && checkRightBound(pos);
     }
 
     public boolean validTile(Vector2 pos) {
         GameElement ge;
-
-        if (checkCoords(pos)) {
-            ge = this._world.getMaze().get(new Vector2(pos));
-            return this.listValidTiles.contains(ge);
+        if (!checkCoords(pos)) {
+            // L'Entity est sortie à gauche du labyrinthe, elle doit réapparaitre à droite
+            if (!checkLeftBound(pos)) {
+                this.setPosition(new Vector2(this.getPosition().x, this._world.getWidth()));
+                pos = new Vector2(this.getPosition().x, this._world.getWidth() - 1);
+            }
+            else {
+                this.setPosition(new Vector2(this.getPosition().x, (this._world.getWidth() - (this.getPosition().y + 1)) - 1));
+                pos = new Vector2(this.getPosition().x, (this.getPosition().y + 1 ));
+            }
         }
-        else return false;
+        ge = this._world.getMaze().get(new Vector2(pos));
+        return this.listValidTiles.contains(ge);
     }
 
 
