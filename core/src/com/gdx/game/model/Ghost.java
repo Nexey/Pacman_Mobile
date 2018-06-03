@@ -62,25 +62,26 @@ public class Ghost extends Entity {
                 }
                 break;
                 case 1:
-                if (deplacementGhost1()) {
+                /*if (deplacementGhost1()) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
                     return true;
                 }
-                break;
+                break;*/
+                return false;
             case 2:
-                if (deplacementGhost2(this._world.getPacman())) {
+                if (deplacementGhost2(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
                     return true;
                 }
                 break;
             case 3:
-                if (deplacementGhost3(this._world.getPacman())) {
+                if (deplacementGhost3(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
                     return true;
                 }
             break;
             case 4:
-                if (deplacementGhost4(this._world.getPacman())) {
+                if (deplacementGhost4(this._world.getPacman().getPosition())) {
                     this._world.set(new Vector2(oldPos), this.retrieveTile());
                     return true;
                 }
@@ -117,101 +118,61 @@ public class Ghost extends Entity {
 
     private boolean deplacementGhost1 ()
     {
-        if(this._world.getMaze().getCase(getPosition()) == 2)
-        {
             do {
                 dir = diceFour.getFace();
             }while(!updateCoords(dir));
             return true;
-        }
-        else
-            return updateCoords(dir);
     }
 
-    private boolean deplacementGhost2 (Pacman pacman)
+    private boolean deplacementGhost2 (Vector2 pos)
     {
         //System.out.println(this.getDir());
         //System.out.println(this.getWorld().getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1)));
         //System.out.println(this._world.getMaze().getCase(this.getPosition()));
-        setSorti(true);
         //if(this._world.getMaze().getCase(this.getPosition()) == 2)
-        //{
-            this.setSorti(true);
-            Vector2 posPacman = new Vector2(pacman.getPosition());
+        if(isSorti())
+        {
+            //Vector2 posPacman = new Vector2(pacman.getPosition());
             //System.out.println("X ghost : "+this.getPosition().x+" Y ghost : "+this.getPosition().y);
             //System.out.println("X pacman : "+posPacman.x+" Y pacman : "+posPacman.y);
-            if(this.getPosition().x > posPacman.x) {
-                //System.out.println("F2 : "+showDir());
-                this.setDir(Util.LEFTG);
-                if(updateCoords(this.dir)) return true;
-            }
-            if(this.getPosition().x < posPacman.x)
-            {
-                //System.out.println("F2 : "+showDir());
-                this.setDir(Util.RIGHTG);
-                if(updateCoords(this.dir)) return true;
-            }
-            if(this.getPosition().y > posPacman.y)
-            {
-                //System.out.println("F2 : "+showDir());
-                this.setDir(Util.DOWNG);
-                if(updateCoords(this.dir)) return true;
-            }
-            if(this.getPosition().y < posPacman.y)
-            {
-                //System.out.println("F2 : "+showDir());
-                this.setDir(Util.UPG);
-                if(updateCoords(this.dir)) return true;
-            }
-
-            if (diceTwo.getFace() == 1)
-            dir = diceFour.getFace();
-            return updateCoords(dir);
-
-        //}
-        /*else
-        {
-            if (this.isSorti())
-            {
-                return updateCoords(dir);
-            }
+            if(goDir(pos))
+                return true;
             else
             {
-                boolean a = sortez(dir);
-                return a;
+                return deplacementGhost1();
             }
-        }*/
+        }
+        else
+        {
+            return sortez();
+        }
     }
 
-    private boolean deplacementGhost3 (Pacman pacman)
+    private boolean deplacementGhost3 (Vector2 pos)
     {
         if (diceTwo.getFace() == 0)
             return deplacementGhost1();
         else
-            return deplacementGhost2(pacman);
+            return deplacementGhost2(pos);
     }
 
-    private boolean deplacementGhost4 (Pacman pacman)
+    private boolean deplacementGhost4 (Vector2 pos)
     {
         return false;
     }
 
-    private boolean sortez(int dir)
+    private boolean sortez()
     {
-        System.out.println(dir);
-        this.dir = Util.UPG;
-        if(enHaut())
+        Vector2 pos = new Vector2(11, 16);
+        if(goDir(pos))
+        {
+            if(getPosition().equals(pos))
+                setSorti(true);
             return true;
-        else {
-            this.dir = dir;
-            if (dir == Util.LEFTG) {
-                if (aGauche())
-                    return true;
-                if (aDroite())
-                    return true;
-            }
         }
-        return false;
+        if(getPosition().equals(pos))
+            setSorti(true);
+        return true;
     }
 
     private String showDir()
@@ -230,5 +191,33 @@ public class Ghost extends Entity {
                 break;
         }
         return dir + " ?? No Direction !!!";
+    }
+
+    private boolean goDir(Vector2 pos)
+    {
+        if(this.getPosition().x > pos.x) {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.LEFTG);
+            if(updateCoords(this.dir)) return true;
+        }
+        if(this.getPosition().x < pos.x)
+        {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.RIGHTG);
+            if(updateCoords(this.dir)) return true;
+        }
+        if(this.getPosition().y > pos.y)
+        {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.DOWNG);
+            if(updateCoords(this.dir)) return true;
+        }
+        if(this.getPosition().y < pos.y)
+        {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.UPG);
+            if(updateCoords(this.dir)) return true;
+        }
+        return false;
     }
 }

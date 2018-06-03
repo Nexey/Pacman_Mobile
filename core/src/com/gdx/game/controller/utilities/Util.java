@@ -6,10 +6,10 @@ public class Util {
             DOWNP = 1,
             RIGHTP = 2,
             UPP = 3,
-            LEFTG = 0,
-            DOWNG = 1,
-            RIGHTG = 2,
-            UPG = 3,
+            LEFTG = 3,
+            DOWNG = 0,
+            RIGHTG = 1,
+            UPG = 2,
             NOWHERE = -1;
 
     public static int currentDir = NOWHERE;
