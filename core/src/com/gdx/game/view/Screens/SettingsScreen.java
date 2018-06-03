@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -15,23 +16,24 @@ import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Align;
 import com.gdx.game.PacManGdx;
+import com.gdx.game.controller.utilities.Util;
 
-import java.awt.*;
-
-public class MenuScreen implements Screen {
-
+public class SettingsScreen implements Screen
+{
     private final PacManGdx game;
     private Stage stage;
     private Animation<TextureRegion> animation;
     private float elapsed;
+    private BitmapFont MethodUsed;
     private Texture Texturebutton_play, Texturebutton_quit, Texturebutton_settings;
     private TextureRegion TextureRegionButton_play, TextureRegionButton_quit, TextureRegionButton_settings;
     private TextureRegionDrawable TexRegionDrawableButton_play, TexRegionDrawableButton_quit, TexRegionDrawableButton_settings;
     private ImageButton button_play, button_quit, button_settings;
+    private GlyphLayout layout;
+    private String method, effective;
 
-    public MenuScreen(final PacManGdx game){
+    public SettingsScreen(final PacManGdx game){
         this.game = game;
         stage = new Stage(game.screenPort);
         Gdx.input.setInputProcessor(stage);
@@ -56,11 +58,17 @@ public class MenuScreen implements Screen {
         stage.addActor(button_settings);
         animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("pacman.gif").read());
 
+        method = "Méthode de déplacement : ";
+        layout = new GlyphLayout();
+        MethodUsed = new BitmapFont();
+        effective = (game.controlMethod) ? "Contrôle par zones" : "Contrôle par glisser";
+        layout.setText(MethodUsed.newFontCache().getFont(), method+effective);
+
         button_play.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
-                game.gotoGameScreen();
+                game.controlMethod = true;
                 return true;
             }
         });
@@ -69,15 +77,15 @@ public class MenuScreen implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
-               Gdx.app.exit();
-               return false;
+                game.controlMethod = false;
+                return true;
             }
         });
         button_settings.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
-                game.gotoSettingsScreen();
+                game.gotoMenuScreen();
                 return true;
             }
         });
@@ -97,6 +105,9 @@ public class MenuScreen implements Screen {
         elapsed += Gdx.graphics.getDeltaTime();
         game.batch.begin();
         game.batch.draw(animation.getKeyFrame(elapsed), 45.0f, -60.0f);
+        effective = (game.controlMethod) ? "Contrôle par zones" : "Contrôle par glisser";
+        layout.setText(MethodUsed.newFontCache().getFont(), method+effective);
+        MethodUsed.draw(game.batch, method+effective, 75, 400);
         game.batch.end();
     }
 
@@ -123,5 +134,6 @@ public class MenuScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
+
     }
 }

@@ -11,11 +11,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gdx.game.PacManGdx;
 import com.gdx.game.controller.controllers.DiagonalDirections;
+import com.gdx.game.controller.controllers.TouchControl;
 import com.gdx.game.model.World;
 
 public class GameScreen implements Screen
 {
-    final PacManGdx game;
+    private final PacManGdx game;
     private Stage stage;
 
     private SpriteBatch batch;
@@ -25,15 +26,14 @@ public class GameScreen implements Screen
     public GameScreen(final PacManGdx game)
     {
         this.game = game;
-        //stage = new Stage(game.screenPort);
-
-        //Gdx.input.setInputProcessor(stage);
         batch = new SpriteBatch();
         world = new World();
         score = new BitmapFont();
         score.setColor(Color.YELLOW);
-        //Gdx.input.setInputProcessor(new TouchControl());
-        Gdx.input.setInputProcessor(new DiagonalDirections());
+        if (game.controlMethod)
+            Gdx.input.setInputProcessor(new DiagonalDirections());
+        else
+            Gdx.input.setInputProcessor(new TouchControl());
     }
 
     @Override

@@ -7,13 +7,14 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.gdx.game.view.Screens.GameScreen;
 import com.gdx.game.view.Screens.MenuScreen;
+import com.gdx.game.view.Screens.SettingsScreen;
 //import com.gdx.game.view.Screens.SettingsScreen;
 
 public class PacManGdx extends Game {
 
 	public SpriteBatch batch;
 	public Viewport screenPort;
-
+	public boolean controlMethod;
 
 	@Override
 	public void create () {
@@ -22,6 +23,7 @@ public class PacManGdx extends Game {
 		camera.setToOrtho(false);
 		screenPort = new ScreenViewport();
 		this.setScreen(new MenuScreen(this));
+		controlMethod = true;
 	}
 
 	public void gotoMenuScreen(){
@@ -30,8 +32,8 @@ public class PacManGdx extends Game {
 	}
 
 	public void gotoSettingsScreen(){
-		//SettingsScreen settingsScreen = new SettingsScreen(this);
-		//setScreen(settingsScreen);
+		SettingsScreen settingsScreen = new SettingsScreen(this);
+		setScreen(settingsScreen);
 	}
 
 	public void gotoGameScreen(){
