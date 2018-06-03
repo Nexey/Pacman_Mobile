@@ -47,7 +47,6 @@ public class TextureFactory {
                 path = pacman + _directions.get(j) + _directionStep.get(i);
                 _sprites.put(path, new Texture(Gdx.files.internal(path + ".png")));
             }
-
     }
 
     private static TextureFactory instance = null;

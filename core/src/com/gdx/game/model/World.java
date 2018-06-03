@@ -15,12 +15,14 @@ public class World implements Iterable<GameElement> {
     private Ghost _blue;
     private Ghost _yellow;
     public ArrayList<Entity> listEntity;
+    public ArrayList<Entity> listMovingEntities;
 
     private long startTime;
 
     public World() {
 
         listEntity = new ArrayList<Entity>();
+        listMovingEntities = new ArrayList<Entity>();
         this._pacman = new Pacman(new Vector2(17, 14), this);
         this._red = new Ghost(new Vector2(14, 15), this, Util.RED, 1);
         this._pink = new Ghost(new Vector2(14, 14), this, Util.PINK, 2);
@@ -49,12 +51,14 @@ public class World implements Iterable<GameElement> {
 
     public void moveEntities() {
         long elapsedTime = TimeUtils.timeSinceMillis(startTime);
-        if (elapsedTime > 1000) {
+        if (elapsedTime > 300) {
             startTime = TimeUtils.millis();
             for (Entity E: this.listEntity)
-                if(E.move()) E.alpha = 0;
+                if(E.move()) {
+                    E.alpha = 0;
+                    this.listMovingEntities.add(E);
+                }
         }
-
     }
 
     public void set(Vector2 pos, GameElement tile) {

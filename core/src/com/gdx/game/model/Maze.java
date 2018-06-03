@@ -24,13 +24,7 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
 			TextureFactory.getInstance().getTexture(Dark.class),
-            TextureFactory.getInstance().getTexture(Fence.class),
-			TextureFactory.getInstance().getTexture("ghostEscaping"),
-			TextureFactory.getInstance().getTexture("ghostDead"),
-			TextureFactory.getInstance().getTexture("ghost1"),
-			TextureFactory.getInstance().getTexture("ghost2"),
-			TextureFactory.getInstance().getTexture("ghost3"),
-			TextureFactory.getInstance().getTexture("ghost4")
+            TextureFactory.getInstance().getTexture(Fence.class)
 	};
 
 	private final int _textWidth = 16;
@@ -138,29 +132,55 @@ public class Maze implements Iterable<GameElement> {
 			this._world.getPacman().updateAnimation();
 			// Après cet appel, les tiles des Entity seront mises à jour
 			this._world.moveEntities();
+			if (this._world.listMovingEntities.size() != 0) {
+				for (Entity E : this._world.listMovingEntities) {
+					// Vers la droite
+					if (E.getPosition().x < E.direction.x) {
+						E.setX(E.getPosition().x + E.velocity);
+					}
+					// Vers la gauche
+					else if (E.getPosition().x > E.direction.x) {
+						E.setX(E.getPosition().x - E.velocity);
+					}
+					// Vers le haut
+					else if (E.getPosition().y < E.direction.y) {
+						E.setY(E.getPosition().y + E.velocity);
+					}
+					// Vers le bat
+					else {
+						E.setY(E.getPosition().y - E.velocity);
+					}
+					E.alpha += E.velocity;
+					if (E.alpha == 1.f) {
+						this._world.listMovingEntities.remove(E);
 
-			// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
-			for (Entity E: this._world.listEntity)
-				this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
+						// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
+						this._laby2[(int) E.getPosition().x][(int) E.getPosition().y] = E;
+					}
+				}
+			}
 		}
-        this.drawMaze(batch);
-		this.drawPacman(batch, score);
+		this.drawMaze(batch, score);
+		this.drawEntities(batch, score);
 	}
 
-	public void set(Vector2 pos, GameElement tile) {
-		this._laby2[(int)pos.x][(int)pos.y] = tile;
+	private void drawEntities(SpriteBatch batch, BitmapFont score) {
+    	batch.begin();
+    	for (Entity E: this._world.listEntity)
+    		batch.draw(E.getTexture(), E.getPosition().y * 16, (30 - E.getPosition().x) * 16);
+    	batch.end();
+		this.drawScore(batch, score);
 	}
 
-	private void drawPacman(SpriteBatch batch, BitmapFont score) {
+	private void drawScore(SpriteBatch batch, BitmapFont score) {
         batch.begin();
-		batch.draw(this._world.getPacman().getTexture(), this._world.getPacman().getPosition().y * 16, (30 - this._world.getPacman().getPosition().x) * 16);
 		String scoreStr = "SCORE : " + Util.SCORE;
 		layout.setText(score.newFontCache().getFont(), scoreStr);
 		score.draw(batch, scoreStr, Gdx.graphics.getWidth() - layout.width, Gdx.graphics.getHeight() - layout.height);
 		batch.end();
 	}
 
-	private void drawMaze(SpriteBatch batch) {
+	private void drawMaze(SpriteBatch batch, BitmapFont score) {
 		for (Texture text : listText) {
 			if ((text.getWidth() != _textWidth) || (text.getHeight() != _textHeight))
 				drawResize(batch, text);
@@ -200,6 +220,10 @@ public class Maze implements Iterable<GameElement> {
 						false
 				);
 		batch.end();
+	}
+
+	public void set(Vector2 pos, GameElement tile) {
+		this._laby2[(int)pos.x][(int)pos.y] = tile;
 	}
 
 	@Override

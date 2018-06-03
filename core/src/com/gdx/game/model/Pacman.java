@@ -63,6 +63,7 @@ public class Pacman extends Entity {
             }
             else if (this.retrieveTile().equals(SuperGom.class)) {
                 this.setPowerUp();
+                Util.SCORE += 5;
                 this.setDarkTile();
             }
             return true;

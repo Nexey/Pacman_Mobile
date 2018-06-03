@@ -12,6 +12,7 @@ public abstract class Entity extends GameElement {
     // alpha va varier entre 0 et 1. 0 : doit bouger, 0.5 est à la moitié du mouvement, 1 ne doit pas bouger
     public float alpha;
     public Vector2 direction;
+    public final float velocity = 0.6f;
 
     public Entity(Vector2 pos, World world) {
         super(pos, world);
@@ -84,8 +85,8 @@ public abstract class Entity extends GameElement {
     public boolean aGauche()
     {
         if (this.validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
-            this.direction = new Vector2(this.getPosition());
-            this.setX((int)this.getPosition().x - 1);
+            this.direction = new Vector2(this.getPosition().x - 1, this.getPosition().y);
+            //this.setX((int)this.getPosition().x - 1);
             return true;
         }
         return false;
@@ -94,8 +95,8 @@ public abstract class Entity extends GameElement {
     public boolean aDroite()
     {
         if (this.validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
-            this.direction = new Vector2(this.getPosition());
-            this.setX((int)this.getPosition().x + 1);
+            this.direction = new Vector2(this.getPosition().x + 1, this.getPosition().y);
+            //this.setX((int)this.getPosition().x + 1);
             return true;
         }
         return false;
@@ -104,8 +105,8 @@ public abstract class Entity extends GameElement {
     public boolean enHaut()
     {
         if (this.validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1))) {
-            this.direction = new Vector2(this.getPosition());
-            this.setY((int)this.getPosition().y + 1);
+            this.direction = new Vector2(this.getPosition().x, this.getPosition().y + 1);
+            //this.setY((int)this.getPosition().y + 1);
             return true;
         }
         return false;
@@ -114,8 +115,8 @@ public abstract class Entity extends GameElement {
     public boolean enBas()
     {
         if (this.validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
-            this.direction = new Vector2(this.getPosition());
-            this.setY((int)this.getPosition().y - 1);
+            this.direction = new Vector2(this.getPosition().x, this.getPosition().y - 1);
+            //this.setY((int)this.getPosition().y - 1);
             return true;
         }
         return false;
