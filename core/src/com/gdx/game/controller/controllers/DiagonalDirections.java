@@ -35,6 +35,8 @@ public class DiagonalDirections implements InputProcessor {
                 belowUpRight && !belowDownRight
         };
 
+        // On garde l'ancienne direction avant de mettre à jour celle en cours
+        Util.previousDir = Util.currentDir;
         for (int i = 0; i < directions.length; i++)
             if (directions[i])
                 Util.currentDir = i;

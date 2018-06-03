@@ -13,7 +13,7 @@ public class Util {
             NOWHERE = -1;
 
     public static int currentDir = NOWHERE;
-    //public static int previousDir = currentDir;
+    public static int previousDir = currentDir;
 
     public static final int
             PACMAN = 0,

@@ -54,26 +54,34 @@ public class Pacman extends Entity {
             case Util.UPP:
                 if(enHaut()) {
                     this.setCurrentTile();
+                    Util.previousDir = Util.currentDir;
                     return true;
                 }
+                else Util.currentDir = Util.previousDir;
                 break;
             case Util.LEFTP:
                 if(aGauche()) {
                     this.setCurrentTile();
+                    Util.previousDir = Util.currentDir;
                     return true;
                 }
+                else Util.currentDir = Util.previousDir;
                 break;
             case Util.DOWNP:
                 if(enBas()) {
                     this.setCurrentTile();
+                    Util.previousDir = Util.currentDir;
                     return true;
                 }
+                else Util.currentDir = Util.previousDir;
                 break;
             case Util.RIGHTP:
                 if(aDroite()) {
                     this.setCurrentTile();
+                    Util.previousDir = Util.currentDir;
                     return true;
                 }
+                else Util.currentDir = Util.previousDir;
                 break;
             default:
                 break;
