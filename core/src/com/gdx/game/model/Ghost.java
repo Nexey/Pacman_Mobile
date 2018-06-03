@@ -163,6 +163,7 @@ public class Ghost extends Entity {
 
     private boolean deplacementGhost4 (Vector2 pos)
     {
+        setSorti(true);
         return false;
     }
 
