@@ -13,7 +13,8 @@ public class MazeCOR extends AbstractCOR {
     private MazeCOR(){
         cor = new BlockCOR(
                 new PelletCOR(
-                        new BarrierCOR(null)
+                        new DarkCOR(
+                                new SuperPelletCOR(null))
                 )
         );
     }
@@ -24,7 +25,7 @@ public class MazeCOR extends AbstractCOR {
 
     @Override
     public boolean canBuild(int elementType) {
-        return (elementType == this._VIDE);
+        return (elementType == this._GOMME);
     }
 
     @Override

@@ -5,15 +5,15 @@ import com.gdx.game.model.Dark;
 import com.gdx.game.model.GameElement;
 import com.gdx.game.model.World;
 
-public class BarrierCOR extends AbstractCOR  {
+public class DarkCOR extends AbstractCOR  {
 
-    public BarrierCOR(AbstractCOR next) {
+    public DarkCOR(AbstractCOR next) {
         super(next);
     }
 
     @Override
     public boolean canBuild(int elementType) {
-        return (elementType == this._BARRIER);
+        return (elementType == this._VIDE);
     }
 
     @Override

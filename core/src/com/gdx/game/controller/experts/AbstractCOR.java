@@ -4,9 +4,10 @@ import com.gdx.game.model.World;
 
 public abstract class AbstractCOR {
     protected final int _BLOCK = 0;
-    protected final int _VIDE = 1;
+    protected final int _GOMME = 1;
     protected final int _INTERSECTION = 2;
-    protected final int _BARRIER = 3;
+    protected final int _VIDE = 3;
+    protected final int _SUPERPELLET = 4;
 
     public AbstractCOR next;
 

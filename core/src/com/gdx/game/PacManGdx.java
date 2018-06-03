@@ -7,10 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.TimeUtils;
 import com.gdx.game.controller.controllers.DiagonalDirections;
-import com.gdx.game.controller.utilities.Util;
-import com.gdx.game.model.Maze;
 import com.gdx.game.model.World;
 
 public class PacManGdx extends ApplicationAdapter {

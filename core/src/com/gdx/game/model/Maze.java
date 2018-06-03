@@ -17,6 +17,7 @@ public class Maze implements Iterable<GameElement> {
 	private /*final*/ int _width;
 	private /*final*/ int _height;
     GlyphLayout layout;
+    private boolean placeBarrier;
 
 	private Texture listText[] = {
 			TextureFactory.getInstance().getTexture(Block.class),
@@ -32,12 +33,12 @@ public class Maze implements Iterable<GameElement> {
 	private final int _textWidth = 16;
 	private final int _textHeight = 16;
 
-	/* 0 : mur, 1 : vide, 2 : intersection, 3 : barriere fantomes */
+	/* 0 : mur, 1 : gomme, 2 : intersection, 3 : vide, 4 : super gomme */
 	private int[][] _laby1 = new int[][] {
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 			{0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0},
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
-			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
+			{0, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0},
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
 			{0, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 0},
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0},
@@ -47,8 +48,8 @@ public class Maze implements Iterable<GameElement> {
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 3, 3, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-			{1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 0, 1, 1, 1, 1, 1, 1, 0, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1},
+			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 3, 3, 3, 3, 3, 3, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+			{1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 0, 3, 3, 3, 3, 3, 3, 0, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 			{0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0},
@@ -57,7 +58,7 @@ public class Maze implements Iterable<GameElement> {
 			{0, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 0},
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
-			{0, 1, 1, 1, 0, 0, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 0, 0, 1, 1, 1, 0},
+			{0, 4, 1, 1, 0, 0, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 0, 0, 1, 1, 4, 0},
 			{0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0},
 			{0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0},
 			{0, 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 2, 1, 1, 0},
@@ -127,8 +128,8 @@ public class Maze implements Iterable<GameElement> {
 
 	public boolean validTile(Vector2 pos) {
 		Dark dark = new Dark(new Vector2(0, 0), this._world);
-		Gom gom = new Gom(new Vector2(0, 0), this._world);
-		SuperGom superGom = new SuperGom(new Vector2(0, 0), this._world);
+        Gom gom = new Gom(new Vector2(0, 0), this._world);
+        SuperGom superGom = new SuperGom(new Vector2(0, 0), this._world);
 
 		GameElement ge;
 
@@ -140,7 +141,14 @@ public class Maze implements Iterable<GameElement> {
 	}
 
 	public void updateMaze(SpriteBatch batch, Pacman pacman, BitmapFont score) {
-		if (Util.currentDir != Util.NOWHERE) {
+	    if (!this.placeBarrier) {
+            this.placeBarrier = this._world.get_yellow().isSorti() && this._world.get_blue().isSorti() && this._world.get_pink().isSorti() && this._world.get_red().isSorti();
+            if (this.placeBarrier) {
+                this._laby2[12][14] = new Barrier(new Vector2(12, 14), this._world);
+                this._laby2[13][14] = new Barrier(new Vector2(13, 14), this._world);
+            }
+        }
+	    if (Util.currentDir != Util.NOWHERE) {
 			this._world.getPacman().updateAnimation();
 			// Après cet appel, les tiles des Entity seront mises à jour
 			this._world.moveEntities();
