@@ -20,6 +20,7 @@ public class TextureFactory {
         _textures.put(Gom.class, new Texture(Gdx.files.internal("pellet.png")));
         _textures.put(SuperGom.class, new Texture(Gdx.files.internal("superpellet.png")));
         _textures.put(Dark.class, new Texture(Gdx.files.internal("dark.png")));
+        _textures.put(Barrier.class, new Texture(Gdx.files.internal("fence.png")));
 
         _sprites = new HashMap<String, Texture>();
         _sprites.put("ghost1", new Texture(Gdx.files.internal("ghost1.png")));
