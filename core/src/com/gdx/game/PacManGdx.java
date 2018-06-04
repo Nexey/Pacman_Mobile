@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.gdx.game.view.Screens.GameOverScreen;
 import com.gdx.game.view.Screens.GameScreen;
 import com.gdx.game.view.Screens.MenuScreen;
 import com.gdx.game.view.Screens.SettingsScreen;
@@ -39,6 +40,11 @@ public class PacManGdx extends Game {
 	public void gotoGameScreen(){
 		GameScreen gameScreen = new GameScreen(this);
 		setScreen(gameScreen);
+	}
+
+	public void gotoGameOverScreen(){
+		GameOverScreen gameOverScreen = new GameOverScreen(this);
+		setScreen(gameOverScreen);
 	}
 
 	@Override

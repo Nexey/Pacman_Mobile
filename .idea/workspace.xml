@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a5a329-7825-49d9-8626-5be099544df5" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/core/assets/retry_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -64,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MenuScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="299">
+              <caret line="71" column="30" lean-forward="true" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,11 +80,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsScreen.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SettingsScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+            <state relative-caret-position="278">
+              <caret line="41" column="81" lean-forward="true" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3578#3828#0" expanded="true" />
+                <element signature="e#3827#3828#0" expanded="true" />
+                <element signature="e#3851#4102#0" expanded="true" />
+                <element signature="e#4101#4102#0" expanded="true" />
+                <element signature="e#4141#4387#0" expanded="true" />
+                <element signature="e#4386#4387#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameOverScreen.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1131">
+              <caret line="99" column="25" lean-forward="true" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -145,8 +167,8 @@
       <file leaf-file-name="PacManGdx.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+            <state relative-caret-position="428">
+              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,11 +208,15 @@
       <find>aGauche</find>
       <find>setCurrent</find>
       <find>score[1]</find>
+      <find>_quit</find>
+      <find>_play</find>
     </findStrings>
     <replaceStrings>
       <replace>laby</replace>
       <replace>Y</replace>
       <replace>effective</replace>
+      <replace>_slide</replace>
+      <replace>_retry</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -902,7 +928,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/GameElement.java" />
@@ -945,14 +970,15 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/GameScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GifDecoder.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java" />
       </list>
     </option>
   </component>
@@ -1190,7 +1216,7 @@
       <workItem from="1528005878179" duration="8103000" />
       <workItem from="1528022046378" duration="12111000" />
       <workItem from="1528055247216" duration="3478000" />
-      <workItem from="1528092627976" duration="294000" />
+      <workItem from="1528092627976" duration="1522000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1304,11 +1330,25 @@
       <option name="project" value="LOCAL" />
       <updated>1528061942066</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="SettingsScreen fonctionnel avec bons boutons">
+      <created>1528093120939</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1528093120939</updated>
+    </task>
+    <task id="LOCAL-00018" summary="SettingsScreen fonctionnel avec bons boutons">
+      <created>1528093146354</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1528093146354</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153592000" />
+    <option name="totallyTimeSpent" value="154820000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1320,11 +1360,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32894737" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -1332,7 +1373,7 @@
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32730263" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49394855" weight="0.21814255" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49394855" visible="true" weight="0.21814255" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32894737" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -1345,7 +1386,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4742814" weight="0.27213824" />
-      <window_info active="true" anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" visible="true" weight="0.325054" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="12" weight="0.32894737" />
@@ -1404,7 +1444,8 @@
     <MESSAGE value="Menu avec bouttons bien avancé" />
     <MESSAGE value="Menu avec boutons, début popup settings" />
     <MESSAGE value="SettingsScreen fonctionnel, juste il faut que je change les boutons" />
-    <option name="LAST_COMMIT_MESSAGE" value="SettingsScreen fonctionnel, juste il faut que je change les boutons" />
+    <MESSAGE value="SettingsScreen fonctionnel avec bons boutons" />
+    <option name="LAST_COMMIT_MESSAGE" value="SettingsScreen fonctionnel avec bons boutons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1437,7 +1478,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/utilities/Util.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/DiagonalDirections.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/entities/Entity.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/controller/deplacements/deplacement.java" />
@@ -1758,16 +1798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1778,20 +1808,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="278">
+          <caret line="41" column="81" lean-forward="true" selection-start-line="41" selection-start-column="81" selection-end-line="41" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3578#3828#0" expanded="true" />
+            <element signature="e#3827#3828#0" expanded="true" />
+            <element signature="e#3851#4102#0" expanded="true" />
+            <element signature="e#4101#4102#0" expanded="true" />
+            <element signature="e#4141#4387#0" expanded="true" />
+            <element signature="e#4386#4387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+        <state relative-caret-position="1131">
+          <caret line="99" column="25" lean-forward="true" selection-start-line="99" selection-start-column="25" selection-end-line="99" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/MenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="71" column="30" lean-forward="true" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

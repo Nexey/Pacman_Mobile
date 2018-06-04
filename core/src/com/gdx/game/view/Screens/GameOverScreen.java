@@ -20,43 +20,43 @@ import com.gdx.game.PacManGdx;
 
 import java.awt.*;
 
-public class MenuScreen implements Screen {
+public class GameOverScreen implements Screen {
 
     private final PacManGdx game;
     private Stage stage;
     private Animation<TextureRegion> animation;
     private float elapsed;
-    private Texture Texturebutton_play, Texturebutton_quit, Texturebutton_settings;
-    private TextureRegion TextureRegionButton_play, TextureRegionButton_quit, TextureRegionButton_settings;
-    private TextureRegionDrawable TexRegionDrawableButton_play, TexRegionDrawableButton_quit, TexRegionDrawableButton_settings;
-    private ImageButton button_play, button_quit, button_settings;
+    private Texture Texturebutton_retry, Texturebutton_quit, Texturebutton_settings;
+    private TextureRegion TextureRegionButton_retry, TextureRegionButton_quit, TextureRegionButton_settings;
+    private TextureRegionDrawable TexRegionDrawableButton_retry, TexRegionDrawableButton_quit, TexRegionDrawableButton_settings;
+    private ImageButton button_retry, button_quit, button_settings;
 
-    public MenuScreen(final PacManGdx game){
+    public GameOverScreen(final PacManGdx game){
         this.game = game;
         stage = new Stage(game.screenPort);
         Gdx.input.setInputProcessor(stage);
-        Texturebutton_play = new Texture(Gdx.files.internal("play_button.png"));
+        Texturebutton_retry = new Texture(Gdx.files.internal("retry_button.png"));
         Texturebutton_quit = new Texture(Gdx.files.internal("quit_button.png"));
         Texturebutton_settings = new Texture(Gdx.files.internal("settings.png"));
-        TextureRegionButton_play = new TextureRegion(Texturebutton_play);
+        TextureRegionButton_retry = new TextureRegion(Texturebutton_retry);
         TextureRegionButton_quit = new TextureRegion(Texturebutton_quit);
         TextureRegionButton_settings = new TextureRegion(Texturebutton_settings);
-        TexRegionDrawableButton_play = new TextureRegionDrawable(TextureRegionButton_play);
+        TexRegionDrawableButton_retry = new TextureRegionDrawable(TextureRegionButton_retry);
         TexRegionDrawableButton_quit = new TextureRegionDrawable(TextureRegionButton_quit);
         TexRegionDrawableButton_settings = new TextureRegionDrawable(TextureRegionButton_settings);
-        button_play = new ImageButton(TexRegionDrawableButton_play);
+        button_retry = new ImageButton(TexRegionDrawableButton_retry);
         button_quit = new ImageButton(TexRegionDrawableButton_quit);
         button_settings = new ImageButton(TexRegionDrawableButton_settings);
         float screenWidth = Gdx.graphics.getWidth()/10, screenHeight = Gdx.graphics.getHeight()/10;
-        button_play.setPosition( screenWidth,  5*screenHeight);
+        button_retry.setPosition( screenWidth,  5*screenHeight);
         button_quit.setPosition( screenWidth*5.75f,  5*screenHeight);
         button_settings.setPosition( (screenWidth*10)-64,  (10*screenHeight)-64);
-        stage.addActor(button_play);
+        stage.addActor(button_retry);
         stage.addActor(button_quit);
         stage.addActor(button_settings);
         animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("pacman.gif").read());
 
-        button_play.addListener(new InputListener(){
+        button_retry.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
@@ -69,9 +69,8 @@ public class MenuScreen implements Screen {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
-               Gdx.app.exit();
-                //game.gotoGameOverScreen();
-               return false;
+                Gdx.app.exit();
+                return false;
             }
         });
         button_settings.addListener(new InputListener(){
@@ -126,3 +125,4 @@ public class MenuScreen implements Screen {
         stage.dispose();
     }
 }
+
