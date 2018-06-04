@@ -32,7 +32,7 @@ public class World implements Iterable<GameElement> {
         this.listEntity.add(this._pacman);
         //this.listEntity.add(this._red);
         //this.listEntity.add(this._pink);
-        //this.listEntity.add(this._blue);
+        this.listEntity.add(this._blue);
         //this.listEntity.add(this._yellow);
         this._maze = new Maze(this);
 

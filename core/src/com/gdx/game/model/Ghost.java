@@ -49,24 +49,21 @@ public class Ghost extends Entity {
             if (elapsedTime > 10000)
                 this.state = 0;
         }
+        else if (powerUp) {
+            // Mise à jour de l'état du fantome
+            if (this.state == 0) this.state = 1;
 
-        if (this._world.getPacman().getPosition().equals(this.getPosition())) {
-            // Si le fantôme touche le pacman alors qu'il recherche à s'échapper il meurt
-            if (powerUp && state == 1)
-                // Cette condition vérifie que le Ghost n'est pas déjà mort, auquel cas il ne faut pas remettre
-                // son état à mort
-                if (this.state != 2) {
+            // Maintenant il se peut que le fantôme soit sur la case du pacman, il doit mourir s'il n'est pas encore mort
+            if (this.state != 2) {
+                if (this._world.getPacman().newPosition.equals(this.newPosition)) {
                     this.startDeathTime = TimeUtils.millis();
                     this.state = 2;
                 }
+            }
         }
-        else {
-            if (powerUp) {
-                if (this.state == 0) {
-                    this.state = 1;
-                }
-            } else if (this.state == 1) this.state = 0;
-        }
+        // Il n'y a pas de pouvoir, je vérifie que l'état est bien remis à 0 s'il n'est pas actuellement mort
+        else if (this.state!=2)
+            this.state = 0;
         return TextureFactory.getInstance().getTexture(this.listState.get(state));
     }
 

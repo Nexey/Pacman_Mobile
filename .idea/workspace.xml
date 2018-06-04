@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a5a329-7825-49d9-8626-5be099544df5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
       <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -112,7 +110,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pacman.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pacman.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
@@ -130,17 +128,37 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="182">
+              <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
               <folding>
-                <element signature="e#1862#1863#0" expanded="true" />
-                <element signature="e#1903#1904#0" expanded="true" />
-                <element signature="e#1932#1933#0" expanded="true" />
-                <element signature="e#1960#1961#0" expanded="true" />
-                <element signature="e#1993#1994#0" expanded="true" />
-                <element signature="e#2023#2024#0" expanded="true" />
-                <element signature="e#2270#2271#0" expanded="true" />
-                <element signature="e#2316#2317#0" expanded="true" />
+                <element signature="e#1860#1861#0" expanded="true" />
+                <element signature="e#1901#1902#0" expanded="true" />
+                <element signature="e#1930#1931#0" expanded="true" />
+                <element signature="e#1958#1959#0" expanded="true" />
+                <element signature="e#1991#1992#0" expanded="true" />
+                <element signature="e#2021#2022#0" expanded="true" />
+                <element signature="e#2268#2269#0" expanded="true" />
+                <element signature="e#2314#2315#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ghost.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2454#2455#0" expanded="true" />
+                <element signature="e#2480#2481#0" expanded="true" />
+                <element signature="e#2515#2516#0" expanded="true" />
+                <element signature="e#2545#2546#0" expanded="true" />
+                <element signature="e#2577#2578#0" expanded="true" />
+                <element signature="e#2605#2606#0" expanded="true" />
+                <element signature="e#5111#5112#0" expanded="true" />
+                <element signature="e#5139#5140#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -946,11 +964,11 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/TextureFactory.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
       </list>
     </option>
   </component>
@@ -1194,7 +1212,7 @@
       <workItem from="1528005878179" duration="8103000" />
       <workItem from="1528022046378" duration="17464000" />
       <workItem from="1528041070519" duration="8824000" />
-      <workItem from="1528107162542" duration="10900000" />
+      <workItem from="1528107162542" duration="11757000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1291,7 +1309,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160981000" />
+    <option name="totallyTimeSpent" value="161838000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1713,24 +1731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="93" column="24" lean-forward="false" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2500#2501#0" expanded="true" />
-            <element signature="e#2526#2527#0" expanded="true" />
-            <element signature="e#2561#2562#0" expanded="true" />
-            <element signature="e#2591#2592#0" expanded="true" />
-            <element signature="e#2623#2624#0" expanded="true" />
-            <element signature="e#2651#2652#0" expanded="true" />
-            <element signature="e#5157#5158#0" expanded="true" />
-            <element signature="e#5185#5186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -1762,23 +1762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1903#1904#0" expanded="true" />
-            <element signature="e#1932#1933#0" expanded="true" />
-            <element signature="e#1960#1961#0" expanded="true" />
-            <element signature="e#1993#1994#0" expanded="true" />
-            <element signature="e#2023#2024#0" expanded="true" />
-            <element signature="e#2270#2271#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -1788,6 +1771,41 @@
             <element signature="e#1057#1058#0" expanded="true" />
             <element signature="e#2904#2905#0" expanded="true" />
             <element signature="e#2932#2933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding>
+            <element signature="e#1860#1861#0" expanded="true" />
+            <element signature="e#1901#1902#0" expanded="true" />
+            <element signature="e#1930#1931#0" expanded="true" />
+            <element signature="e#1958#1959#0" expanded="true" />
+            <element signature="e#1991#1992#0" expanded="true" />
+            <element signature="e#2021#2022#0" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+            <element signature="e#2314#2315#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="50" column="9" lean-forward="true" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2454#2455#0" expanded="true" />
+            <element signature="e#2480#2481#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2545#2546#0" expanded="true" />
+            <element signature="e#2577#2578#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+            <element signature="e#5111#5112#0" expanded="true" />
+            <element signature="e#5139#5140#0" expanded="true" />
           </folding>
         </state>
       </provider>
