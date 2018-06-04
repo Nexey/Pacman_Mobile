@@ -21,7 +21,7 @@ public abstract class Entity extends GameElement {
     // alpha va varier entre 0 et 1. 0 : doit bouger, 0.5 est à la moitié du mouvement, 1 ne doit pas bouger
     public float alpha;
     public Vector2 newPosition;
-    public final float velocity = 0.0625f;
+    public float velocity = 0.075f;
 
     public Entity(Vector2 pos, World world) {
         super(pos, world);

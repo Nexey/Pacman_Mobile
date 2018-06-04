@@ -72,8 +72,10 @@ public class Ghost extends Entity {
         // 2 cas : Game Over ou le Ghost est mort pendant un certain temps
         if (state == DEAD) {
             long elapsedTime = TimeUtils.timeSinceMillis(startDeathTime);
-            if (elapsedTime > 10000)
+            if (elapsedTime > 10000) {
+                this.velocity = 0.075f;
                 this.state = ALIVE;
+            }
         }
         else if (powerUp) {
             // Mise à jour de l'état du fantome
@@ -84,6 +86,7 @@ public class Ghost extends Entity {
                 if (this._world.getPacman().newPosition.equals(this.newPosition)) {
                     this.startDeathTime = TimeUtils.millis();
                     this.state = DEAD;
+                    this.velocity = 0.1f;
                 }
             }
         }
