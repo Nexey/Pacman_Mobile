@@ -61,7 +61,7 @@ public class Ghost extends Entity {
                 currentAnim = this.listState.get(ESCAPING);
                 break;
             case DEAD:
-                currentAnim = this.listState.get(DEAD);
+                currentAnim = this.listState.get(DEAD) + this.directions[dir];
                 break;
         }
     }
@@ -206,7 +206,11 @@ public class Ghost extends Entity {
             default:
                 break;
         }
-
+        if (hasMoved) {
+            this.getSprite().setPosition(this.getPosition().x, this.getPosition().y);
+            if (this.getSprite().getBoundingRectangle().overlaps(this._world.getPacman().getSprite().getBoundingRectangle()))
+                System.out.println("Game Over");
+        }
         return hasMoved;
     }
 

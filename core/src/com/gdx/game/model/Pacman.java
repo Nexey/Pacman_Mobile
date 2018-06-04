@@ -66,6 +66,7 @@ public class Pacman extends Entity {
             // retienne son ancienne position pour lui recoller sa tile une fois le déplacement entamé
             Vector2 oldPos = new Vector2(this.getPosition());
             if (updateCoords(Util.currentDir)) {
+                this.getSprite().setPosition(this.getPosition().x, this.getPosition().y);
                 this._world.set(oldPos, this.retrieveTile());
 
                 // Il y a eu un déplacement, on mets à jour la tile

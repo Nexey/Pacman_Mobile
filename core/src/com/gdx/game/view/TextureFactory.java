@@ -13,10 +13,10 @@ public class TextureFactory {
     private HashMap<String, Sprite> _sprites;
     private HashMap<Integer, String> _directions;
     private HashMap<Integer, String> _directionStep;
-    private String pacman;
-    private String ghost;
 
     private TextureFactory() {
+        String pacman, ghost, ghostDead;
+
         _textures = new HashMap<Class<?>, Texture>();
         _textures.put(Block.class, new Texture(Gdx.files.internal("bloc.png")));
         _textures.put(Gom.class, new Texture(Gdx.files.internal("pellet.png")));
@@ -25,7 +25,6 @@ public class TextureFactory {
         _textures.put(Fence.class, new Texture(Gdx.files.internal("fence.png")));
 
         _sprites = new HashMap<String, Sprite>();
-        _sprites.put("ghostDead", new Sprite(new Texture(Gdx.files.internal("ghostDead.png"))));
         _sprites.put("ghostEscaping", new Sprite(new Texture(Gdx.files.internal("ghostEscaping.png"))));
 
         _directions = new HashMap<Integer, String>();
@@ -52,7 +51,13 @@ public class TextureFactory {
                 path = ghost + i + _directions.get(j);
                 _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
             }
-            System.out.println("oui");
+
+        ghostDead = ghost + "Dead";
+        for (int i = 0; i < _directions.size(); i++) {
+            path = ghostDead + _directions.get(i);
+            _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
+        }
+        System.out.println("oui");
     }
 
     private static TextureFactory instance = null;
