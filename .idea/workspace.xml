@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a5a329-7825-49d9-8626-5be099544df5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/controller/utilities/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/controller/utilities/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -78,14 +66,8 @@
       <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-              <folding>
-                <element signature="e#1448#1449#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1688#1689#0" expanded="true" />
-                <element signature="e#1727#1728#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="989">
+              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -93,7 +75,7 @@
       <file leaf-file-name="SettingsScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
+            <state relative-caret-position="1426">
               <caret line="68" column="59" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
             </state>
           </provider>
@@ -102,14 +84,10 @@
       <file leaf-file-name="PacManGdx.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="46" column="65" lean-forward="true" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+            <state relative-caret-position="1058">
+              <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1410#1411#0" expanded="true" />
-                <element signature="e#1431#1432#0" expanded="true" />
-                <element signature="e#1469#1470#0" expanded="true" />
-                <element signature="e#1491#1492#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,10 +98,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
               <caret line="10" column="99" selection-start-line="10" selection-start-column="99" selection-end-line="10" selection-end-column="99" />
-              <folding>
-                <element signature="e#432#678#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +105,7 @@
       <file leaf-file-name="WorldRenderer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2703">
+            <state relative-caret-position="3059">
               <caret line="152" selection-start-line="152" selection-end-line="152" />
             </state>
           </provider>
@@ -140,7 +114,7 @@
       <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-644">
+            <state relative-caret-position="460">
               <caret line="23" column="34" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="34" />
               <folding>
                 <element signature="e#1165#1166#0" expanded="true" />
@@ -163,7 +137,7 @@
       <file leaf-file-name="Pacman.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
+            <state relative-caret-position="828">
               <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
               <folding>
                 <element signature="e#1005#1006#0" expanded="true" />
@@ -176,8 +150,8 @@
       <file leaf-file-name="Ghost.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="315" column="24" lean-forward="true" selection-start-line="315" selection-start-column="24" selection-end-line="315" selection-end-column="24" />
+            <state relative-caret-position="216">
+              <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
               <folding>
                 <element signature="e#1742#1743#0" expanded="true" />
                 <element signature="e#1772#1773#0" expanded="true" />
@@ -195,22 +169,8 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-389">
-              <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-              <folding>
-                <element signature="e#1389#1390#0" expanded="true" />
-                <element signature="e#1434#1435#0" expanded="true" />
-                <element signature="e#1463#1464#0" expanded="true" />
-                <element signature="e#1507#1508#0" expanded="true" />
-                <element signature="e#1895#1896#0" expanded="true" />
-                <element signature="e#1936#1937#0" expanded="true" />
-                <element signature="e#1965#1966#0" expanded="true" />
-                <element signature="e#1993#1994#0" expanded="true" />
-                <element signature="e#2026#2027#0" expanded="true" />
-                <element signature="e#2056#2057#0" expanded="true" />
-                <element signature="e#2303#2304#0" expanded="true" />
-                <element signature="e#2349#2350#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1288">
+              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -856,7 +816,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="10696224266380" />
+        <entry key="$PROJECT_DIR$" value="10696321432380" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="2901883173" />
         <entry key="$PROJECT_DIR$/core/build.gradle" value="2971590108" />
@@ -1132,6 +1092,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1217,7 +1178,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
@@ -1243,12 +1203,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules/Pacman_Mobile.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules/core/core.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules/desktop/desktop.iml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/com/gdx/game/model/World.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/core/src/com/gdx/game/view/TextureFactory.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -1256,6 +1216,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/.name</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/modules/Pacman.iml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1439,6 +1401,7 @@
       <workItem from="1528041070519" duration="8824000" />
       <workItem from="1528107162542" duration="15803000" />
       <workItem from="1528129063732" duration="15031000" />
+      <workItem from="1528146156012" duration="519000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1535,7 +1498,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180915000" />
+    <option name="totallyTimeSpent" value="181434000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1552,7 +1515,6 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32894737" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -1560,7 +1522,7 @@
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32730263" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.48385417" visible="true" weight="0.21814255" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48385417" weight="0.21814255" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32894737" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -1573,6 +1535,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4742814" weight="0.27302632" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="12" weight="0.32894737" />
@@ -1857,9 +1820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
           <caret line="31" column="86" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1867,10 +1827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="81" column="16" lean-forward="true" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
-          <folding>
-            <element signature="e#1795#1796#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1885,10 +1841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
-          <folding>
-            <element signature="e#5987#5988#0" expanded="true" />
-            <element signature="e#6017#6018#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1903,10 +1855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-552">
           <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="e#2487#2488#0" expanded="true" />
-            <element signature="e#2554#2555#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1946,9 +1894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#1522#1523#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1961,21 +1906,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
+        <state relative-caret-position="1426">
           <caret line="68" column="59" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="46" column="65" lean-forward="true" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
+        <state relative-caret-position="1058">
+          <caret line="46" column="65" selection-start-line="46" selection-start-column="65" selection-end-line="46" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
-            <element signature="e#1431#1432#0" expanded="true" />
-            <element signature="e#1469#1470#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1984,29 +1925,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="10" column="99" selection-start-line="10" selection-start-column="99" selection-end-line="10" selection-end-column="99" />
-          <folding>
-            <element signature="e#432#678#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
-          <folding>
-            <element signature="e#1448#1449#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1688#1689#0" expanded="true" />
-            <element signature="e#1727#1728#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="989">
+          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
+        <state relative-caret-position="828">
           <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding>
             <element signature="e#1005#1006#0" expanded="true" />
@@ -2017,7 +1948,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-644">
+        <state relative-caret-position="460">
           <caret line="23" column="34" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="34" />
           <folding>
             <element signature="e#1165#1166#0" expanded="true" />
@@ -2038,36 +1969,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2703">
+        <state relative-caret-position="3059">
           <caret line="152" selection-start-line="152" selection-end-line="152" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-          <folding>
-            <element signature="e#1389#1390#0" expanded="true" />
-            <element signature="e#1434#1435#0" expanded="true" />
-            <element signature="e#1463#1464#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-            <element signature="e#1895#1896#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
-            <element signature="e#1965#1966#0" expanded="true" />
-            <element signature="e#1993#1994#0" expanded="true" />
-            <element signature="e#2026#2027#0" expanded="true" />
-            <element signature="e#2056#2057#0" expanded="true" />
-            <element signature="e#2303#2304#0" expanded="true" />
-            <element signature="e#2349#2350#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1288">
+          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="315" column="24" lean-forward="true" selection-start-line="315" selection-start-column="24" selection-end-line="315" selection-end-column="24" />
+        <state relative-caret-position="216">
+          <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
           <folding>
             <element signature="e#1742#1743#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />
