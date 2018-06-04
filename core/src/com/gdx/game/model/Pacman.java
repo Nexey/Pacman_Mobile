@@ -27,10 +27,12 @@ public class Pacman extends Entity {
         startAnimTime = TimeUtils.millis();
         startPowerUpTime = TimeUtils.millis();
         this.powerUp = false;
+
         this.directions[0] = "Up";
         this.directions[1] = "Left";
         this.directions[2] = "Down";
         this.directions[3] = "Right";
+        this.velocity = 0.4f;
     }
 
     @Override

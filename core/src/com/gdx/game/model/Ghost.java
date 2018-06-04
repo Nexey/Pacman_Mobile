@@ -41,6 +41,7 @@ public class Ghost extends Entity {
         this.dep = dep;
         sorti = false;
         this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
+        this.listValidTiles.add(new Pacman(new Vector2(0, 0), this._world));
         state = 0;
         listState = new HashMap<Integer, String>();
         listState.put(0, "ghost" + this.color);
@@ -55,8 +56,7 @@ public class Ghost extends Entity {
         this.directions[2] = "Right";
     }
 
-    public void setDep(int dep)
-    {
+    public void setDep(int dep) {
         this.dep = dep;
     }
 
@@ -70,7 +70,7 @@ public class Ghost extends Entity {
     }
 
     public void updateAnimation() {
-        switch(state) {
+        switch (state) {
             case ALIVE:
                 currentAnim = this.listState.get(ALIVE) + this.directions[dir];
                 break;
@@ -93,8 +93,7 @@ public class Ghost extends Entity {
                 this.velocity = 0.075f;
                 this.state = ALIVE;
             }
-        }
-        else if (powerUp) {
+        } else if (powerUp) {
             // Mise à jour de l'état du fantome
             if (this.state == ALIVE) this.state = ESCAPING;
 
@@ -107,21 +106,18 @@ public class Ghost extends Entity {
                 }
             }
         }
-
-            if((this._world.getPacman().newPosition != null) && (this.newPosition != null))
-            {
-                if (this.state == ALIVE)
-                {
-                    if (this._world.getPacman().newPosition.equals(this.newPosition))
-                    {
-                        Util.GameOver = true;
-                    }
-                }
-
-        }
         // Il n'y a pas de pouvoir, je vérifie que l'état est bien remis à 0 s'il n'est pas actuellement mort
         else if (this.state == ESCAPING)
             this.state = ALIVE;
+
+        if ((this._world.getPacman().newPosition != null) && (this.newPosition != null)) {
+            if (this.state == ALIVE) {
+                if (this._world.getPacman().newPosition.equals(this.newPosition)) {
+                    Util.GameOver = true;
+                }
+            }
+
+        }
     }
 
     @Override
@@ -153,7 +149,7 @@ public class Ghost extends Entity {
     public boolean move() {
         if (alpha == 1) {
             if (this._world.listMovingEntities.contains(this))
-               this._world.listMovingEntities.remove(this);
+                this._world.listMovingEntities.remove(this);
             Vector2 oldPos = new Vector2(this.getPosition());
         /*if (this.getPosition().equals(this._world.getPacman().getPosition())) {
             if (this._world.getPacman().getPowerUp())
@@ -164,16 +160,14 @@ public class Ghost extends Entity {
 
             }
         }*/
-        if(this.state == ESCAPING || this.state == DEAD)
-        {
-            if(!fuite())
-                return true;
-            else
-            {
-                setSorti(false);
-                return sortez();
+            if (this.state == ESCAPING || this.state == DEAD) {
+                if (!fuite())
+                    return true;
+                else {
+                    setSorti(false);
+                    return sortez();
+                }
             }
-        }
 
             switch (dep) {
                 case 0:
@@ -222,18 +216,18 @@ public class Ghost extends Entity {
     }
 
     protected boolean updateCoords(int dir) {
-        switch(dir) {
+        switch (dir) {
             case Util.UPG:
-                if(enHaut())
+                if (enHaut())
                     return true;
             case Util.LEFTG:
-                if(aGauche())
+                if (aGauche())
                     return true;
             case Util.DOWNG:
-                if(enBas())
+                if (enBas())
                     return true;
             case Util.RIGHTG:
-                if(aDroite())
+                if (aDroite())
                     return true;
             default:
                 break;
@@ -241,141 +235,110 @@ public class Ghost extends Entity {
         return false;
     }
 
-    private boolean deplacementGhost1 ()
-    {
-        if(isSorti())
-        {
-            do
-            {
+    private boolean deplacementGhost1() {
+        if (isSorti()) {
+            do {
                 dir = diceFour.getFace();
             } while (!updateCoords(dir));
             return true;
-        }
-        else
+        } else
             return sortez();
     }
 
-    private boolean deplacementGhost2 (Vector2 pos)
-    {
+    private boolean deplacementGhost2(Vector2 pos) {
         //System.out.println(this.getDir());
         //System.out.println(this.getWorld().getMaze().validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1)));
         //System.out.println(this._world.getMaze().getCase(this.getPosition()));
         //if(this._world.getMaze().getCase(this.getPosition()) == 2)
-        if(isSorti())
-        {
+        if (isSorti()) {
             //Vector2 posPacman = new Vector2(pacman.getPosition());
             //System.out.println("X ghost : "+this.getPosition().x+" Y ghost : "+this.getPosition().y);
             //System.out.println("X pacman : "+posPacman.x+" Y pacman : "+posPacman.y);
-            if(goDir(pos))
+            if (goDir(pos))
                 return true;
-            else
-            {
+            else {
                 return deplacementGhost1();
             }
-        }
-        else
-        {
+        } else {
             return sortez();
         }
     }
 
-    private boolean deplacementGhost3 (Vector2 pos)
-    {
+    private boolean deplacementGhost3(Vector2 pos) {
         if (diceTwo.getFace() == 0)
             return deplacementGhost1();
         else
             return deplacementGhost2(pos);
     }
 
-    private boolean deplacementGhost4 (Vector2 pos)
-    {
+    private boolean deplacementGhost4(Vector2 pos) {
         setSorti(true);
         return false;
     }
 
-    private boolean sortez()
-    {
+    private boolean sortez() {
         Vector2 pos = new Vector2(11, 14);
-        if(goDir(pos))
-        {
-            if(getPosition().equals(pos))
+        if (goDir(pos)) {
+            if (getPosition().equals(pos))
                 setSorti(true);
             return true;
         }
-        if(getPosition().equals(pos))
+        if (getPosition().equals(pos))
             setSorti(true);
         return true;
     }
 
-    private boolean fuite()
-    {
+    private boolean fuite() {
         Vector2 oldPos = new Vector2(this.getPosition());
         Fence fence = new Fence(new Vector2(0, 0), this._world);
         if (this.listValidTiles.contains(fence))
             this.listValidTiles.add(fence);
-        if(goDir(originPos))
-        {
+        if (goDir(originPos)) {
             this._world.set(new Vector2(oldPos), this.retrieveTile());
             return true;
-        }
-        else
+        } else
             return false;
     }
 
-    private String showDir()
-    {
-        switch(dir) {
+    private String showDir() {
+        switch (dir) {
             case Util.UPG:
-                    return "Haut";
+                return "Haut";
             case Util.LEFTG:
                 if (aGauche())
                     return "Gauche";
             case Util.DOWNG:
-                    return "Bas";
+                return "Bas";
             case Util.RIGHTG:
-                    return "Droite";
+                return "Droite";
             default:
                 break;
         }
         return dir + " ?? No Direction !!!";
     }
 
-    private boolean goDir(Vector2 pos)
-    {
-        if(this.getPosition() == pos)
-            return true;
-        if(this.getPosition().y > pos.y)
-        {
-            if(updateCoords(Util.DOWNG))
-            {
-                this.setDir(Util.DOWNG);
-                return true;
-            }
+
+    private boolean goDir(Vector2 pos) {
+        if (this.getPosition().x > pos.x) {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.LEFTG);
+            if (updateCoords(this.dir)) return true;
         }
-        if(this.getPosition().y < pos.y)
-        {
-            if(updateCoords(Util.UPG))
-            {
-                this.setDir(Util.UPG);
-                return true;
-            }
+        if (this.getPosition().x < pos.x) {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.RIGHTG);
+            if (updateCoords(this.dir)) return true;
         }
-        if(this.getPosition().x > pos.x) {
-            if(updateCoords(Util.LEFTG))
-            {
-                this.setDir(Util.LEFTG);
-                return true;
-            }
+        if (this.getPosition().y > pos.y) {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.DOWNG);
+            if (updateCoords(this.dir)) return true;
         }
-        if(this.getPosition().x < pos.x)
-        {
-            if(updateCoords(Util.RIGHTG))
-            {
-                this.setDir(Util.RIGHTG);
-                return true;
-            }
+        if (this.getPosition().y < pos.y) {
+            //System.out.println("F2 : "+showDir());
+            this.setDir(Util.UPG);
+            if (updateCoords(this.dir)) return true;
         }
-        if(updateCoords(this.dir)) return true;
         return false;
     }
 }
