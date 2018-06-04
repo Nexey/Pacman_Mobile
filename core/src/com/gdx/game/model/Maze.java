@@ -16,10 +16,10 @@ public class Maze implements Iterable<GameElement> {
 	private World _world;
 	private /*final*/ int _width;
 	private /*final*/ int _height;
-    GlyphLayout layout;
-    private boolean placeBarrier;
 
-	private Texture listText[] = {
+	//
+
+	public Texture listText[] = {
 			TextureFactory.getInstance().getTexture(Block.class),
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
@@ -27,8 +27,7 @@ public class Maze implements Iterable<GameElement> {
             TextureFactory.getInstance().getTexture(Fence.class)
 	};
 
-	private final int _textWidth = 16;
-	private final int _textHeight = 16;
+	//
 
 	/* 0 : mur, 1 : gomme, 2 : intersection, 3 : barrières fantomes, 4 : super gomme, 5 : vide */
 	private int[][] _laby1 = new int[][] {
@@ -65,12 +64,11 @@ public class Maze implements Iterable<GameElement> {
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	};
 
-	private GameElement[][] _laby2;
-    private SpriteBatch batch;
-    private BitmapFont score;
+	public GameElement[][] _laby2;
+	public SpriteBatch batch;
+	public BitmapFont score;
 
     Maze(World w) {
-        layout = new GlyphLayout();
 		_world = w;
 		this.init();
 		w.setMaze(this);
@@ -120,6 +118,7 @@ public class Maze implements Iterable<GameElement> {
 		return _world;
 	}
 
+	/*
 	public void updateMaze(SpriteBatch batch, BitmapFont score) {
 	    if (Util.currentDir != Util.NOWHERE) {
 			this._world.getPacman().updateAnimation();
@@ -215,7 +214,7 @@ public class Maze implements Iterable<GameElement> {
 						false
 				);
 		batch.end();
-	}
+	}*/
 
 	public void set(Vector2 pos, GameElement tile) {
 		this._laby2[(int)pos.x][(int)pos.y] = tile;

@@ -9,7 +9,6 @@ import com.gdx.game.view.Screens.GameOverScreen;
 import com.gdx.game.view.Screens.GameScreen;
 import com.gdx.game.view.Screens.MenuScreen;
 import com.gdx.game.view.Screens.SettingsScreen;
-//import com.gdx.game.view.Screens.SettingsScreen;
 
 public class PacManGdx extends Game {
 

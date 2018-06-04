@@ -59,7 +59,7 @@ public class World implements Iterable<GameElement> {
             }
     }
 
-    void set(Vector2 pos, GameElement tile) {
+    public void set(Vector2 pos, GameElement tile) {
         this._maze.set(pos, tile);
     }
 
