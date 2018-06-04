@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class TextureFactory {
     private HashMap<Class<?>, Texture> _textures;
-    private HashMap<String, Sprite> _sprites;
+    private HashMap<String, Texture> _sprites;
     private HashMap<Integer, String> _directions;
     private HashMap<Integer, String> _directionStep;
 
@@ -24,8 +24,8 @@ public class TextureFactory {
         _textures.put(Dark.class, new Texture(Gdx.files.internal("dark.png")));
         _textures.put(Fence.class, new Texture(Gdx.files.internal("fence.png")));
 
-        _sprites = new HashMap<String, Sprite>();
-        _sprites.put("ghostEscaping", new Sprite(new Texture(Gdx.files.internal("ghostEscaping.png"))));
+        _sprites = new HashMap<String, Texture>();
+        _sprites.put("ghostEscaping", new Texture(Gdx.files.internal("ghostEscaping.png")));
 
         _directions = new HashMap<Integer, String>();
         _directions.put(Util.LEFTG, "Left");
@@ -42,20 +42,20 @@ public class TextureFactory {
         for (int i = 0; i < _directionStep.size(); i++)
             for (int j = 0; j < _directions.size(); j++) {
                 path = pacman + _directions.get(j) + _directionStep.get(i);
-                _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
+                _sprites.put(path, new Texture(Gdx.files.internal(path + ".png")));
             }
 
         ghost = "ghost";
         for (int i = 1; i < 5; i++)
             for (int j = 0; j < _directions.size(); j++) {
                 path = ghost + i + _directions.get(j);
-                _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
+                _sprites.put(path, new Texture(Gdx.files.internal(path + ".png")));
             }
 
         ghostDead = ghost + "Dead";
         for (int i = 0; i < _directions.size(); i++) {
             path = ghostDead + _directions.get(i);
-            _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
+            _sprites.put(path, new Texture(Gdx.files.internal(path + ".png")));
         }
         System.out.println("oui");
     }
@@ -76,7 +76,7 @@ public class TextureFactory {
         return _textures.get(aClass);
     }
 
-    public Sprite getSprite(String spriteName) {
+    public Texture getSprite(String spriteName) {
         return _sprites.get(spriteName);
     }
 }

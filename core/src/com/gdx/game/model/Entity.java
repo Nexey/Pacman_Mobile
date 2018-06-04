@@ -32,9 +32,6 @@ public abstract class Entity extends GameElement {
         this.listValidTiles.add(new SuperGom(new Vector2(0, 0), this._world));
         this.alpha = 1;
     }
-
-    public abstract Sprite getSprite();
-
     public abstract void updateAnimation();
 
     @Override

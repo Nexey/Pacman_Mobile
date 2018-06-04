@@ -2,6 +2,7 @@ package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gdx.game.controller.utilities.DiceFour;
@@ -96,15 +97,10 @@ public class Ghost extends Entity {
     }
 
     @Override
-    public Sprite getSprite() {
+    public Texture getTexture() {
         this.updateState();
         this.updateAnimation();
         return TextureFactory.getInstance().getSprite(this.currentAnim);
-    }
-
-    @Override
-    public Texture getTexture() {
-        return getSprite().getTexture();
     }
 
     public int getDir() {
@@ -192,29 +188,20 @@ public class Ghost extends Entity {
         switch(dir) {
             case Util.UPG:
                 if(enHaut())
-                    hasMoved = true;
-                break;
+                    return true;
             case Util.LEFTG:
                 if(aGauche())
-                    hasMoved = true;
-                break;
+                    return true;
             case Util.DOWNG:
                 if(enBas())
-                    hasMoved = true;
-                break;
+                    return true;
             case Util.RIGHTG:
                 if(aDroite())
-                    hasMoved = true;
-                break;
+                    return true;
             default:
                 break;
         }
-        if (hasMoved) {
-            this.getSprite().setPosition(this.getPosition().x, this.getPosition().y);
-            if (this.getSprite().getBoundingRectangle().overlaps(this._world.getPacman().getSprite().getBoundingRectangle()))
-                System.out.println("Game Over");
-        }
-        return hasMoved;
+        return false;
     }
 
     private boolean deplacementGhost1 ()
