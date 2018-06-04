@@ -150,8 +150,8 @@
       <file leaf-file-name="Ghost.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+            <state relative-caret-position="198">
+              <caret line="315" column="24" selection-start-line="315" selection-start-column="24" selection-end-line="315" selection-end-column="24" />
               <folding>
                 <element signature="e#1742#1743#0" expanded="true" />
                 <element signature="e#1772#1773#0" expanded="true" />
@@ -169,8 +169,8 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1288">
-              <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+            <state relative-caret-position="345">
+              <caret line="29" column="74" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -1043,8 +1043,6 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
@@ -1054,6 +1052,8 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/PacManGdx.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
@@ -1401,7 +1401,7 @@
       <workItem from="1528041070519" duration="8824000" />
       <workItem from="1528107162542" duration="15803000" />
       <workItem from="1528129063732" duration="15031000" />
-      <workItem from="1528146156012" duration="519000" />
+      <workItem from="1528146156012" duration="1274000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1494,11 +1494,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528050027984</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Les fantomes sortent bien mais ne rentrent pas bien, certains restent bloqués">
+      <created>1528146925182</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1528146925182</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181434000" />
+    <option name="totallyTimeSpent" value="182189000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1515,6 +1522,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32894737" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -1522,7 +1530,7 @@
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32730263" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.48385417" weight="0.21814255" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.48385417" visible="true" weight="0.21814255" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32894737" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -1535,7 +1543,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4742814" weight="0.27302632" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="12" weight="0.32894737" />
@@ -1591,7 +1598,8 @@
     <MESSAGE value="Déplacement fantomes fonctionnels, ils sortent et effectuent ensuite leur recherche ou se déplacent aléatoirement" />
     <MESSAGE value="Premiers tests de déplacement fluide" />
     <MESSAGE value="Ca avance, mais pas comme il faut" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ca avance, mais pas comme il faut" />
+    <MESSAGE value="Les fantomes sortent bien mais ne rentrent pas bien, certains restent bloqués" />
+    <option name="LAST_COMMIT_MESSAGE" value="Les fantomes sortent bien mais ne rentrent pas bien, certains restent bloqués" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1976,15 +1984,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="70" column="5" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+        <state relative-caret-position="345">
+          <caret line="29" column="74" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+        <state relative-caret-position="198">
+          <caret line="315" column="24" selection-start-line="315" selection-start-column="24" selection-end-line="315" selection-end-column="24" />
           <folding>
             <element signature="e#1742#1743#0" expanded="true" />
             <element signature="e#1772#1773#0" expanded="true" />

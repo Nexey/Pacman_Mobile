@@ -307,12 +307,16 @@ public class Ghost extends Entity {
 
     private boolean fuite()
     {
+        Vector2 oldPos = new Vector2(this.getPosition());
         Vector2 maison = new Vector2(13, 13);
         this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
         if(goDir(maison))
-            return false;
-        else
+        {
+            this._world.set(new Vector2(oldPos), this.retrieveTile());
             return true;
+        }
+        else
+            return false;
     }
 
     private String showDir()
