@@ -26,10 +26,10 @@ public class SettingsScreen implements Screen
     private Animation<TextureRegion> animation;
     private float elapsed;
     private BitmapFont MethodUsed;
-    private Texture Texturebutton_play, Texturebutton_quit, Texturebutton_settings;
-    private TextureRegion TextureRegionButton_play, TextureRegionButton_quit, TextureRegionButton_settings;
-    private TextureRegionDrawable TexRegionDrawableButton_play, TexRegionDrawableButton_quit, TexRegionDrawableButton_settings;
-    private ImageButton button_play, button_quit, button_settings;
+    private Texture Texturebutton_touch, Texturebutton_slide, Texturebutton_settings;
+    private TextureRegion TextureRegionButton_touch, TextureRegionButton_slide, TextureRegionButton_settings;
+    private TextureRegionDrawable TexRegionDrawableButton_touch, TexRegionDrawableButton_slide, TexRegionDrawableButton_settings;
+    private ImageButton button_touch, button_slide, button_settings;
     private GlyphLayout layout;
     private String method, effective;
 
@@ -37,24 +37,24 @@ public class SettingsScreen implements Screen
         this.game = game;
         stage = new Stage(game.screenPort);
         Gdx.input.setInputProcessor(stage);
-        Texturebutton_play = new Texture(Gdx.files.internal("play_button.png"));
-        Texturebutton_quit = new Texture(Gdx.files.internal("quit_button.png"));
+        Texturebutton_touch = new Texture(Gdx.files.internal("touch_button.png"));
+        Texturebutton_slide = new Texture(Gdx.files.internal("slide_button.png"));
         Texturebutton_settings = new Texture(Gdx.files.internal("settings.png"));
-        TextureRegionButton_play = new TextureRegion(Texturebutton_play);
-        TextureRegionButton_quit = new TextureRegion(Texturebutton_quit);
+        TextureRegionButton_touch = new TextureRegion(Texturebutton_touch);
+        TextureRegionButton_slide = new TextureRegion(Texturebutton_slide);
         TextureRegionButton_settings = new TextureRegion(Texturebutton_settings);
-        TexRegionDrawableButton_play = new TextureRegionDrawable(TextureRegionButton_play);
-        TexRegionDrawableButton_quit = new TextureRegionDrawable(TextureRegionButton_quit);
+        TexRegionDrawableButton_touch = new TextureRegionDrawable(TextureRegionButton_touch);
+        TexRegionDrawableButton_slide = new TextureRegionDrawable(TextureRegionButton_slide);
         TexRegionDrawableButton_settings = new TextureRegionDrawable(TextureRegionButton_settings);
-        button_play = new ImageButton(TexRegionDrawableButton_play);
-        button_quit = new ImageButton(TexRegionDrawableButton_quit);
+        button_touch = new ImageButton(TexRegionDrawableButton_touch);
+        button_slide = new ImageButton(TexRegionDrawableButton_slide);
         button_settings = new ImageButton(TexRegionDrawableButton_settings);
         float screenWidth = Gdx.graphics.getWidth()/10, screenHeight = Gdx.graphics.getHeight()/10;
-        button_play.setPosition( screenWidth,  5*screenHeight);
-        button_quit.setPosition( screenWidth*5.75f,  5*screenHeight);
+        button_touch.setPosition( screenWidth,  5*screenHeight);
+        button_slide.setPosition( screenWidth*5.75f,  5*screenHeight);
         button_settings.setPosition( (screenWidth*10)-64,  (10*screenHeight)-64);
-        stage.addActor(button_play);
-        stage.addActor(button_quit);
+        stage.addActor(button_touch);
+        stage.addActor(button_slide);
         stage.addActor(button_settings);
         animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("pacman.gif").read());
 
@@ -64,7 +64,7 @@ public class SettingsScreen implements Screen
         effective = (game.controlMethod) ? "Contrôle par zones" : "Contrôle par glisser";
         layout.setText(MethodUsed.newFontCache().getFont(), method+effective);
 
-        button_play.addListener(new InputListener(){
+        button_touch.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
@@ -73,7 +73,7 @@ public class SettingsScreen implements Screen
             }
         });
 
-        button_quit.addListener(new InputListener(){
+        button_slide.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
