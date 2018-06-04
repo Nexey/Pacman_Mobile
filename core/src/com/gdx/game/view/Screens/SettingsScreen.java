@@ -66,7 +66,7 @@ public class SettingsScreen extends BasicScreen
         effective = (game.controlMethod) ? "Contrôle par zones" : "Contrôle par glisser";
         layout.setText(MethodUsed.newFontCache().getFont(), method+effective);
         font.draw(game.batch, title, 35, 400);
-        MethodUsed.draw(game.batch, method+effective, 75, 400);
+        MethodUsed.draw(game.batch, method+effective, 75, 200);
         game.batch.end();
     }
 

@@ -10,7 +10,6 @@ public class GameOverScreen extends BasicScreen {
     public GameOverScreen(final PacManGdx game){
         super(game, Gdx.files.internal("retry_button.png"), Gdx.files.internal("quit_button.png"));
 
-
         button1.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)

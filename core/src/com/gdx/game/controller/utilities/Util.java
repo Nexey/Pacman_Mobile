@@ -23,4 +23,6 @@ public class Util {
             YELLOW = 4;
 
     public static int SCORE = 0;
+
+    public static boolean GameOver = false;
 }

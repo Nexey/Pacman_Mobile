@@ -20,7 +20,7 @@ public class Ghost extends Entity {
     private DiceFour diceFour;
     private DiceTwo diceTwo;
     private int dir;
-    private int dep; //affecte une fonction de déplacement
+    int dep; //affecte une fonction de déplacement
     private boolean sorti;
     private HashMap<Integer, String> listState;
     private int state;
@@ -51,6 +51,11 @@ public class Ghost extends Entity {
         this.directions[0] = "Left";
         this.directions[1] = "Down";
         this.directions[2] = "Right";
+    }
+
+    public void setDep(int dep)
+    {
+        this.dep = dep;
     }
 
     @Override
@@ -96,9 +101,21 @@ public class Ghost extends Entity {
                 if (this._world.getPacman().newPosition.equals(this.newPosition)) {
                     this.startDeathTime = TimeUtils.millis();
                     this.state = DEAD;
-                    this.velocity = 0.1f;
+                    this.velocity = 0.075f;
                 }
             }
+        }
+
+            if((this._world.getPacman().newPosition != null) && (this.newPosition != null))
+            {
+                if (this.state == ALIVE)
+                {
+                    if (this._world.getPacman().newPosition.equals(this.newPosition))
+                    {
+                        Util.GameOver = true;
+                    }
+                }
+
         }
         // Il n'y a pas de pouvoir, je vérifie que l'état est bien remis à 0 s'il n'est pas actuellement mort
         else if (this.state == ESCAPING)
@@ -136,6 +153,26 @@ public class Ghost extends Entity {
             if (this._world.listMovingEntities.contains(this))
                this._world.listMovingEntities.remove(this);
             Vector2 oldPos = new Vector2(this.getPosition());
+        /*if (this.getPosition().equals(this._world.getPacman().getPosition())) {
+            if (this._world.getPacman().getPowerUp())
+                this.state = 2;
+            else {
+                this.state = 0;
+
+
+            }
+        }*/
+        if(this.state == ESCAPING || this.state == DEAD)
+        {
+            if(!fuite())
+                return true;
+            else
+            {
+                setSorti(false);
+                sortez();
+                return true;
+            }
+        }
 
             switch (dep) {
                 case 0:
@@ -168,7 +205,7 @@ public class Ghost extends Entity {
                     }
                     break;
                 case 4:
-                    if (deplacementGhost4(this._world.getPacman().getPosition())) {
+                    if (deplacementGhost2(this._world.getPacman().getPosition())) {
                         this._world.set(new Vector2(oldPos), this.retrieveTile());
                         this.setCurrentTile();
                         return true;
@@ -269,6 +306,16 @@ public class Ghost extends Entity {
         return true;
     }
 
+    private boolean fuite()
+    {
+        Vector2 maison = new Vector2(13, 13);
+        this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
+        if(goDir(maison))
+            return false;
+        else
+            return true;
+    }
+
     private String showDir()
     {
         switch(dir) {
@@ -289,29 +336,41 @@ public class Ghost extends Entity {
 
     private boolean goDir(Vector2 pos)
     {
+        if(this.getPosition() == pos)
+            return true;
         if(this.getPosition().x > pos.x) {
-            //System.out.println("F2 : "+showDir());
-            this.setDir(Util.LEFTG);
-            if(updateCoords(this.dir)) return true;
+            if(updateCoords(Util.LEFTG))
+            {
+                this.setDir(Util.LEFTG);
+                return true;
+            }
         }
         if(this.getPosition().x < pos.x)
         {
-            //System.out.println("F2 : "+showDir());
-            this.setDir(Util.RIGHTG);
-            if(updateCoords(this.dir)) return true;
+            if(updateCoords(Util.RIGHTG))
+            {
+                this.setDir(Util.RIGHTG);
+                return true;
+            }
         }
         if(this.getPosition().y > pos.y)
         {
-            //System.out.println("F2 : "+showDir());
-            this.setDir(Util.DOWNG);
-            if(updateCoords(this.dir)) return true;
+            if(updateCoords(Util.DOWNG))
+            {
+                this.setDir(Util.DOWNG);
+                return true;
+            }
         }
         if(this.getPosition().y < pos.y)
         {
-            //System.out.println("F2 : "+showDir());
-            this.setDir(Util.UPG);
-            if(updateCoords(this.dir)) return true;
+            if(updateCoords(Util.UPG))
+            {
+                this.setDir(Util.UPG);
+                return true;
+            }
         }
+
+        if(updateCoords(this.dir)) return true;
         return false;
     }
 }

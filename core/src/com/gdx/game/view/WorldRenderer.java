@@ -15,7 +15,7 @@ import com.gdx.game.model.World;
 
 public class WorldRenderer {
     private SpriteBatch batch;
-    private World world;
+    public World world;
     private BitmapFont score;
     private int ppuX, ppuY;
     private final int _textWidth = 16;
@@ -151,6 +151,7 @@ public class WorldRenderer {
     public void render(float delta)
     {
         updateMaze(batch, score);
+
         /*this.batch.begin();
         for (GameElement element : this.world) {
             this.batch.draw(

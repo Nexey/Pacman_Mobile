@@ -131,4 +131,9 @@ public abstract class Entity extends GameElement {
         }
         return false;
     }
+
+    boolean collision(Entity E)
+    {
+        return false;
+    }
 }

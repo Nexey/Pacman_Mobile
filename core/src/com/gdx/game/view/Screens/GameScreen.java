@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.gdx.game.PacManGdx;
 import com.gdx.game.controller.controllers.DiagonalDirections;
 import com.gdx.game.controller.controllers.TouchControl;
+import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.view.WorldRenderer;
 
 public class GameScreen implements Screen
@@ -33,6 +34,12 @@ public class GameScreen implements Screen
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         worldRenderer.render(delta);
+        if(Util.GameOver)
+        {
+            Util.GameOver = false;
+            worldRenderer.world.resetDirections();
+            game.gotoGameOverScreen();
+        }
     }
 
     @Override
