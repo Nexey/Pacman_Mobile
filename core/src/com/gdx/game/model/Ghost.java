@@ -16,7 +16,7 @@ import java.util.HashMap;
 import static java.lang.Math.abs;
 
 public class Ghost extends Entity {
-    private int color;
+    public int color;
     private DiceFour diceFour;
     private DiceTwo diceTwo;
     private int dir;
@@ -51,6 +51,15 @@ public class Ghost extends Entity {
         this.directions[0] = "Left";
         this.directions[1] = "Down";
         this.directions[2] = "Right";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o.getClass() == this.getClass()) {
+            Ghost obj = (Ghost) o;
+            return obj.color == this.color;
+        }
+        return false;
     }
 
     public void updateAnimation() {
@@ -127,15 +136,6 @@ public class Ghost extends Entity {
             if (this._world.listMovingEntities.contains(this))
                this._world.listMovingEntities.remove(this);
             Vector2 oldPos = new Vector2(this.getPosition());
-        /*if (this.getPosition().equals(this._world.getPacman().getPosition())) {
-            if (this._world.getPacman().getPowerUp())
-                this.state = 2;
-            else {
-                this.state = 0;
-
-                // TODO : GAME OVER
-            }
-        }*/
 
             switch (dep) {
                 case 0:
@@ -184,7 +184,6 @@ public class Ghost extends Entity {
     }
 
     protected boolean updateCoords(int dir) {
-        boolean hasMoved = false;
         switch(dir) {
             case Util.UPG:
                 if(enHaut())

@@ -118,7 +118,6 @@ public abstract class Entity extends GameElement {
     {
         if (this.validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1))) {
             this.newPosition = new Vector2(this.getPosition().x, this.getPosition().y + 1);
-            //this.setY((int)this.getPosition().y + 1);
             return true;
         }
         return false;
@@ -128,7 +127,6 @@ public abstract class Entity extends GameElement {
     {
         if (this.validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
             this.newPosition = new Vector2(this.getPosition().x, this.getPosition().y - 1);
-            //this.setY((int)this.getPosition().y - 1);
             return true;
         }
         return false;
