@@ -58,7 +58,6 @@ public class World implements Iterable<GameElement> {
                 }
             }
         }
-        System.out.println(this.listMovingEntities.size());
     }
 
     public void set(Vector2 pos, GameElement tile) {
