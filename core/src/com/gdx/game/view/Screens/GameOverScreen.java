@@ -5,17 +5,17 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.gdx.game.PacManGdx;
 
-public class MenuScreen extends BasicScreen {
+public class GameOverScreen extends BasicScreen {
 
-    public MenuScreen(final PacManGdx game){
-        super(game, Gdx.files.internal("play_button.png"), Gdx.files.internal("quit_button.png"));
+    public GameOverScreen(final PacManGdx game){
+        super(game, Gdx.files.internal("retry_button.png"), Gdx.files.internal("quit_button.png"));
 
 
         button1.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
-                game.gotoGameScreen();
+                game.gotoMenuScreen();
                 return true;
             }
         });
@@ -46,7 +46,7 @@ public class MenuScreen extends BasicScreen {
 
     @Override
     public void render(float delta) {
-       super.render(delta);
+        super.render(delta);
     }
 
     @Override
