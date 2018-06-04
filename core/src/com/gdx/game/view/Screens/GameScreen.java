@@ -10,22 +10,26 @@ import com.gdx.game.PacManGdx;
 import com.gdx.game.controller.controllers.DiagonalDirections;
 import com.gdx.game.controller.controllers.TouchControl;
 import com.gdx.game.model.World;
+import com.gdx.game.view.WorldRenderer;
 
 public class GameScreen implements Screen
 {
     private final PacManGdx game;
 
-    private SpriteBatch batch;
+    private WorldRenderer worldRenderer;
+
+    /*private SpriteBatch batch;
     private World world;
-    private BitmapFont score;
+    private BitmapFont score;*/
 
     public GameScreen(final PacManGdx game)
     {
         this.game = game;
-        batch = new SpriteBatch();
+        worldRenderer = new WorldRenderer();
+        /*batch = new SpriteBatch();
         world = new World();
         score = new BitmapFont();
-        score.setColor(Color.YELLOW);
+        score.setColor(Color.YELLOW);*/
         if (game.controlMethod)
             Gdx.input.setInputProcessor(new DiagonalDirections());
         else
@@ -36,8 +40,7 @@ public class GameScreen implements Screen
     public void render (float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        world.getMaze().updateMaze(batch, score);
+        worldRenderer.render(delta);
     }
 
     @Override
@@ -67,6 +70,6 @@ public class GameScreen implements Screen
 
     @Override
     public void dispose () {
-        batch.dispose();
+        worldRenderer.dispose();
     }
 }

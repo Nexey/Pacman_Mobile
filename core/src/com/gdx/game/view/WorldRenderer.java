@@ -1,12 +1,15 @@
 package com.gdx.game.view;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gdx.game.model.GameElement;
 import com.gdx.game.model.World;
 
 public class WorldRenderer {
-    private SpriteBatch spriteBatch;
-    private World monde;
+    private SpriteBatch batch;
+    private World world;
+    private BitmapFont score;
     private int ppuX, ppuY;
 
     public int getPpuX() {
@@ -25,17 +28,20 @@ public class WorldRenderer {
         this.ppuY = ppuY;
     }
 
-    public WorldRenderer(World monde)
+    public WorldRenderer()
     {
-        this.monde = monde;
-        this.spriteBatch = new SpriteBatch();
+        this.batch = new SpriteBatch();
+        world = new World();
+        score = new BitmapFont();
+        score.setColor(Color.YELLOW);
     }
 
     public void render(float delta)
     {
-        this.spriteBatch.begin();
-        for (GameElement element : this.monde) {
-            this.spriteBatch.draw(
+        world.getMaze().updateMaze(batch, score);
+        /*this.batch.begin();
+        for (GameElement element : this.world) {
+            this.batch.draw(
                     TextureFactory.getInstance().getTexture(element.getClass()),
                     element.getPosition().x * ppuX,
                     element.getPosition().y * ppuY,
@@ -43,6 +49,10 @@ public class WorldRenderer {
                     element.getHeight() * ppuY
             );
         }
-        this.spriteBatch.end();
+        this.batch.end();*/
+    }
+
+    public void dispose () {
+        batch.dispose();
     }
 }
