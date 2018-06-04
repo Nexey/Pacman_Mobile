@@ -1,14 +1,11 @@
 package com.gdx.game.view.Screens;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.gdx.game.PacManGdx;
 import com.gdx.game.controller.controllers.DiagonalDirections;
 import com.gdx.game.controller.controllers.TouchControl;
@@ -17,7 +14,6 @@ import com.gdx.game.model.World;
 public class GameScreen implements Screen
 {
     private final PacManGdx game;
-    private Stage stage;
 
     private SpriteBatch batch;
     private World world;
@@ -52,7 +48,6 @@ public class GameScreen implements Screen
     @Override
     public void resize(int width, int height) {
         game.screenPort.update(width,height);
-
     }
 
     @Override
