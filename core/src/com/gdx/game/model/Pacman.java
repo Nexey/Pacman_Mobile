@@ -58,7 +58,6 @@ public class Pacman extends Entity {
         // Le pacman peut bouger
         if (this.alpha == 1) {
             this._world.listMovingEntities.remove(this);
-            // if (this._world.listMovingEntities.remove(this)) this.setCurrentTile();
 
             // Le pacman peut bouger, sa position risque donc d'être écrasée. Il faut alors que je
             // retienne son ancienne position pour lui recoller sa tile une fois le déplacement entamé
