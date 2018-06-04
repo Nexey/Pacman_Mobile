@@ -29,9 +29,11 @@ public class Ghost extends Entity {
             ESCAPING = 1,
             DEAD = 2;
     private long startDeathTime;
+    private Vector2 originPos;
 
     public Ghost(Vector2 position, World world, int color, int dep) {
         super(position, world);
+        originPos = position;
         this.color = color;
         diceFour = new DiceFour();
         diceTwo = new DiceTwo();
@@ -308,9 +310,10 @@ public class Ghost extends Entity {
     private boolean fuite()
     {
         Vector2 oldPos = new Vector2(this.getPosition());
-        Vector2 maison = new Vector2(13, 13);
-        this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
-        if(goDir(maison))
+        Fence fence = new Fence(new Vector2(0, 0), this._world);
+        if (this.listValidTiles.contains(fence))
+            this.listValidTiles.add(fence);
+        if(goDir(originPos))
         {
             this._world.set(new Vector2(oldPos), this.retrieveTile());
             return true;
