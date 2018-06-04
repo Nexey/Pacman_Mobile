@@ -7,7 +7,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -30,6 +32,12 @@ public class GameOverScreen implements Screen {
     private TextureRegion TextureRegionButton_retry, TextureRegionButton_quit, TextureRegionButton_settings;
     private TextureRegionDrawable TexRegionDrawableButton_retry, TexRegionDrawableButton_quit, TexRegionDrawableButton_settings;
     private ImageButton button_retry, button_quit, button_settings;
+
+    private BitmapFont font;
+    private FreeTypeFontGenerator generator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
+    private GlyphLayout layout;
+    private String title;
 
     public GameOverScreen(final PacManGdx game){
         this.game = game;
@@ -54,6 +62,15 @@ public class GameOverScreen implements Screen {
         stage.addActor(button_retry);
         stage.addActor(button_quit);
         stage.addActor(button_settings);
+        generator = new FreeTypeFontGenerator(Gdx.files.internal("PressStart2P.ttf"));
+        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 64;
+        layout= new GlyphLayout();
+        font = new BitmapFont();
+        font = generator.generateFont(parameter);
+        font.setColor(1,1,1,1);
+        layout.setText(font,"Pacman" );
+        title ="Pacman";
         animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("pacman.gif").read());
 
         button_retry.addListener(new InputListener(){
@@ -96,6 +113,7 @@ public class GameOverScreen implements Screen {
         stage.draw();
         elapsed += Gdx.graphics.getDeltaTime();
         game.batch.begin();
+        font.draw(game.batch, title, 35, 400);
         game.batch.draw(animation.getKeyFrame(elapsed), 45.0f, -60.0f);
         game.batch.end();
     }

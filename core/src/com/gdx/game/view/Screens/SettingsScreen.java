@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -32,6 +33,10 @@ public class SettingsScreen implements Screen
     private ImageButton button_touch, button_slide, button_settings;
     private GlyphLayout layout;
     private String method, effective;
+    private BitmapFont font;
+    private FreeTypeFontGenerator generator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
+    private String title;
 
     public SettingsScreen(final PacManGdx game){
         this.game = game;
@@ -56,6 +61,15 @@ public class SettingsScreen implements Screen
         stage.addActor(button_touch);
         stage.addActor(button_slide);
         stage.addActor(button_settings);
+        generator = new FreeTypeFontGenerator(Gdx.files.internal("PressStart2P.ttf"));
+        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 64;
+        layout= new GlyphLayout();
+        font = new BitmapFont();
+        font = generator.generateFont(parameter);
+        font.setColor(1,1,1,1);
+        layout.setText(font,"Pacman" );
+        title ="Pacman";
         animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("pacman.gif").read());
 
         method = "Méthode de déplacement : ";
@@ -107,6 +121,7 @@ public class SettingsScreen implements Screen
         game.batch.draw(animation.getKeyFrame(elapsed), 45.0f, -60.0f);
         effective = (game.controlMethod) ? "Contrôle par zones" : "Contrôle par glisser";
         layout.setText(MethodUsed.newFontCache().getFont(), method+effective);
+        font.draw(game.batch, title, 35, 400);
         MethodUsed.draw(game.batch, method+effective, 75, 400);
         game.batch.end();
     }
