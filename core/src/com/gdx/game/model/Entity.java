@@ -38,8 +38,8 @@ public abstract class Entity extends GameElement {
 
     public abstract boolean move();
 
-    protected void setDarkTile(Vector2 pos) {
-        this.tile = new Dark(pos, this._world);
+    protected void setDarkTile() {
+        this.tile = new Dark(new Vector2(this.getPosition()), this._world);
     }
 
     protected void setCurrentTile() {
@@ -50,7 +50,7 @@ public abstract class Entity extends GameElement {
     // C'est pour cela que si elle est vide je lui mets une case vide à sa propre position
     public GameElement retrieveTile() {
         if (this.tile == null)
-            this.setDarkTile(new Vector2(this.getPosition()));
+            this.setDarkTile();
         return this.tile;
     }
 

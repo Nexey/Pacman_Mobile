@@ -55,23 +55,36 @@ public class Pacman extends Entity {
 
     @Override
     public boolean move() {
+        // Le pacman peut bouger
         if (this.alpha == 1) {
             this._world.listMovingEntities.remove(this);
+            // if (this._world.listMovingEntities.remove(this)) this.setCurrentTile();
+
+            // Le pacman peut bouger, sa position risque donc d'être écrasée. Il faut alors que je
+            // retienne son ancienne position pour lui recoller sa tile une fois le déplacement entamé
+            Vector2 oldPos = new Vector2(this.getPosition());
             if (updateCoords(Util.currentDir)) {
+                this._world.set(oldPos, this.retrieveTile());
+
+                // Il y a eu un déplacement, on mets à jour la tile
+                this.setCurrentTile();
+
                 // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
                 if (this.retrieveTile().equals(Gom.class)) {
                     Util.SCORE++;
-                    this.setDarkTile(new Vector2(this.newPosition));
+                    this.setDarkTile();
+
+                    // Si c'est une supergomme, on la remplace par une case vide et on active les pouvoirs
                 } else if (this.retrieveTile().equals(SuperGom.class)) {
                     this.setPowerUp();
                     Util.SCORE += 5;
-                    this.setDarkTile(new Vector2(this.newPosition));
+                    this.setDarkTile();
                 }
                 return true;
             }
             return false;
         }
-        // Le pacman n'a pas fini son déplacement
+        // Le pacman n'a pas fini son déplacement et donc ne peut pas bouger
         else return false;
     }
 
@@ -81,11 +94,9 @@ public class Pacman extends Entity {
     }
 
     protected boolean updateCoords(int dir) {
-        this._world.set(new Vector2(this.getPosition()), this.retrieveTile());
         switch(dir) {
             case Util.UPP:
                 if(enHaut()) {
-                    this.setCurrentTile();
                     Util.previousDir = Util.currentDir;
                     return true;
                 }
@@ -93,7 +104,6 @@ public class Pacman extends Entity {
                 break;
             case Util.LEFTP:
                 if(aGauche()) {
-                    this.setCurrentTile();
                     Util.previousDir = Util.currentDir;
                     return true;
                 }
@@ -101,7 +111,6 @@ public class Pacman extends Entity {
                 break;
             case Util.DOWNP:
                 if(enBas()) {
-                    this.setCurrentTile();
                     Util.previousDir = Util.currentDir;
                     return true;
                 }
@@ -109,7 +118,6 @@ public class Pacman extends Entity {
                 break;
             case Util.RIGHTP:
                 if(aDroite()) {
-                    this.setCurrentTile();
                     Util.previousDir = Util.currentDir;
                     return true;
                 }
