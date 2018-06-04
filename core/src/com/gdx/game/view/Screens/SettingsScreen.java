@@ -20,65 +20,21 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.gdx.game.PacManGdx;
 import com.gdx.game.controller.utilities.Util;
 
-public class SettingsScreen implements Screen
+public class SettingsScreen extends BasicScreen
 {
-    private final PacManGdx game;
-    private Stage stage;
-    private Animation<TextureRegion> animation;
-    private float elapsed;
-    private BitmapFont MethodUsed;
-    private Texture Texturebutton_touch, Texturebutton_slide, Texturebutton_settings;
-    private TextureRegion TextureRegionButton_touch, TextureRegionButton_slide, TextureRegionButton_settings;
-    private TextureRegionDrawable TexRegionDrawableButton_touch, TexRegionDrawableButton_slide, TexRegionDrawableButton_settings;
-    private ImageButton button_touch, button_slide, button_settings;
-    private GlyphLayout layout;
     private String method, effective;
-    private BitmapFont font;
-    private FreeTypeFontGenerator generator;
-    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
-    private String title;
+    private BitmapFont MethodUsed;
 
     public SettingsScreen(final PacManGdx game){
-        this.game = game;
-        stage = new Stage(game.screenPort);
-        Gdx.input.setInputProcessor(stage);
-        Texturebutton_touch = new Texture(Gdx.files.internal("touch_button.png"));
-        Texturebutton_slide = new Texture(Gdx.files.internal("slide_button.png"));
-        Texturebutton_settings = new Texture(Gdx.files.internal("settings.png"));
-        TextureRegionButton_touch = new TextureRegion(Texturebutton_touch);
-        TextureRegionButton_slide = new TextureRegion(Texturebutton_slide);
-        TextureRegionButton_settings = new TextureRegion(Texturebutton_settings);
-        TexRegionDrawableButton_touch = new TextureRegionDrawable(TextureRegionButton_touch);
-        TexRegionDrawableButton_slide = new TextureRegionDrawable(TextureRegionButton_slide);
-        TexRegionDrawableButton_settings = new TextureRegionDrawable(TextureRegionButton_settings);
-        button_touch = new ImageButton(TexRegionDrawableButton_touch);
-        button_slide = new ImageButton(TexRegionDrawableButton_slide);
-        button_settings = new ImageButton(TexRegionDrawableButton_settings);
-        float screenWidth = Gdx.graphics.getWidth()/10, screenHeight = Gdx.graphics.getHeight()/10;
-        button_touch.setPosition( screenWidth,  5*screenHeight);
-        button_slide.setPosition( screenWidth*5.75f,  5*screenHeight);
-        button_settings.setPosition( (screenWidth*10)-64,  (10*screenHeight)-64);
-        stage.addActor(button_touch);
-        stage.addActor(button_slide);
-        stage.addActor(button_settings);
-        generator = new FreeTypeFontGenerator(Gdx.files.internal("PressStart2P.ttf"));
-        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 64;
-        layout= new GlyphLayout();
-        font = new BitmapFont();
-        font = generator.generateFont(parameter);
-        font.setColor(1,1,1,1);
-        layout.setText(font,"Pacman" );
-        title ="Pacman";
-        animation = GifDecoder.loadGIFAnimation(Animation.PlayMode.LOOP, Gdx.files.internal("pacman.gif").read());
 
+        super(game, Gdx.files.internal("touch_button.png"), Gdx.files.internal("slide_button.png"));
         method = "Méthode de déplacement : ";
         layout = new GlyphLayout();
         MethodUsed = new BitmapFont();
         effective = (game.controlMethod) ? "Contrôle par zones" : "Contrôle par glisser";
         layout.setText(MethodUsed.newFontCache().getFont(), method+effective);
 
-        button_touch.addListener(new InputListener(){
+        button1.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
@@ -87,7 +43,7 @@ public class SettingsScreen implements Screen
             }
         });
 
-        button_slide.addListener(new InputListener(){
+        button2.addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
             {
@@ -149,6 +105,5 @@ public class SettingsScreen implements Screen
     @Override
     public void dispose() {
         stage.dispose();
-
     }
 }
