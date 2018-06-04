@@ -54,7 +54,7 @@ public class Ghost extends Entity {
             if (this.state == 0) this.state = 1;
 
             // Maintenant il se peut que le fantôme soit sur la case du pacman, il doit mourir s'il n'est pas encore mort
-            if (this.state != 2) {
+            if (this.state == 1) {
                 if (this._world.getPacman().newPosition.equals(this.newPosition)) {
                     this.startDeathTime = TimeUtils.millis();
                     this.state = 2;
