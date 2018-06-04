@@ -134,28 +134,30 @@ public class Maze implements Iterable<GameElement> {
 			this._world.moveEntities();
 			if (this._world.listMovingEntities.size() != 0) {
 				for (Entity E : this._world.listMovingEntities) {
-					// Vers la droite
-					if (E.getPosition().x < E.direction.x) {
-						E.setX(E.getPosition().x + E.velocity);
-					}
-					// Vers la gauche
-					else if (E.getPosition().x > E.direction.x) {
-						E.setX(E.getPosition().x - E.velocity);
-					}
-					// Vers le haut
-					else if (E.getPosition().y < E.direction.y) {
-						E.setY(E.getPosition().y + E.velocity);
-					}
-					// Vers le bat
-					else {
-						E.setY(E.getPosition().y - E.velocity);
-					}
 					E.alpha += E.velocity;
-					if (E.alpha == 1.f) {
-						this._world.listMovingEntities.remove(E);
-
+					if (E.alpha >= 1.f) {
+						E.alpha = 1;
 						// Il faut redessiner les entitiés en les replaçant sur le labyrinthe
 						this._laby2[(int) E.getPosition().x][(int) E.getPosition().y] = E;
+						E.setPosition(new Vector2(E.newPosition));
+					}
+					else {
+						// Vers la droite
+						if (E.getPosition().x < E.newPosition.x) {
+							E.setX(E.getPosition().x + E.velocity);
+						}
+						// Vers la gauche
+						else if (E.getPosition().x > E.newPosition.x) {
+							E.setX(E.getPosition().x - E.velocity);
+						}
+						// Vers le haut
+						else if (E.getPosition().y < E.newPosition.y) {
+							E.setY(E.getPosition().y + E.velocity);
+						}
+						// Vers le bas
+						else if (E.getPosition().y > E.newPosition.y) {
+							E.setY(E.getPosition().y - E.velocity);
+						}
 					}
 				}
 			}

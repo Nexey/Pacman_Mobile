@@ -11,8 +11,8 @@ public abstract class Entity extends GameElement {
 
     // alpha va varier entre 0 et 1. 0 : doit bouger, 0.5 est à la moitié du mouvement, 1 ne doit pas bouger
     public float alpha;
-    public Vector2 direction;
-    public final float velocity = 0.6f;
+    public Vector2 newPosition;
+    public final float velocity = 0.1f;
 
     public Entity(Vector2 pos, World world) {
         super(pos, world);
@@ -38,17 +38,19 @@ public abstract class Entity extends GameElement {
 
     public abstract boolean move();
 
-    protected void setDarkTile() {
-        this.tile = new Dark(new Vector2(this.getPosition()), this._world);
+    protected void setDarkTile(Vector2 pos) {
+        this.tile = new Dark(pos, this._world);
     }
 
     protected void setCurrentTile() {
-        this.tile = this._world.getMaze().get(new Vector2(this.getPosition()));
+        this.tile = this._world.getMaze().get(new Vector2(this.newPosition));
     }
 
+    // Récupère la tile à la position de l'entity
+    // C'est pour cela que si elle est vide je lui mets une case vide à sa propre position
     public GameElement retrieveTile() {
         if (this.tile == null)
-            this.setDarkTile();
+            this.setDarkTile(new Vector2(this.getPosition()));
         return this.tile;
     }
 
@@ -63,6 +65,8 @@ public abstract class Entity extends GameElement {
     private boolean checkCoords(Vector2 pos) {
         return checkLeftBound(pos) && checkRightBound(pos);
     }
+
+    public abstract boolean endMovement();
 
     public boolean validTile(Vector2 pos) {
         GameElement ge;
@@ -85,7 +89,7 @@ public abstract class Entity extends GameElement {
     public boolean aGauche()
     {
         if (this.validTile(new Vector2(this.getPosition().x - 1, this.getPosition().y))) {
-            this.direction = new Vector2(this.getPosition().x - 1, this.getPosition().y);
+            this.newPosition = new Vector2(this.getPosition().x - 1, this.getPosition().y);
             //this.setX((int)this.getPosition().x - 1);
             return true;
         }
@@ -95,7 +99,7 @@ public abstract class Entity extends GameElement {
     public boolean aDroite()
     {
         if (this.validTile(new Vector2(this.getPosition().x + 1, this.getPosition().y))) {
-            this.direction = new Vector2(this.getPosition().x + 1, this.getPosition().y);
+            this.newPosition = new Vector2(this.getPosition().x + 1, this.getPosition().y);
             //this.setX((int)this.getPosition().x + 1);
             return true;
         }
@@ -105,7 +109,7 @@ public abstract class Entity extends GameElement {
     public boolean enHaut()
     {
         if (this.validTile(new Vector2(this.getPosition().x, this.getPosition().y + 1))) {
-            this.direction = new Vector2(this.getPosition().x, this.getPosition().y + 1);
+            this.newPosition = new Vector2(this.getPosition().x, this.getPosition().y + 1);
             //this.setY((int)this.getPosition().y + 1);
             return true;
         }
@@ -115,7 +119,7 @@ public abstract class Entity extends GameElement {
     public boolean enBas()
     {
         if (this.validTile(new Vector2(this.getPosition().x, this.getPosition().y - 1))) {
-            this.direction = new Vector2(this.getPosition().x, this.getPosition().y - 1);
+            this.newPosition = new Vector2(this.getPosition().x, this.getPosition().y - 1);
             //this.setY((int)this.getPosition().y - 1);
             return true;
         }

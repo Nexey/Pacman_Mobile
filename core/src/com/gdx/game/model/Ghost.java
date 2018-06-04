@@ -90,7 +90,9 @@ public class Ghost extends Entity {
 
     @Override
     public boolean move() {
-        Vector2 oldPos = new Vector2(this.getPosition());
+        if (alpha == 1) {
+            this._world.listMovingEntities.remove(this);
+            Vector2 oldPos = new Vector2(this.getPosition());
         /*if (this.getPosition().equals(this._world.getPacman().getPosition())) {
             if (this._world.getPacman().getPowerUp())
                 this.state = 2;
@@ -101,46 +103,54 @@ public class Ghost extends Entity {
             }
         }*/
 
-        switch(dep) {
-            case 0:
-                if (diceTwo.getFace() == 1)
-                    dir = diceFour.getFace();
-                if (updateCoords(dir)) {
-                    this._world.set(new Vector2(oldPos), this.retrieveTile());
-                    return true;
-                }
-                break;
+            switch (dep) {
+                case 0:
+                    if (diceTwo.getFace() == 1)
+                        dir = diceFour.getFace();
+                    if (updateCoords(dir)) {
+                        this._world.set(new Vector2(oldPos), this.retrieveTile());
+                        return true;
+                    }
+                    break;
                 case 1:
-                if (deplacementGhost1()) {
-                    this._world.set(new Vector2(oldPos), this.retrieveTile());
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case 2:
-                if (deplacementGhost2(this._world.getPacman().getPosition())) {
-                    this._world.set(new Vector2(oldPos), this.retrieveTile());
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            case 3:
-                if (deplacementGhost3(this._world.getPacman().getPosition())) {
-                    this._world.set(new Vector2(oldPos), this.retrieveTile());
-                    this.setCurrentTile();
-                    return true;
-                }
-            break;
-            case 4:
-                if (deplacementGhost4(this._world.getPacman().getPosition())) {
-                    this._world.set(new Vector2(oldPos), this.retrieveTile());
-                    this.setCurrentTile();
-                    return true;
-                }
-                break;
-            default:
-                break;
+                    if (deplacementGhost1()) {
+                        this._world.set(new Vector2(oldPos), this.retrieveTile());
+                        this.setCurrentTile();
+                        return true;
+                    }
+                    break;
+                case 2:
+                    if (deplacementGhost2(this._world.getPacman().getPosition())) {
+                        this._world.set(new Vector2(oldPos), this.retrieveTile());
+                        this.setCurrentTile();
+                        return true;
+                    }
+                    break;
+                case 3:
+                    if (deplacementGhost3(this._world.getPacman().getPosition())) {
+                        this._world.set(new Vector2(oldPos), this.retrieveTile());
+                        this.setCurrentTile();
+                        return true;
+                    }
+                    break;
+                case 4:
+                    if (deplacementGhost4(this._world.getPacman().getPosition())) {
+                        this._world.set(new Vector2(oldPos), this.retrieveTile());
+                        this.setCurrentTile();
+                        return true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return false;
         }
+        // Le ghost n'a pas fini son déplacement
+        else return false;
+    }
+
+    @Override
+    public boolean endMovement() {
         return false;
     }
 

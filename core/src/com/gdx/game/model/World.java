@@ -31,7 +31,7 @@ public class World implements Iterable<GameElement> {
 
         this.listEntity.add(this._pacman);
         //this.listEntity.add(this._red);
-        //this.listEntity.add(this._pink);
+        this.listEntity.add(this._pink);
         //this.listEntity.add(this._blue);
         //this.listEntity.add(this._yellow);
         this._maze = new Maze(this);
@@ -50,15 +50,13 @@ public class World implements Iterable<GameElement> {
     }
 
     public void moveEntities() {
-        long elapsedTime = TimeUtils.timeSinceMillis(startTime);
-        if (elapsedTime > 300) {
-            startTime = TimeUtils.millis();
             for (Entity E: this.listEntity)
                 if(E.move()) {
-                    E.alpha = 0;
-                    this.listMovingEntities.add(E);
+                    if (!this.listMovingEntities.contains(E)) {
+                        E.alpha = 0;
+                        this.listMovingEntities.add(E);
+                    }
                 }
-        }
     }
 
     public void set(Vector2 pos, GameElement tile) {

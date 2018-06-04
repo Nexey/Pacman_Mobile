@@ -55,19 +55,28 @@ public class Pacman extends Entity {
 
     @Override
     public boolean move() {
-        if (updateCoords(Util.currentDir)) {
-            // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
-            if (this.retrieveTile().equals(Gom.class)) {
-                Util.SCORE++;
-                this.setDarkTile();
+        if (this.alpha == 1) {
+            this._world.listMovingEntities.remove(this);
+            if (updateCoords(Util.currentDir)) {
+                // Si c'est une gomme, on la remplace par une case vide et on incrémente le score
+                if (this.retrieveTile().equals(Gom.class)) {
+                    Util.SCORE++;
+                    this.setDarkTile(new Vector2(this.newPosition));
+                } else if (this.retrieveTile().equals(SuperGom.class)) {
+                    this.setPowerUp();
+                    Util.SCORE += 5;
+                    this.setDarkTile(new Vector2(this.newPosition));
+                }
+                return true;
             }
-            else if (this.retrieveTile().equals(SuperGom.class)) {
-                this.setPowerUp();
-                Util.SCORE += 5;
-                this.setDarkTile();
-            }
-            return true;
+            return false;
         }
+        // Le pacman n'a pas fini son déplacement
+        else return false;
+    }
+
+    @Override
+    public boolean endMovement() {
         return false;
     }
 
