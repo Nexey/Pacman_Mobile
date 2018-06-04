@@ -169,8 +169,7 @@ public class Ghost extends Entity {
             else
             {
                 setSorti(false);
-                sortez();
-                return true;
+                return sortez();
             }
         }
 
@@ -338,21 +337,6 @@ public class Ghost extends Entity {
     {
         if(this.getPosition() == pos)
             return true;
-        if(this.getPosition().x > pos.x) {
-            if(updateCoords(Util.LEFTG))
-            {
-                this.setDir(Util.LEFTG);
-                return true;
-            }
-        }
-        if(this.getPosition().x < pos.x)
-        {
-            if(updateCoords(Util.RIGHTG))
-            {
-                this.setDir(Util.RIGHTG);
-                return true;
-            }
-        }
         if(this.getPosition().y > pos.y)
         {
             if(updateCoords(Util.DOWNG))
@@ -369,7 +353,21 @@ public class Ghost extends Entity {
                 return true;
             }
         }
-
+        if(this.getPosition().x > pos.x) {
+            if(updateCoords(Util.LEFTG))
+            {
+                this.setDir(Util.LEFTG);
+                return true;
+            }
+        }
+        if(this.getPosition().x < pos.x)
+        {
+            if(updateCoords(Util.RIGHTG))
+            {
+                this.setDir(Util.RIGHTG);
+                return true;
+            }
+        }
         if(updateCoords(this.dir)) return true;
         return false;
     }

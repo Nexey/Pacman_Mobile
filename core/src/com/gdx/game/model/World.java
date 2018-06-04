@@ -27,7 +27,7 @@ public class World implements Iterable<GameElement> {
         this._red = new Ghost(new Vector2(14, 15), this, Util.RED, 1);
         this._pink = new Ghost(new Vector2(14, 14), this, Util.PINK, 2);
         this._blue = new Ghost(new Vector2(14, 13), this, Util.BLUE, 3);
-        this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 4);
+        this._yellow = new Ghost(new Vector2(14, 12), this, Util.YELLOW, 2);
 
         this.listEntity.add(this._pacman);
         this.listEntity.add(this._red);
