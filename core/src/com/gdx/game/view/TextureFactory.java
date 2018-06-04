@@ -2,6 +2,7 @@ package com.gdx.game.view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.gdx.game.model.*;
 import com.gdx.game.controller.utilities.Util;
 
@@ -9,10 +10,11 @@ import java.util.HashMap;
 
 public class TextureFactory {
     private HashMap<Class<?>, Texture> _textures;
-    private HashMap<String, Texture> _sprites;
+    private HashMap<String, Sprite> _sprites;
     private HashMap<Integer, String> _directions;
     private HashMap<Integer, String> _directionStep;
     private String pacman;
+    private String ghost;
 
     private TextureFactory() {
         _textures = new HashMap<Class<?>, Texture>();
@@ -22,13 +24,9 @@ public class TextureFactory {
         _textures.put(Dark.class, new Texture(Gdx.files.internal("dark.png")));
         _textures.put(Fence.class, new Texture(Gdx.files.internal("fence.png")));
 
-        _sprites = new HashMap<String, Texture>();
-        _sprites.put("ghostDead", new Texture(Gdx.files.internal("ghostDead.png")));
-        _sprites.put("ghostEscaping", new Texture(Gdx.files.internal("ghostEscaping.png")));
-        _sprites.put("ghost1", new Texture(Gdx.files.internal("ghost1.png")));
-        _sprites.put("ghost2", new Texture(Gdx.files.internal("ghost2.png")));
-        _sprites.put("ghost3", new Texture(Gdx.files.internal("ghost3.png")));
-        _sprites.put("ghost4", new Texture(Gdx.files.internal("ghost4.png")));
+        _sprites = new HashMap<String, Sprite>();
+        _sprites.put("ghostDead", new Sprite(new Texture(Gdx.files.internal("ghostDead.png"))));
+        _sprites.put("ghostEscaping", new Sprite(new Texture(Gdx.files.internal("ghostEscaping.png"))));
 
         _directions = new HashMap<Integer, String>();
         _directions.put(Util.LEFTG, "Left");
@@ -45,8 +43,16 @@ public class TextureFactory {
         for (int i = 0; i < _directionStep.size(); i++)
             for (int j = 0; j < _directions.size(); j++) {
                 path = pacman + _directions.get(j) + _directionStep.get(i);
-                _sprites.put(path, new Texture(Gdx.files.internal(path + ".png")));
+                _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
             }
+
+        ghost = "ghost";
+        for (int i = 1; i < 5; i++)
+            for (int j = 0; j < _directions.size(); j++) {
+                path = ghost + i + _directions.get(j);
+                _sprites.put(path, new Sprite(new Texture(Gdx.files.internal(path + ".png"))));
+            }
+            System.out.println("oui");
     }
 
     private static TextureFactory instance = null;
@@ -65,7 +71,7 @@ public class TextureFactory {
         return _textures.get(aClass);
     }
 
-    public Texture getTexture(String spriteName) {
+    public Sprite getSprite(String spriteName) {
         return _sprites.get(spriteName);
     }
 }

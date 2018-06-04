@@ -1,26 +1,19 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.view.TextureFactory;
 
 public class Pacman extends Entity {
-    private final String direction[] = {
-            "pacmanUp",
-            "pacmanLeft",
-            "pacmanDown",
-            "pacmanRight"
-    };
-
     private final String directionStep[] = {
             "",
             "-2"
     };
 
     private int animationStep;
-    private String currentAnim;
 
     private long startAnimTime;
     private boolean powerUp;
@@ -34,10 +27,20 @@ public class Pacman extends Entity {
         startAnimTime = TimeUtils.millis();
         startPowerUpTime = TimeUtils.millis();
         this.powerUp = false;
+        this.directions[0] = "Up";
+        this.directions[1] = "Left";
+        this.directions[2] = "Down";
+        this.directions[3] = "Right";
     }
 
+    @Override
+    public Sprite getSprite() {
+        return TextureFactory.getInstance().getSprite(this.currentAnim);
+    }
+
+    @Override
     public Texture getTexture() {
-        return TextureFactory.getInstance().getTexture(currentAnim);
+        return getSprite().getTexture();
     }
 
 
@@ -87,11 +90,6 @@ public class Pacman extends Entity {
         else return false;
     }
 
-    @Override
-    public boolean endMovement() {
-        return false;
-    }
-
     protected boolean updateCoords(int dir) {
         switch(dir) {
             case Util.UPP:
@@ -134,6 +132,6 @@ public class Pacman extends Entity {
             startAnimTime = TimeUtils.millis();
             this.animationStep ^= 1;
         }
-        currentAnim = this.direction[Util.currentDir] + this.directionStep[animationStep];
+        currentAnim = "pacman" + this.directions[Util.currentDir] + this.directionStep[animationStep];
     }
 }

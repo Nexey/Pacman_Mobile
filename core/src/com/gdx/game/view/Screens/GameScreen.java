@@ -2,14 +2,10 @@ package com.gdx.game.view.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.gdx.game.PacManGdx;
 import com.gdx.game.controller.controllers.DiagonalDirections;
 import com.gdx.game.controller.controllers.TouchControl;
-import com.gdx.game.model.World;
 import com.gdx.game.view.WorldRenderer;
 
 public class GameScreen implements Screen
@@ -17,10 +13,6 @@ public class GameScreen implements Screen
     private final PacManGdx game;
 
     private WorldRenderer worldRenderer;
-
-    /*private SpriteBatch batch;
-    private World world;
-    private BitmapFont score;*/
 
     public GameScreen(final PacManGdx game)
     {

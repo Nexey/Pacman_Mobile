@@ -1,12 +1,14 @@
 package com.gdx.game.model;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.gdx.game.controller.utilities.DiceFour;
 import com.gdx.game.controller.utilities.DiceTwo;
 import com.gdx.game.controller.utilities.Util;
 import com.gdx.game.view.TextureFactory;
+import sun.security.ssl.Krb5Helper;
 
 import java.util.HashMap;
 
@@ -21,6 +23,10 @@ public class Ghost extends Entity {
     private boolean sorti;
     private HashMap<Integer, String> listState;
     private int state;
+    private final int
+            ALIVE = 0,
+            ESCAPING = 1,
+            DEAD = 2;
     private long startDeathTime;
 
     public Ghost(Vector2 position, World world, int color, int dep) {
@@ -37,34 +43,65 @@ public class Ghost extends Entity {
         listState.put(0, "ghost" + this.color);
         listState.put(1, "ghostEscaping");
         listState.put(2, "ghostDead");
+
+        this.currentAnim = "ghost" + this.color + "Up";
+
+        this.directions[3] = "Up";
+        this.directions[0] = "Left";
+        this.directions[1] = "Down";
+        this.directions[2] = "Right";
     }
 
-    @Override
-    public Texture getTexture() {
+    public void updateAnimation() {
+        switch(state) {
+            case ALIVE:
+                currentAnim = this.listState.get(ALIVE) + this.directions[dir];
+                break;
+            case ESCAPING:
+                currentAnim = this.listState.get(ESCAPING);
+                break;
+            case DEAD:
+                currentAnim = this.listState.get(DEAD);
+                break;
+        }
+    }
+
+    private void updateState() {
         boolean powerUp = this._world.getPacman().getPowerUp();
 
         // 2 cas : Game Over ou le Ghost est mort pendant un certain temps
-        if (state == 2) {
+        if (state == DEAD) {
             long elapsedTime = TimeUtils.timeSinceMillis(startDeathTime);
             if (elapsedTime > 10000)
-                this.state = 0;
+                this.state = ALIVE;
         }
         else if (powerUp) {
             // Mise à jour de l'état du fantome
-            if (this.state == 0) this.state = 1;
+            if (this.state == ALIVE) this.state = ESCAPING;
 
             // Maintenant il se peut que le fantôme soit sur la case du pacman, il doit mourir s'il n'est pas encore mort
-            if (this.state == 1) {
+            if (this.state == ESCAPING) {
                 if (this._world.getPacman().newPosition.equals(this.newPosition)) {
                     this.startDeathTime = TimeUtils.millis();
-                    this.state = 2;
+                    this.state = DEAD;
                 }
             }
         }
         // Il n'y a pas de pouvoir, je vérifie que l'état est bien remis à 0 s'il n'est pas actuellement mort
-        else if (this.state!=2)
-            this.state = 0;
-        return TextureFactory.getInstance().getTexture(this.listState.get(state));
+        else if (this.state == ESCAPING)
+            this.state = ALIVE;
+    }
+
+    @Override
+    public Sprite getSprite() {
+        this.updateState();
+        this.updateAnimation();
+        return TextureFactory.getInstance().getSprite(this.currentAnim);
+    }
+
+    @Override
+    public Texture getTexture() {
+        return getSprite().getTexture();
     }
 
     public int getDir() {
@@ -88,7 +125,8 @@ public class Ghost extends Entity {
     @Override
     public boolean move() {
         if (alpha == 1) {
-            this._world.listMovingEntities.remove(this);
+            if (this._world.listMovingEntities.contains(this))
+               this._world.listMovingEntities.remove(this);
             Vector2 oldPos = new Vector2(this.getPosition());
         /*if (this.getPosition().equals(this._world.getPacman().getPosition())) {
             if (this._world.getPacman().getPowerUp())
@@ -146,33 +184,30 @@ public class Ghost extends Entity {
         else return false;
     }
 
-    @Override
-    public boolean endMovement() {
-        return false;
-    }
-
     protected boolean updateCoords(int dir) {
+        boolean hasMoved = false;
         switch(dir) {
             case Util.UPG:
                 if(enHaut())
-                    return true;
+                    hasMoved = true;
                 break;
             case Util.LEFTG:
                 if(aGauche())
-                    return true;
+                    hasMoved = true;
                 break;
             case Util.DOWNG:
                 if(enBas())
-                    return true;
+                    hasMoved = true;
                 break;
             case Util.RIGHTG:
                 if(aDroite())
-                    return true;
+                    hasMoved = true;
                 break;
             default:
                 break;
         }
-        return false;
+
+        return hasMoved;
     }
 
     private boolean deplacementGhost1 ()

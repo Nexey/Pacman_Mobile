@@ -1,5 +1,6 @@
 package com.gdx.game.model;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
@@ -7,12 +8,20 @@ import java.util.ArrayList;
 public abstract class Entity extends GameElement {
     public static final float size=16;
     private GameElement tile;
-    ArrayList<GameElement> listValidTiles;
+    protected ArrayList<GameElement> listValidTiles;
+
+    protected String directions[] = {
+            "",
+            "",
+            "",
+            ""
+    };
+    protected String currentAnim;
 
     // alpha va varier entre 0 et 1. 0 : doit bouger, 0.5 est à la moitié du mouvement, 1 ne doit pas bouger
     public float alpha;
     public Vector2 newPosition;
-    public final float velocity = 0.1f;
+    public final float velocity = 0.0625f;
 
     public Entity(Vector2 pos, World world) {
         super(pos, world);
@@ -23,6 +32,10 @@ public abstract class Entity extends GameElement {
         this.listValidTiles.add(new SuperGom(new Vector2(0, 0), this._world));
         this.alpha = 1;
     }
+
+    public abstract Sprite getSprite();
+
+    public abstract void updateAnimation();
 
     @Override
     public float getWidth() {
@@ -65,8 +78,6 @@ public abstract class Entity extends GameElement {
     private boolean checkCoords(Vector2 pos) {
         return checkLeftBound(pos) && checkRightBound(pos);
     }
-
-    public abstract boolean endMovement();
 
     public boolean validTile(Vector2 pos) {
         GameElement ge;

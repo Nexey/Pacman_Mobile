@@ -49,7 +49,8 @@ public class WorldRenderer {
 
     public void updateMaze(SpriteBatch batch, BitmapFont score) {
         if (Util.currentDir != Util.NOWHERE) {
-            this.world.getPacman().updateAnimation();
+            for (Entity E: this.world.listEntity)
+                E.updateAnimation();
 
             this.world.moveEntities();
 
