@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="76a5a329-7825-49d9-8626-5be099544df5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -80,8 +81,36 @@
           <file leaf-file-name="WorldRenderer.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="414">
-                  <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+                <state relative-caret-position="2024">
+                  <caret line="108" column="55" selection-start-line="108" selection-start-column="55" selection-end-line="108" selection-end-column="55" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Maze.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="224">
+                  <caret line="153" column="6" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="6" />
+                  <folding>
+                    <element signature="e#6462#6463#0" expanded="true" />
+                    <element signature="e#6511#6512#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="115">
+                  <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#1301#1302#0" expanded="true" />
+                    <element signature="e#1346#1347#0" expanded="true" />
+                    <element signature="e#1375#1376#0" expanded="true" />
+                    <element signature="e#1419#1420#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -125,6 +154,7 @@
       <find>private</find>
       <find>protected</find>
       <find>spriteBatch</find>
+      <find>list</find>
     </findStrings>
     <replaceStrings>
       <replace>laby</replace>
@@ -942,24 +972,12 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/experts/SuperPelletCOR.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/experts/DarkCOR.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/experts/MazeCOR.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/experts/FenceCOR.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/experts/AbstractCOR.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/TextureFactory.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Ghost.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Entity.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/controller/utilities/Util.java" />
@@ -978,8 +996,20 @@
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/SettingsScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameOverScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/BasicScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" />
         <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/World.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
+        <option value="$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java" />
       </list>
     </option>
   </component>
@@ -1042,6 +1072,32 @@
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pacman_Mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pacman_Mobile" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Pacman_Mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pacman_Mobile" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="Maze.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="Pacman_Mobile" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Pacman_Mobile" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="World.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="Pacman_Mobile" type="b2602c69:ProjectViewProjectNode" />
@@ -1171,7 +1227,7 @@
       <workItem from="1528022046378" duration="12111000" />
       <workItem from="1528055247216" duration="3478000" />
       <workItem from="1528092627976" duration="6324000" />
-      <workItem from="1528102221491" duration="880000" />
+      <workItem from="1528102221491" duration="1534000" />
     </task>
     <task id="LOCAL-00001" summary="Mouvement avec slide marche à peu près (encore beaucoup à faire quoi)">
       <created>1527715036501</created>
@@ -1327,11 +1383,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528102565272</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Réagencement pour que le rendu soit fait à partir de worldrenderer">
+      <created>1528103168454</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1528103168454</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160502000" />
+    <option name="totallyTimeSpent" value="161156000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1348,6 +1411,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32894737" />
+      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
@@ -1355,7 +1419,7 @@
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980332" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32730263" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49394855" weight="0.21814255" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49394855" visible="true" weight="0.21814255" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32829374" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -1368,7 +1432,6 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.4742814" weight="0.27213824" />
-      <window_info anchor="bottom" id="Messages" order="0" sideWeight="0.49092284" weight="0.325054" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.4969743" weight="0.32829374" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -1434,7 +1497,8 @@
     <MESSAGE value="Titre ajouté sur tous les screens" />
     <MESSAGE value="Classe BasicScreen qui affiche tous les éléments communs&#10;Tous les screens en héritent" />
     <MESSAGE value="Classe BasicScreen qui affiche tous les éléments communs&#10;Tous les screens en héritent *corrections et optimisations*" />
-    <option name="LAST_COMMIT_MESSAGE" value="Classe BasicScreen qui affiche tous les éléments communs&#10;Tous les screens en héritent *corrections et optimisations*" />
+    <MESSAGE value="Réagencement pour que le rendu soit fait à partir de worldrenderer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Réagencement pour que le rendu soit fait à partir de worldrenderer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1720,19 +1784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-          <folding>
-            <element signature="e#1301#1302#0" expanded="true" />
-            <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Pacman.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1702">
@@ -1791,6 +1842,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
+          <folding>
+            <element signature="e#3411#3412#0" expanded="true" />
+            <element signature="e#3441#3442#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1840,20 +1895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2116">
-          <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/Screens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1863,6 +1904,37 @@
             <element signature="e#1327#1328#0" expanded="true" />
             <element signature="e#1379#1380#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1346#1347#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/model/Maze.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="153" column="6" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="6" />
+          <folding>
+            <element signature="e#6462#6463#0" expanded="true" />
+            <element signature="e#6511#6512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/gdx/game/view/WorldRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2024">
+          <caret line="108" column="55" selection-start-line="108" selection-start-column="55" selection-end-line="108" selection-end-column="55" />
         </state>
       </provider>
     </entry>

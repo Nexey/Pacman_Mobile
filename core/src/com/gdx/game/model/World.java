@@ -37,7 +37,7 @@ public class World implements Iterable<GameElement> {
         startTime = TimeUtils.millis();
     }
 
-    public void setMaze(Maze maze) { this._maze = maze;}
+    void setMaze(Maze maze) { this._maze = maze;}
 
     public int getHeight() {
         return this._maze.getHeight();
@@ -57,7 +57,7 @@ public class World implements Iterable<GameElement> {
 
     }
 
-    public void set(Vector2 pos, GameElement tile) {
+    void set(Vector2 pos, GameElement tile) {
         this._maze.set(pos, tile);
     }
 
@@ -83,9 +83,9 @@ class WorldIterator implements Iterator<GameElement>
 {
     private World _world;
     private Iterator<GameElement> _mazeIterator;
-    int _i;
+    private int _i;
 
-    public WorldIterator(World world) {
+    WorldIterator(World world) {
         this._world = world;
         this._mazeIterator = this._world.getMaze().iterator();
         this._i = 0; /* 0 = maze, 1 = pacman */

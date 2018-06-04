@@ -14,12 +14,12 @@ import java.util.NoSuchElementException;
 
 public class Maze implements Iterable<GameElement> {
 	private World _world;
-	private /*final*/ int _width;
-	private /*final*/ int _height;
-    GlyphLayout layout;
-    private boolean placeBarrier;
+    private /*final*/ int _width;
+    private /*final*/ int _height;
+    public GlyphLayout layout;
+    public boolean placeBarrier;
 
-	private Texture listText[] = {
+	public Texture listText[] = {
 			TextureFactory.getInstance().getTexture(Block.class),
 			TextureFactory.getInstance().getTexture(Gom.class),
 			TextureFactory.getInstance().getTexture(SuperGom.class),
@@ -33,11 +33,11 @@ public class Maze implements Iterable<GameElement> {
 			TextureFactory.getInstance().getTexture("ghost4")
 	};
 
-	private final int _textWidth = 16;
-	private final int _textHeight = 16;
+	public final int _textWidth = 16;
+	public final int _textHeight = 16;
 
 	/* 0 : mur, 1 : gomme, 2 : intersection, 3 : barrières fantomes, 4 : super gomme, 5 : vide */
-	private int[][] _laby1 = new int[][] {
+    private int[][] _laby1 = new int[][] {
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 			{0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0},
 			{0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
@@ -71,9 +71,9 @@ public class Maze implements Iterable<GameElement> {
 			{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	};
 
-	private GameElement[][] _laby2;
-    private SpriteBatch batch;
-    private BitmapFont score;
+	public GameElement[][] _laby2;
+	public SpriteBatch batch;
+	public BitmapFont score;
 
     Maze(World w) {
         layout = new GlyphLayout();
@@ -106,11 +106,11 @@ public class Maze implements Iterable<GameElement> {
 			this._laby2[(int)E.getPosition().x][(int)E.getPosition().y] = E;
 	}
 
-	public GameElement get(int x, int y) {
+	GameElement get(int x, int y) {
 		return this._laby2[x][y];
 	}
 
-	public GameElement get(Vector2 pos) {
+	GameElement get(Vector2 pos) {
 		return this._laby2[(int)pos.x][(int)pos.y];
 	}
 
@@ -126,7 +126,7 @@ public class Maze implements Iterable<GameElement> {
 		return _world;
 	}
 
-	public void updateMaze(SpriteBatch batch, BitmapFont score) {
+	/*public void updateMaze(SpriteBatch batch, BitmapFont score) {
 	    if (!this.placeBarrier) {
             this.placeBarrier = this._world.get_yellow().isSorti();// && this._world.get_blue().isSorti() && this._world.get_pink().isSorti() && this._world.get_red().isSorti();
             if (this.placeBarrier) {
@@ -145,13 +145,13 @@ public class Maze implements Iterable<GameElement> {
 		}
         this.drawMaze(batch);
 		this.drawPacman(batch, score);
-	}
+	}*/
 
-	public void set(Vector2 pos, GameElement tile) {
+	void set(Vector2 pos, GameElement tile) {
 		this._laby2[(int)pos.x][(int)pos.y] = tile;
 	}
 
-	private void drawPacman(SpriteBatch batch, BitmapFont score) {
+	/*private void drawPacman(SpriteBatch batch, BitmapFont score) {
         batch.begin();
 		batch.draw(this._world.getPacman().getTexture(), this._world.getPacman().getPosition().y * 16, (30 - this._world.getPacman().getPosition().x) * 16);
 		String scoreStr = "SCORE : " + Util.SCORE;
@@ -200,7 +200,7 @@ public class Maze implements Iterable<GameElement> {
 						false
 				);
 		batch.end();
-	}
+	}*/
 
 	@Override
 	public Iterator<GameElement> iterator() {
