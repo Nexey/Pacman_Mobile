@@ -30,6 +30,7 @@ public class Ghost extends Entity {
             DEAD = 2;
     private long startDeathTime;
     private Vector2 originPos;
+    GameElement fence;
 
     public Ghost(Vector2 position, World world, int color, int dep) {
         super(position, world);
@@ -40,7 +41,8 @@ public class Ghost extends Entity {
         dir = diceFour.getFace();
         this.dep = dep;
         sorti = false;
-        this.listValidTiles.add(new Fence(new Vector2(0, 0), this._world));
+        fence = new Fence(new Vector2(0, 0), this._world);
+        this.listValidTiles.add(fence);
         this.listValidTiles.add(new Pacman(new Vector2(0, 0), this._world));
         state = 0;
         listState = new HashMap<Integer, String>();
@@ -141,7 +143,7 @@ public class Ghost extends Entity {
 
     public void setSorti(boolean sorti) {
         if (sorti)
-            this.listValidTiles.remove(new Fence(new Vector2(0, 0), this._world));
+            this.listValidTiles.remove(listValidTiles.indexOf(fence));
         this.sorti = sorti;
     }
 
@@ -290,8 +292,7 @@ public class Ghost extends Entity {
 
     private boolean fuite() {
         Vector2 oldPos = new Vector2(this.getPosition());
-        Fence fence = new Fence(new Vector2(0, 0), this._world);
-        if (this.listValidTiles.contains(fence))
+        if (!this.listValidTiles.contains(fence))
             this.listValidTiles.add(fence);
         if (goDir(originPos)) {
             this._world.set(new Vector2(oldPos), this.retrieveTile());
