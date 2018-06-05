@@ -320,26 +320,42 @@ public class Ghost extends Entity {
 
 
     private boolean goDir(Vector2 pos) {
-        if (this.getPosition().x > pos.x) {
-            //System.out.println("F2 : "+showDir());
-            this.setDir(Util.LEFTG);
-            if (updateCoords(this.dir)) return true;
-        }
-        if (this.getPosition().x < pos.x) {
-            //System.out.println("F2 : "+showDir());
-            this.setDir(Util.RIGHTG);
-            if (updateCoords(this.dir)) return true;
-        }
         if (this.getPosition().y > pos.y) {
             //System.out.println("F2 : "+showDir());
-            this.setDir(Util.DOWNG);
-            if (updateCoords(this.dir)) return true;
+
+            if (updateCoords(Util.DOWNG))
+            {
+                this.setDir(Util.DOWNG);
+                return true;
+            }
         }
         if (this.getPosition().y < pos.y) {
             //System.out.println("F2 : "+showDir());
-            this.setDir(Util.UPG);
-            if (updateCoords(this.dir)) return true;
+            if (updateCoords(Util.UPG))
+            {
+                this.setDir(Util.UPG);
+                return true;
+            }
         }
+        if (this.getPosition().x > pos.x) {
+            //System.out.println("F2 : "+showDir());
+            if (updateCoords(Util.LEFTG))
+            {
+                this.setDir(Util.LEFTG);
+                return true;
+            }
+        }
+        if (this.getPosition().x < pos.x) {
+            //System.out.println("F2 : "+showDir());
+
+            if (updateCoords(Util.RIGHTG))
+            {
+                this.setDir(Util.RIGHTG);
+                return true;
+            }
+        }
+        if(updateCoords(dir))
+            return true;
         return false;
     }
 }
