@@ -103,6 +103,7 @@ public class Ghost extends Entity {
             if (this.state == ESCAPING) {
                 if (this._world.getPacman().newPosition.equals(this.newPosition)) {
                     this.startDeathTime = TimeUtils.millis();
+                    Util.SCORE += 10;
                     this.state = DEAD;
                     this.velocity = 0.075f;
                 }
